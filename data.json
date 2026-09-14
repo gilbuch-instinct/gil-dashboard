@@ -161,6 +161,21 @@
       "entry_price": 16.85,
       "target_price": 22.0,
       "window": "3-6 חודשים"
+    },
+    {
+      "id": "cls-ai-infrastructure-2026",
+      "ticker": "CLS",
+      "quote_id": "CLS",
+      "title": "סלסטיקה — תשתיות חומרה למרכזי נתונים",
+      "thesis": "תזה מדומה בלבד, לא המלצה: סלסטיקה העלתה את תחזית 2026 להכנסות של 20.5 מיליארד דולר ולרווח מתואם של 11.30 דולר למניה, ומצפה שהצמיחה בהכנסות תאיץ ב-2027 ושהרווח יצמח מהר יותר. הביקוש לציוד רשתות, מתגים ומערכות למרכזי נתונים הוא המנוע המרכזי. יעד של 425 דולר משקף עלייה של כ-23% אך עדיין נשאר מתחת לשיא 52 השבועות. הסיכונים: מכפיל גבוה, ריכוז לקוחות, האטה בהשקעות בתשתיות בינה מלאכותית, ודילול או ביצוע חלש של תוכנית ההתרחבות.",
+      "entry_date": "14 בספטמבר",
+      "entry_price": 346.55,
+      "target_price": 425.0,
+      "window": "6-12 חודשים",
+      "category": "תעשייה ותשתיות",
+      "status": "פעילה — מעקב מדומה",
+      "source_name": "סלסטיקה, תוצאות הרבעון השני 2026",
+      "source_url": "https://corporate.celestica.com/news-releases/news-release-details/celestica-announces-second-quarter-2026-financial-results"
     }
   ],
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable.",
