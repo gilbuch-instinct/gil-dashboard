@@ -121,6 +121,10 @@ body.a11y-large .peerlabel{font-size:14.5px}body.a11y-large .peertable th{font-s
 /* accessibility */
 .a11y-fab{position:fixed;left:14px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;border:2px solid var(--accent);background:#07131b;color:var(--accent);font-size:22px;cursor:pointer;box-shadow:0 5px 20px #0008}.a11y-panel{position:fixed;left:14px;bottom:76px;z-index:89;width:min(310px,calc(100vw - 28px));background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:14px;box-shadow:0 10px 35px #000b;display:none}.a11y-panel.open{display:block}.a11y-panel h2{font-size:16px;margin-bottom:10px}.a11y-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.a11y-actions button{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);color:var(--txt);font:600 13px 'Heebo',system-ui,sans-serif;cursor:pointer}.a11y-actions button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
 .snapdate{font-size:10.5px;color:var(--dim);margin-top:3px}
+.premkt{font-size:11px;color:var(--dim);margin-top:3px;direction:ltr;text-align:right;unicode-bidi:plaintext}
+.premkt b{color:var(--txt);font-weight:700}
+.premkt .up{color:var(--up)}.premkt .down{color:var(--down)}
+body.a11y-large .qcard .premkt{font-size:13.5px}
 .info-dot{min-width:22px;height:22px;border-radius:50%;border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:700 11px 'Heebo',sans-serif;cursor:pointer;padding:0;align-self:center}
 .info-dot[aria-expanded="true"]{color:var(--accent);border-color:var(--accent)}
 .ctrl-help{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--txt);margin-top:9px;line-height:1.55}
@@ -193,7 +197,7 @@ body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large
       <option value="NASDAQ:NDX">מדד נאסד״ק 100</option><option value="DJ:DJI">מדד דאו ג׳ונס</option>
       <option value="TASE:TA125">תא 125</option><option value="TASE:TA35">תא 35</option>
       <option value="IBI:2126">תשתיות לאומיות — אי.בי.איי</option><option value="IBI:5143078">אי.בי.איי יצור חשמל — קרן</option>
-      <option value="TVC:GOLD">זהב</option><option value="TVC:USOIL">נפט</option><option value="TVC:US10Y">אג״ח ארצות הברית לעשר שנים</option><option value="COINBASE:BTCUSD">ביטקוין</option>
+      <option value="TVC:GOLD">זהב</option><option value="TVC:USOIL">נפט</option><option value="TVC:US02Y">אג״ח ארה״ב שנתיים</option><option value="TVC:US10Y">אג״ח ארצות הברית לעשר שנים</option><option value="TVC:US30Y">אג״ח ארה״ב 30 שנה</option><option value="TASE:1227784">אג״ח ממשלתי ישראלי 10 שנים (מחיר)</option><option value="COINBASE:BTCUSD">ביטקוין</option>
     </select>
     <div class="range-row" aria-label="טווח זמן">
       <button class="range-btn" data-range="1d">יום</button><button class="range-btn" data-range="1w">שבוע</button><button class="range-btn on" data-range="6m">6 חודשים</button><button class="range-btn" data-range="1y">שנה</button><button class="range-btn" data-range="5y">5 שנים</button><button class="range-btn" data-range="max">הכול</button><button class="info-dot" data-help="range" data-title="טווח זמן" aria-expanded="false" aria-label="הסבר על טווח הזמן">?</button>
@@ -275,10 +279,13 @@ const QUOTES = [
   {cnbc:'@GC.1',  id:'GOLD', nm:'זהב',               cur:'$'},
   {cnbc:'@CL.1',  id:'WTI',  nm:'נפט WTI',           cur:'$'},
   {cnbc:'@LCO.1', id:'BRENT',nm:'נפט ברנט',          cur:'$'},
+  {cnbc:'US2Y',   id:'US2Y', nm:'אג״ח ארה״ב שנתיים',  cur:'', suffix:'%'},
   {cnbc:'US10Y',  id:'US10Y',nm:'אג״ח ארה״ב 10 שנים', cur:'', suffix:'%'},
+  {cnbc:'US30Y',  id:'US30Y',nm:'אג״ח ארה״ב 30 שנה',  cur:'', suffix:'%'},
+  {id:'IL10Y', nm:'אג״ח ממשלתי ישראלי 10 שנים', cur:'', suffix:'%'},
   {cnbc:'BTC=',   id:'BTC',  nm:'ביטקוין',           cur:'$'},
 ];
-const state = {data:null, quotes:{}, live:false};
+const state = {data:null, quotes:{}, live:false, pre:{}};
 
 function num(s){
   if(s==null) return null;
@@ -302,9 +309,10 @@ async function loadData(){
 }
 
 async function tryLiveQuotes(){
+  state.pre = {};
   const list = QUOTES.filter(q=>q.cnbc);
   const url = 'https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols='
-    + list.map(q=>encodeURIComponent(q.cnbc)).join('|') + '&output=json';
+    + list.map(q=>encodeURIComponent(q.cnbc)).join('|') + '&exthrs=1&output=json';
   const ctrl = new AbortController();
   const to = setTimeout(()=>ctrl.abort(), 8000);
   try{
@@ -323,6 +331,11 @@ async function tryLiveQuotes(){
       if(px == null) continue;
       if(q.div100) px = px/100;
       state.quotes[q.id] = {px:px, ch:ch, live:true};
+      const ext = x.ExtendedMktQuote;
+      if(ext && String(ext.type||'').indexOf('PRE') === 0){
+        const epx = num(ext.last), ech = num(ext.change_pct);
+        if(epx != null) state.pre[q.id] = {px:epx, ch:ech};
+      }
       ok++;
     }
     if(ok < 8) throw 0;
@@ -351,6 +364,8 @@ function renderQuotes(){
     html += '<div class="card qcard"><div class="sym">'+q.id+'</div><div class="nm">'+q.nm+'</div>'
       + '<div class="px">'+fmtPx(d.px, q)+'</div>'
       + '<div class="ch '+cc+'">'+arrow+' '+chTxt(d.ch)+'</div>'
+      + (state.pre[q.id] ? '<div class="premkt">מסחר מוקדם · <b>'+fmtPx(state.pre[q.id].px,q)+'</b> '
+        + '<span class="'+chClass(state.pre[q.id].ch)+'">'+chTxt(state.pre[q.id].ch)+'</span></div>' : '')
       + (!d.live && d.d ? '<div class="snapdate">סגירה '+d.d+'</div>' : '') + '</div>';
   }
   g.innerHTML = html;
