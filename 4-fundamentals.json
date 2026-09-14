@@ -1,0 +1,59 @@
+{
+  "updated": "2026-09-14T07:35:05.840621+00:00",
+  "updated_he": "14 בספטמבר 2026",
+  "source": "Yahoo Finance quoteSummary, trailing twelve months",
+  "refresh_note": "Snapshot of valuation multiples for the dashboard's stock symbols. The daily refresh agent must regenerate this file alongside 3-history.json: for each symbol query Yahoo Finance quoteSummary modules=financialData,defaultKeyStatistics,summaryDetail,price (ENLT.TA for TASE:ENLT). pe=summaryDetail.trailingPE (null when trailing EPS is negative), pb=defaultKeyStatistics.priceToBook divided by 100 for ILA-priced symbols, ps=price.marketCap/totalRevenue with marketCap converted to the financialCurrency when they differ (USDILS=X for ENLT). Non-stock symbols (indices, commodities, FX, crypto) are intentionally absent so the UI can show its not-applicable note.",
+  "stocks": {
+    "NASDAQ:CIFR": {
+      "name": "Cipher Digital Inc.",
+      "currency": "USD",
+      "pe": null,
+      "pe_note": "negative-eps",
+      "ps": 36.6,
+      "pb": 12.4
+    },
+    "NASDAQ:IREN": {
+      "name": "IREN Limited",
+      "currency": "USD",
+      "pe": null,
+      "pe_note": "negative-eps",
+      "ps": 24.4,
+      "pb": 4.0
+    },
+    "NYSE:CLS": {
+      "name": "Celestica Inc.",
+      "currency": "USD",
+      "pe": 36.0,
+      "ps": 2.8,
+      "pb": 16.1
+    },
+    "NASDAQ:ACMR": {
+      "name": "ACM Research, Inc.",
+      "currency": "USD",
+      "pe": 34.0,
+      "ps": 4.8,
+      "pb": 2.7
+    },
+    "NASDAQ:META": {
+      "name": "Meta Platforms, Inc.",
+      "currency": "USD",
+      "pe": 24.4,
+      "ps": 7.2,
+      "pb": 6.3
+    },
+    "NASDAQ:ADEA": {
+      "name": "Adeia Inc.",
+      "currency": "USD",
+      "pe": 24.5,
+      "ps": 6.3,
+      "pb": 6.2
+    },
+    "TASE:ENLT": {
+      "name": "Enlight Renewable Energy Ltd",
+      "currency": "ILS",
+      "pe": 119.0,
+      "ps": 17.2,
+      "pb": 14.2
+    }
+  }
+}
