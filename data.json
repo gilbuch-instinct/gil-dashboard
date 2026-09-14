@@ -1,70 +1,70 @@
 {
-  "updated_he": "14 בספטמבר 2026, 21:51 שעון ישראל",
-  "quotes_updated": "14.9 · 21:51",
+  "updated_he": "14 בספטמבר 2026, 22:44 שעון ישראל",
+  "quotes_updated": "14.9 · 22:44",
   "quotes": {
     "SPX": {
-      "px": 7636.89,
-      "ch": -0.26
+      "px": 7628.79,
+      "ch": -0.37
     },
     "NDX": {
-      "px": 29250.089,
-      "ch": -0.4
+      "px": 29193.776,
+      "ch": -0.6
     },
     "DJI": {
-      "px": 52487.73,
-      "ch": -0.16
+      "px": 52454.05,
+      "ch": -0.23
     },
     "CIFR": {
-      "px": 15.83,
-      "ch": -6.05
+      "px": 15.77,
+      "ch": -6.41
     },
     "IREN": {
-      "px": 43.64,
-      "ch": -0.44
+      "px": 43.32,
+      "ch": -1.16
     },
     "CLS": {
-      "px": 320.63,
-      "ch": -7.48
+      "px": 317.4,
+      "ch": -8.41
     },
     "ACMR": {
-      "px": 68.6,
-      "ch": -4.72
+      "px": 67.0,
+      "ch": -6.94
     },
     "META": {
-      "px": 665.83,
-      "ch": 2.75
+      "px": 666.44,
+      "ch": 2.84
     },
     "ADEA": {
-      "px": 24.7,
-      "ch": -7.53
+      "px": 24.68,
+      "ch": -7.62
     },
     "ENLT": {
       "px": 225.0,
       "ch": 0.0
     },
     "GOLD": {
-      "px": 4350.7,
-      "ch": -1.32
+      "px": 4335.5,
+      "ch": -1.66
     },
     "WTI": {
-      "px": 100.63,
-      "ch": 0.58
+      "px": 101.27,
+      "ch": 1.22
     },
     "BRENT": {
-      "px": 104.89,
-      "ch": 0.27
+      "px": 105.7,
+      "ch": 1.04
     },
     "US2Y": {
-      "px": 4.634,
-      "ch": 0.0234
+      "px": 4.641,
+      "ch": 0.0117
     },
     "US10Y": {
-      "px": 4.963,
-      "ch": -0.2412
+      "px": 4.973,
+      "ch": -0.0402
     },
     "US30Y": {
-      "px": 5.331,
-      "ch": -0.4296
+      "px": 5.338,
+      "ch": -0.2988
     },
     "IL10Y": {
       "px": 4.01,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 79240.03,
-      "ch": 2.47
+      "px": 79096.71,
+      "ch": 2.29
     },
     "TA125": {
       "px": 4122.77,
@@ -94,8 +94,8 @@
       "d": "10.9"
     },
     "PWR": {
-      "px": 622.58,
-      "ch": -4.3
+      "px": 620.69,
+      "ch": -4.59
     }
   },
   "updates": [
@@ -174,8 +174,8 @@
       "entry_price": 16.85,
       "target_price": 22.0,
       "window": "3-6 חודשים",
-      "current_price_snapshot": 15.83,
-      "mock_return_pct": -6.05
+      "current_price_snapshot": 15.77,
+      "mock_return_pct": -6.41
     },
     {
       "id": "pwr-grid-infrastructure-2026",
@@ -191,72 +191,72 @@
       "status": "פעילה — מעקב מדומה",
       "source_name": "קוואנטה סרוויסס, תוצאות הרבעון השני 2026",
       "source_url": "https://investors.quantaservices.com/news-events/press-releases/detail/402/quanta-services-reports-second-quarter-2026-results",
-      "current_price_snapshot": 622.58,
-      "mock_return_pct": -0.12
+      "current_price_snapshot": 620.69,
+      "mock_return_pct": -0.43
     }
   ],
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock.",
   "sector_quotes": {
     "SPY": {
-      "px": 762.39,
-      "ch": -0.25,
+      "px": 761.61,
+      "ch": -0.35,
       "d": "2026-09-14"
     },
     "XLE": {
-      "px": 64.5,
-      "ch": -0.99,
+      "px": 64.4,
+      "ch": -1.14,
       "d": "2026-09-14"
     },
     "XLV": {
-      "px": 167.82,
-      "ch": 1.49,
+      "px": 167.68,
+      "ch": 1.4,
       "d": "2026-09-14"
     },
     "XLP": {
-      "px": 84.57,
-      "ch": 1.43,
+      "px": 84.44,
+      "ch": 1.27,
       "d": "2026-09-14"
     },
     "XLU": {
-      "px": 41.97,
-      "ch": -0.99,
+      "px": 41.81,
+      "ch": -1.38,
       "d": "2026-09-14"
     },
     "XLF": {
-      "px": 56.89,
-      "ch": -0.64,
+      "px": 57.02,
+      "ch": -0.41,
       "d": "2026-09-14"
     },
     "XLRE": {
-      "px": 43.3,
-      "ch": -0.28,
+      "px": 43.12,
+      "ch": -0.7,
       "d": "2026-09-14"
     },
     "XLC": {
-      "px": 115.0,
-      "ch": 2.13,
+      "px": 115.05,
+      "ch": 2.17,
       "d": "2026-09-14"
     },
     "XLB": {
-      "px": 50.53,
-      "ch": -0.82,
+      "px": 50.49,
+      "ch": -0.91,
       "d": "2026-09-14"
     },
     "XLY": {
-      "px": 113.1,
-      "ch": 0.12,
+      "px": 112.94,
+      "ch": -0.02,
       "d": "2026-09-14"
     },
     "XLI": {
-      "px": 169.93,
+      "px": 169.92,
       "ch": -1.42,
       "d": "2026-09-14"
     },
     "XLK": {
-      "px": 185.42,
-      "ch": -1.2,
+      "px": 184.85,
+      "ch": -1.5,
       "d": "2026-09-14"
     }
   },
-  "sector_quotes_updated": "14.9.2026 · 21:51"
+  "sector_quotes_updated": "14.9.2026 · 22:44"
 }
