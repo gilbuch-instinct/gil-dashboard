@@ -102,6 +102,22 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
 .xh-bg{fill:#07131be6;stroke:var(--line)}
 .xh-txt{fill:var(--txt);font-size:12px;font-family:Heebo,sans-serif;text-anchor:middle}
 .explain{font-size:12.5px;color:var(--dim);margin:8px 2px 0}.edu-grid{display:grid;gap:9px}.educard{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:12px 13px}.educard h3{font-size:14px;color:var(--gold);margin-bottom:3px}.educard p{font-size:12.5px;color:#c3cedb}.fundbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.multcard{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}.multcard h3{font-size:12.5px;color:var(--gold);margin:0 0 5px}.multval{font-size:21px;font-weight:800;color:var(--txt);direction:ltr;font-variant-numeric:tabular-nums}.multnote{font-size:11px;color:var(--dim);margin-top:5px;line-height:1.5}.fundnote{grid-column:1/-1;font-size:13.5px;color:var(--dim);text-align:center;padding:16px 10px;line-height:1.7}.fundmeta{grid-column:1/-1;font-size:11px;color:var(--dim);text-align:center;margin-top:3px}.signal-key{display:grid;grid-template-columns:1fr 1fr;gap:8px}.signal{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px}.signal b{display:block;font-size:13px;color:var(--accent)}.signal span{font-size:11.5px;color:var(--dim)}
+
+/* peer comparison */
+.peerlabel{font-size:12px;color:var(--gold);font-weight:700;margin-bottom:7px}
+.peerbox{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.peertable{width:100%;border-collapse:collapse}
+.peertable th{font-size:11px;color:var(--dim);font-weight:600;padding:9px 4px;text-align:center;background:var(--bg2)}
+.peertable th:first-child{text-align:right;padding-right:12px}
+.peertable td{padding:9px 4px;text-align:center;border-top:1px solid var(--line);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.peertable td.co{text-align:right;padding-right:12px;line-height:1.35;font-weight:400}
+.peertable .tk{font-size:13px;font-weight:800}
+.peertable .cnm{font-size:10px;color:var(--dim);font-weight:400}
+.peertable tr.me td{background:rgba(245,196,81,.09)}
+.peertable tr.me .tk{color:var(--gold)}
+.mebadge{font-size:9.5px;color:var(--gold);border:1px solid rgba(245,196,81,.4);border-radius:999px;padding:0 6px;margin-right:5px;vertical-align:1px;white-space:nowrap}
+.peerfoot{font-size:10.5px;color:var(--dim);text-align:center;margin-top:6px}
+body.a11y-large .peerlabel{font-size:14.5px}body.a11y-large .peertable th{font-size:13px}body.a11y-large .peertable td{font-size:16.5px}body.a11y-large .peertable .tk{font-size:16px}body.a11y-large .peertable .cnm{font-size:12.5px}body.a11y-large .mebadge{font-size:11.5px}body.a11y-large .peerfoot{font-size:12.5px}
 /* accessibility */
 .a11y-fab{position:fixed;left:14px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;border:2px solid var(--accent);background:#07131b;color:var(--accent);font-size:22px;cursor:pointer;box-shadow:0 5px 20px #0008}.a11y-panel{position:fixed;left:14px;bottom:76px;z-index:89;width:min(310px,calc(100vw - 28px));background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:14px;box-shadow:0 10px 35px #000b;display:none}.a11y-panel.open{display:block}.a11y-panel h2{font-size:16px;margin-bottom:10px}.a11y-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.a11y-actions button{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);color:var(--txt);font:600 13px 'Heebo',system-ui,sans-serif;cursor:pointer}.a11y-actions button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
 .snapdate{font-size:10.5px;color:var(--dim);margin-top:3px}
@@ -203,6 +219,13 @@ body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large
     <div class="educard"><h3>מכפיל רווח</h3><p>כמה השוק משלם על כל יחידת רווח שנתית. מכפיל גבוה יכול לשקף ציפיות צמיחה, אך גם תמחור יקר.</p></div>
     <div class="educard"><h3>מכפיל מכירות</h3><p>שווי החברה ביחס להכנסות. שימושי במיוחד כשהרווח עדיין נמוך או תנודתי.</p></div>
     <div class="educard"><h3>מכפיל הון</h3><p>שווי השוק ביחס להון העצמי. כדאי להשוות בעיקר לחברות דומות ובאותו ענף.</p></div>
+  </div>
+</section>
+<section>
+  <div class="sechead"><h2>השוואה מול מתחרים</h2><span class="hint">אותם מכפילים, חברות דומות</span></div>
+  <div id="peerWrap"><div class="fundnote">בחרו נייר מהרשימה למעלה כדי לראות השוואה</div></div>
+  <div class="edu-grid" style="margin-top:10px">
+    <div class="educard"><h3>איך קוראים את ההשוואה</h3><p>מכפיל נמוך מהמתחרים יכול להעיד על תמחור זול יחסית — או על ציפיות צמיחה חלשות יותר. ההשוואה משמעותית בעיקר בין חברות מאותו ענף, ולכן כל נייר מוצג מול חברות הקרובות לו בתחום.</p></div>
   </div>
 </section>
 <section>
@@ -608,6 +631,7 @@ async function renderMultiples(symbol){
     try{fundData=await fetch('4-fundamentals.json?ts='+Date.now()).then(r=>r.json())}
     catch(e){box.innerHTML='<div class="fundnote">לא הצלחנו לטעון את נתוני המכפילים כרגע. נסו שוב מאוחר יותר.</div>';return}
   }
+  renderPeers(symbol);
   const st=fundData.stocks[symbol];
   if(!st){
     box.innerHTML='<div class="fundnote">מכפילי שווי רלוונטיים לחברות בלבד. למדדים, סחורות, אג״ח ומטבעות דיגיטליים אין מכפיל רווח, מכירות או הון — ולכן אין מה להציג כאן.</div>';
@@ -620,6 +644,22 @@ async function renderMultiples(symbol){
     '<div class="multcard"><h3>מכפיל מכירות</h3><div class="multval">'+fmt(st.ps)+'</div></div>'+
     '<div class="multcard"><h3>מכפיל הון</h3><div class="multval">'+fmt(st.pb)+'</div></div>'+
     '<div class="fundmeta">נתוני שנת המסחר האחרונה · עודכן '+fundData.updated_he+' · מקור: Yahoo Finance</div>';
+}
+
+// Peer comparison: selected stock next to its sector peers, from the same snapshot
+function fmtM(v){return v==null?'—':v.toLocaleString('he-IL',{maximumFractionDigits:1})}
+function renderPeers(symbol){
+  const wrap=document.getElementById('peerWrap');if(!wrap)return;
+  if(!fundData){wrap.innerHTML='<div class="fundnote">טוען השוואת מתחרים…</div>';return}
+  const st=fundData.stocks[symbol], set=(fundData.peer_sets||{})[symbol];
+  if(!st){wrap.innerHTML='<div class="fundnote">השוואת מתחרים רלוונטית לחברות בלבד — למדדים, סחורות, אג״ח ומטבעות דיגיטליים אין מכפילים להשוות.</div>';return}
+  if(!set){wrap.innerHTML='<div class="fundnote">עוד אין קבוצת מתחרים מוגדרת לנייר הזה.</div>';return}
+  const rows=[symbol,...set.peers].filter(s=>fundData.stocks[s]);
+  let h='<div class="peerlabel">קבוצת השוואה: '+set.label_he+'</div><div class="peerbox"><table class="peertable"><thead><tr><th>חברה</th><th>מכפיל רווח</th><th>מכפיל מכירות</th><th>מכפיל הון</th></tr></thead><tbody>';
+  rows.forEach(s=>{const d=fundData.stocks[s],me=s===symbol;
+    h+='<tr'+(me?' class="me"':'')+'><td class="co"><span class="tk" dir="ltr">'+s.split(':')[1]+'</span>'+(me?'<span class="mebadge">הנייר שנבחר</span>':'')+'<br><span class="cnm" dir="ltr">'+d.name+'</span></td><td dir="ltr">'+fmtM(d.pe)+'</td><td dir="ltr">'+fmtM(d.ps)+'</td><td dir="ltr">'+fmtM(d.pb)+'</td></tr>'});
+  h+='</tbody></table></div><div class="peerfoot">מקור: Yahoo Finance · נתוני שנת המסחר האחרונה · עודכן '+fundData.updated_he+'</div>';
+  wrap.innerHTML=h;
 }
 document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x===b));
