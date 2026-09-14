@@ -196,7 +196,7 @@ body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large
       <option value="TVC:GOLD">זהב</option><option value="TVC:USOIL">נפט</option><option value="TVC:US10Y">אג״ח ארצות הברית לעשר שנים</option><option value="COINBASE:BTCUSD">ביטקוין</option>
     </select>
     <div class="range-row" aria-label="טווח זמן">
-      <button class="range-btn on" data-range="6m">6 חודשים</button><button class="range-btn" data-range="1y">שנה</button><button class="range-btn" data-range="5y">5 שנים</button><button class="range-btn" data-range="max">הכול</button><button class="info-dot" data-help="range" data-title="טווח זמן" aria-expanded="false" aria-label="הסבר על טווח הזמן">?</button>
+      <button class="range-btn" data-range="1d">יום</button><button class="range-btn" data-range="1w">שבוע</button><button class="range-btn on" data-range="6m">6 חודשים</button><button class="range-btn" data-range="1y">שנה</button><button class="range-btn" data-range="5y">5 שנים</button><button class="range-btn" data-range="max">הכול</button><button class="info-dot" data-help="range" data-title="טווח זמן" aria-expanded="false" aria-label="הסבר על טווח הזמן">?</button>
     </div>
     <div class="toggles" aria-label="מדדים על הגרף">
       <button class="ind-toggle on" data-study="MASimple@tv-basicstudies">ממוצע נע פשוט</button><button class="info-dot" data-help="sma" data-title="ממוצע נע פשוט" aria-expanded="false" aria-label="הסבר על ממוצע נע פשוט">?</button>
@@ -208,7 +208,7 @@ body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large
     </div>
     <div class="ctrl-help" id="ctrlHelp" hidden></div>
   </div>
-  <div class="chartbox"><button class="chart-fab chart-fab3" id="chartInfo" aria-expanded="false" aria-label="הסבר על הגרף">?</button><div class="chart-help" id="chartHelp" hidden><b>איך קוראים את הגרף</b><br>גרירה באצבע על הגרף מציגה מחיר ותאריך מדויקים. צביטה בשתי אצבעות מקרבת או מרחיקה, וכפתור ״איפוס תצוגה״ מחזיר לטווח המלא. ״מסך מלא״ פותח תצוגה רחבה, וכפתור ״סגירה״ מחזיר למסך הרגיל. המספרים והאותיות על הגרף מסמנים את נקודות גלי אליוט. הנתונים מתעדכנים פעם ביום, וייתכן פער ממחירי המסחר בזמן אמת.</div><button class="chart-fab" id="chartExit" hidden>✕ סגירה</button><button class="chart-fab chart-fab2" id="zoomReset" hidden>איפוס תצוגה</button><div class="chartload" id="chartLoad">טוען גרף…</div><svg class="price-svg" id="priceChart" viewBox="0 0 440 440" preserveAspectRatio="none" aria-label="גרף מחיר"></svg></div>
+  <div class="chartbox"><button class="chart-fab chart-fab3" id="chartInfo" aria-expanded="false" aria-label="הסבר על הגרף">?</button><div class="chart-help" id="chartHelp" hidden><b>איך קוראים את הגרף</b><br>גרירה באצבע על הגרף מציגה מחיר ותאריך מדויקים. צביטה בשתי אצבעות מקרבת או מרחיקה, וכפתור ״איפוס תצוגה״ מחזיר לטווח המלא. ״מסך מלא״ פותח תצוגה רחבה, וכפתור ״סגירה״ מחזיר למסך הרגיל. המספרים והאותיות על הגרף מסמנים את נקודות גלי אליוט. בטווחי ״יום״ ו״שבוע״ הנתונים מתעדכנים כל חצי שעה במהלך המסחר, ובטווחים הארוכים פעם ביום; ייתכן פער ממחירי המסחר בזמן אמת.</div><button class="chart-fab" id="chartExit" hidden>✕ סגירה</button><button class="chart-fab chart-fab2" id="zoomReset" hidden>איפוס תצוגה</button><div class="chartload" id="chartLoad">טוען גרף…</div><svg class="price-svg" id="priceChart" viewBox="0 0 440 440" preserveAspectRatio="none" aria-label="גרף מחיר"></svg></div>
   <div class="wavepanel" id="wavePanel" hidden></div>
   <p class="explain">גרירה על הגרף מציגה מחיר ותאריך, צביטה בשתי אצבעות מקרבת או מרחיקה, ומסך מלא פותח תצוגה אופקית רחבה. נתוני המסחר עשויים להיות מושהים לפי הבורסה.</p>
 </section>
@@ -435,8 +435,11 @@ setInterval(boot, 120000);
 
 // Tab, real historical chart and TradingView financials
 const activeStudies = new Set(['MASimple@tv-basicstudies','Elliott@waves']);
-const rangeLabels={"6m":"6 חודשים","1y":"שנה","5y":"5 שנים",max:"כל ההיסטוריה"};
-let selectedRange='6m',historyData=null;
+const rangeLabels={"1d":"היום · נרות 5 דקות","1w":"שבוע · נרות רבע שעה","6m":"6 חודשים","1y":"שנה","5y":"5 שנים",max:"כל ההיסטוריה"};
+let selectedRange='6m',historyData=null,intradayData=null,intradayLoading=null;
+const intradayRanges=new Set(['1d','1w']);
+function isIntraday(r){return intradayRanges.has(r)}
+function activeHistory(){return isIntraday(selectedRange)?intradayData:historyData}
 function addTvScript(target, src, config){
   target.innerHTML=''; const host=document.createElement('div'); host.className='tradingview-widget-container__widget'; host.style.height='100%'; host.style.width='100%'; target.appendChild(host);
   const sc=document.createElement('script'); sc.type='text/javascript'; sc.src=src; sc.async=true; sc.textContent=JSON.stringify(config); target.appendChild(sc);
@@ -506,7 +509,7 @@ function fitImpulse(piv,n,range){
 function elliottWaves(p){
   const n=p.length,mn=Math.min(...p),mx=Math.max(...p),range=mx-mn||1;
   let result=null;
-  for(const pct of [0.02,0.025,0.03,0.035,0.04,0.05,0.06,0.07,0.08,0.10,0.12,0.14]){
+  for(const pct of (isIntraday(selectedRange)?[0.003,0.004,0.005,0.007,0.01,0.013,0.017,0.022,0.03,0.04]:[0.02,0.025,0.03,0.035,0.04,0.05,0.06,0.07,0.08,0.10,0.12,0.14])){
     for(const dirSign of [1,-1]){
       const piv=zigzagPoints(p,pct,dirSign);
       if(piv.length<4)continue;
@@ -537,7 +540,16 @@ function wavesFor(symbol,p){
   if(!(key in waveMemo))waveMemo[key]=elliottWaves(p);
   return waveMemo[key];
 }
-function fmtD(iso){const[,m,d]=iso.split('-');return parseInt(d)+'.'+parseInt(m)}
+const jerTimeFmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit',hour12:false});
+const jerDayFmt=new Intl.DateTimeFormat('he-IL',{timeZone:'Asia/Jerusalem',weekday:'short'});
+const jerDMFmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jerusalem',day:'numeric',month:'numeric'});
+function fmtD(v){
+  if(typeof v==='number'){
+    const d=new Date(v*1000);
+    return selectedRange==='1w'?jerDayFmt.format(d)+' '+jerDMFmt.format(d)+' '+jerTimeFmt.format(d):jerTimeFmt.format(d);
+  }
+  const[,m,d]=v.split('-');return parseInt(d)+'.'+parseInt(m)
+}
 function fmtPct(a,b){const r=(b/a-1)*100,word=r>=0?'עלייה של':'ירידה של';return word+' '+Math.abs(r).toFixed(Math.abs(r)>=10?0:1)+'%'}
 const waveNotes={1:'הגל הראשון במגמה; רבים עדיין סקפטיים',2:'תיקון שנשאר מעל נקודת ההתחלה; תנאי בסיסי לספירה',3:'לרוב הגל החזק והארוך ביותר בדפוס',4:'תיקון ביניים לפני הגל האחרון',5:'הגל האחרון בדפוס; לעיתים עם מומנטום נחלש',A:'רגל ראשונה של התיקון',B:'תנועה נגדית בתוך התיקון; נוטה להטעות',C:'רגל התיקון האחרונה'};
 const hebLetter={A:'א',B:'ב',C:'ג'};
@@ -564,7 +576,7 @@ function wavePanelHtml(w,dates,p){
     items+='<li>גל '+heb+' · '+fmtD(dates[a.i])+' – '+fmtD(dates[b.i])+' · '+fmtPct(a.price,b.price)+' · '+note+'</li>';
   }
   return '<h3>ספירת גלי אליוט (אפשרית)</h3><p class="wave-summary">'+summary+'</p><ul>'+items+'</ul>'+
-    '<p class="wave-caveat">הסימון אוטומטי ומבוסס על נתוני הסגירה בטווח '+rangeLabels[selectedRange]+'. ספירת גלי אליוט היא דרך פרשנית להסתכל על הגרף — תמיד קיימות ספירות חלופיות, והיא אינה המלצה לקנייה או למכירה.</p>';
+    '<p class="wave-caveat">הסימון אוטומטי ומבוסס על נתוני הסגירה בטווח '+rangeLabels[selectedRange]+'. ספירת גלי אליוט היא דרך פרשנית להסתכל על הגרף — תמיד קיימות ספירות חלופיות, והיא אינה המלצה לקנייה או למכירה.'+(isIntraday(selectedRange)?' בטווח תוך־יומי הרעש גבוה במיוחד והספירה עלולה להשתנות תוך דקות.':'')+'</p>';
 }
 const wavePanelEmpty='<h3>ספירת גלי אליוט</h3><p class="wave-summary">לא נמצאה ספירה נקייה בחלון הנוכחי; ייתכן שהמבנה מורכב מדי או דל תנועה.</p>';
 
@@ -573,11 +585,12 @@ const zoomWin={};
 let chartCtx=null, xhG=null;
 function chartDims(){return chartExpanded?{w:Math.max(window.innerWidth,480),h:Math.max(window.innerHeight,320)}:{w:440,h:440}}
 function renderPriceChart(){
-  const symbol=document.getElementById('techSymbol').value, svg=document.getElementById('priceChart'), series=historyData&&historyData.series[symbol];
+  const symbol=document.getElementById('techSymbol').value, svg=document.getElementById('priceChart'), hd=activeHistory(), series=hd&&hd.series[symbol];
   const panel=document.getElementById('wavePanel');
-  if(!series){svg.innerHTML='<text x="220" y="220" text-anchor="middle" class="chart-label">אין נתונים זמינים</text>';panel.hidden=true;return}
+  document.getElementById('chartLoad').style.display='none';
+  if(!series){svg.innerHTML='<text x="220" y="220" text-anchor="middle" class="chart-label">'+(isIntraday(selectedRange)?'אין נתונים תוך־יומיים לנייר הזה — מקור הנתונים שלו מתעדכן בסוף יום המסחר בלבד':'אין נתונים זמינים')+'</text>';panel.hidden=true;return}
   const rangeSeries=series.ranges&&series.ranges[selectedRange],baseRows=rangeSeries&&rangeSeries.rows||[];
-  if(!baseRows.length){svg.innerHTML='<text x="220" y="220" text-anchor="middle" class="chart-label">אין נתונים זמינים לטווח הזה</text>';panel.hidden=true;return}
+  if(!baseRows.length){svg.innerHTML='<text x="220" y="220" text-anchor="middle" class="chart-label">'+(isIntraday(selectedRange)?'המסחר בנייר הזה טרם החל — הגרף יתמלא עם פתיחת הבורסה':'אין נתונים זמינים לטווח הזה')+'</text>';panel.hidden=true;return}
   const baseDates=baseRows.map(r=>r[0]), baseP=baseRows.map(r=>r[1]),zoomKey=symbol+'|'+selectedRange;
   let zw=zoomWin[zoomKey]; if(!zw||zw.end>baseRows.length) zw=zoomWin[zoomKey]={start:0,end:baseRows.length};
   const rows=baseRows.slice(zw.start,zw.end), dates=rows.map(r=>r[0]), p=rows.map(r=>r[1]); let all=[...p];
@@ -589,10 +602,12 @@ function renderPriceChart(){
   const oTop=bottom+25,oBot=dims.h-15;
   const x=i=>left+i*(right-left)/(p.length-1), y=v=>bottom-(v-lo)*(bottom-top)/(hi-lo);let h='';
   for(let i=0;i<5;i++){let yy=top+i*(bottom-top)/4,val=hi-i*(hi-lo)/4;h+=`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" class="grid-line"/><text x="${left-8}" y="${yy+4}" text-anchor="end" class="chart-label">${val.toFixed(val>100?0:2)}</text>`}
-  h+=`<text x="${left}" y="25" class="chart-price">${series.name} · ${p[p.length-1].toLocaleString('he-IL',{maximumFractionDigits:2})}</text><path d="${pathFor(p,x,y)}" class="chart-line"/>`;
+  const lastBarT=typeof dates[dates.length-1]==='number'?' · עדכון '+jerTimeFmt.format(new Date(dates[dates.length-1]*1000)):'';
+  h+=`<text x="${left}" y="25" class="chart-price">${series.name} · ${p[p.length-1].toLocaleString('he-IL',{maximumFractionDigits:2})}${lastBarT}</text><path d="${pathFor(p,x,y)}" class="chart-line"/>`;
   if(activeStudies.has('MASimple@tv-basicstudies'))h+=`<path d="${pathFor(simple,x,y)}" class="ma-line"/><text x="${right}" y="25" text-anchor="end" class="chart-label">ממוצע פשוט</text>`;
   if(activeStudies.has('MAExp@tv-basicstudies'))h+=`<path d="${pathFor(exp,x,y)}" class="ema-line"/>`;
-  h+=`<text x="${left}" y="${bottom+20}" class="chart-label">${dates[0]}</text><text x="${right}" y="${bottom+20}" text-anchor="end" class="chart-label">${dates[dates.length-1]}</text>`;
+  const axisLbl=v=>typeof v==='number'?fmtD(v):v;
+  h+=`<text x="${left}" y="${bottom+20}" class="chart-label">${axisLbl(dates[0])}</text><text x="${right}" y="${bottom+20}" text-anchor="end" class="chart-label">${axisLbl(dates[dates.length-1])}</text>`;
   if(activeStudies.has('RSI@tv-basicstudies')){let yy=v=>oBot-v/100*(oBot-oTop);h+=`<line x1="${left}" y1="${yy(70)}" x2="${right}" y2="${yy(70)}" class="grid-line"/><line x1="${left}" y1="${yy(30)}" x2="${right}" y2="${yy(30)}" class="grid-line"/><path d="${pathFor(strength,x,yy)}" class="indicator-line"/><text x="${left}" y="${oTop+12}" class="chart-label">מדד עוצמה יחסית · 70 / 30</text>`}
   if(activeStudies.has('MACD@tv-basicstudies')){let fast=ema(p,12),slow=ema(p,26),m=fast.map((v,i)=>v-slow[i]),mm=Math.max(...m.map(Math.abs))||1,mid=(oTop+oBot)/2,yy=v=>mid-v/mm*(oBot-oTop)/2*.8;h+=`<line x1="${left}" y1="${mid}" x2="${right}" y2="${mid}" class="grid-line"/><path d="${pathFor(m,x,yy)}" class="indicator-line"/><text x="${left}" y="${oTop+12}" class="chart-label">התכנסות והתבדרות ממוצעים</text>`}
   if(activeStudies.has('Elliott@waves')){
@@ -619,7 +634,9 @@ function renderPriceChart(){
 }
 async function renderTech(){
   const symbol=document.getElementById('techSymbol').value;document.getElementById('chartLoad').style.display='flex';
-  if(!historyData)historyData=await fetch('3-history.json?ts='+Date.now()).then(r=>r.json());renderPriceChart();
+  if(!historyData)historyData=await fetch('3-history.json?ts='+Date.now()).then(r=>r.json());
+  if(isIntraday(selectedRange)&&!intradayData)await loadIntraday();
+  renderPriceChart();
   renderMultiples(symbol);
 }
 // Natively rendered valuation multiples (snapshot data; TradingView widget was unreliable on mobile)
@@ -668,7 +685,30 @@ document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
   window.scrollTo({top:0,behavior:'smooth'});
 });
 document.getElementById('techSymbol').onchange=renderTech;
-document.querySelectorAll('.range-btn').forEach(b=>b.onclick=()=>{selectedRange=b.dataset.range;document.querySelectorAll('.range-btn').forEach(x=>x.classList.toggle('on',x===b));hideCrosshair();renderPriceChart()});
+async function loadIntraday(){
+  if(!intradayLoading)intradayLoading=(async()=>{try{intradayData=await fetch('5-intraday.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json())}catch(e){intradayData={series:{}}}})();
+  return intradayLoading;
+}
+async function setRange(r,b){
+  selectedRange=r;document.querySelectorAll('.range-btn').forEach(x=>x.classList.toggle('on',x===b));hideCrosshair();
+  if(isIntraday(r)&&!intradayData){document.getElementById('chartLoad').style.display='flex';await loadIntraday()}
+  renderPriceChart();
+}
+async function refreshIntraday(){
+  try{
+    const j=await fetch('5-intraday.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json());
+    for(const s in (j.series||{}))for(const rg of ['1d','1w']){
+      const k=s+'|'+rg,zw=zoomWin[k];
+      const oldLen=intradayData&&intradayData.series[s]&&intradayData.series[s].ranges[rg]?intradayData.series[s].ranges[rg].rows.length:0;
+      const newLen=j.series[s].ranges[rg]?j.series[s].ranges[rg].rows.length:0;
+      if(zw&&oldLen&&zw.end===oldLen)zw.end=newLen;
+    }
+    intradayData=j;
+    if(isIntraday(selectedRange))renderPriceChart();
+  }catch(e){}
+}
+setInterval(()=>{if(isIntraday(selectedRange)&&document.getElementById('view-technical').classList.contains('on'))refreshIntraday()},300000);
+document.querySelectorAll('.range-btn').forEach(b=>b.onclick=()=>setRange(b.dataset.range,b));
 document.querySelectorAll('.ind-toggle').forEach(b=>b.onclick=()=>{
   activeStudies.has(b.dataset.study)?activeStudies.delete(b.dataset.study):activeStudies.add(b.dataset.study);
   b.classList.toggle('on',activeStudies.has(b.dataset.study)); renderPriceChart();
@@ -703,7 +743,7 @@ function updateCrosshair(clientX){
 const ptrs=new Map();let pinch0=null,rafPending=false;
 function ptrDist(){const a=[...ptrs.values()];return Math.hypot(a[0].clientX-a[1].clientX,a[0].clientY-a[1].clientY)}
 function ptrMidFrac(){const a=[...ptrs.values()],c=chartCtx,r=chartSvg.getBoundingClientRect();const mx=(a[0].clientX+a[1].clientX)/2;const vx=(mx-r.left)/r.width*c.W;return Math.max(0,Math.min(1,(vx-c.left)/(c.right-c.left)))}
-function rangeRows(symbol){return historyData.series[symbol].ranges[selectedRange].rows}
+function rangeRows(symbol){return activeHistory().series[symbol].ranges[selectedRange].rows}
 function baseLen(symbol){return rangeRows(symbol).length}
 function zoomKeyFor(symbol){return symbol+'|'+selectedRange}
 chartSvg.addEventListener('pointerdown',e=>{
@@ -755,7 +795,7 @@ document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement
 
 // Tap-to-open explanations for the technical controls
 const HELP={
-  range:'בוחר כמה אחורה מציג הגרף: שישה חודשים, שנה, חמש שנים או כל ההיסטוריה השמורה. בטווחים הארוכים הנתונים מדגומים ברמה שבועית כדי שהגרף יישאר מהיר.',
+  range:'בוחר כמה אחורה מציג הגרף: יום המסחר בנרות של חמש דקות, שבוע בנרות של רבע שעה, שישה חודשים, שנה, חמש שנים או כל ההיסטוריה השמורה. הטווחים התוך־יומיים מתרעננים כל חצי שעה במהלך המסחר, והשעות מוצגות לפי שעון ישראל. בטווחים הארוכים הנתונים מדגומים ברמה שבועית כדי שהגרף יישאר מהיר.',
   sma:'קו שמחשב את ממוצע מחירי הסגירה של עשרים ימי המסחר האחרונים. הוא מחליק תנודות יומיומיות ומראה את כיוון המגמה: מחיר מעל הקו נחשב אות חיובי, ומחיר מתחתיו מעורר זהירות.',
   ema:'כמו הממוצע הפשוט, אך נותן משקל גדול יותר לימים האחרונים ולכן מגיב מהר יותר לשינויי מחיר. מתאים לזיהוי מוקדם של שינוי מגמה, אך עלול לייצר יותר אותות שווא.',
   rsi:'מדד בין אפס למאה שמודד את מהירות העליות מול הירידות. מעל שבעים נחשב לקניית יתר — ייתכן שהמחיר התחמם; מתחת לשלושים נחשב למכירת יתר — ייתכן שהמחיר זול ביחס לתנועה.',
