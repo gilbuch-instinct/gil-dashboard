@@ -61,6 +61,24 @@
     "BTC": {
       "px": 77669.07,
       "ch": 0.44
+    },
+    "TA125": {
+      "px": 4090.22,
+      "ch": -0.75
+    },
+    "TA35": {
+      "px": 4190.81,
+      "ch": -0.73
+    },
+    "INFRA": {
+      "px": 5382.67,
+      "ch": -2.44,
+      "d": "10.9"
+    },
+    "ELEC": {
+      "px": 90.49,
+      "ch": -2.18,
+      "d": "10.9"
     }
   },
   "updates": [
@@ -122,5 +140,6 @@
       "target_price": 22.0,
       "window": "3-6 חודשים"
     }
-  ]
+  ],
+  "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal."
 }
