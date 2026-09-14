@@ -83,6 +83,14 @@ h2::before{content:"";display:inline-block;width:4px;height:16px;background:var(
 .asknote{font-size:11.5px;color:var(--dim);margin-top:8px;text-align:center}
 footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--dim);line-height:1.7;text-align:center}
 .skel{color:var(--dim);font-size:13px;padding:18px;text-align:center}
+/* navigation */
+.tabs{position:sticky;top:105px;z-index:45;display:flex;gap:7px;overflow-x:auto;padding:3px 0 10px;background:linear-gradient(180deg,var(--bg) 75%,transparent);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}.tabbtn{flex:none;border:1px solid var(--line);background:var(--card);color:var(--dim);font-family:inherit;font-size:12.5px;font-weight:700;border-radius:999px;padding:7px 13px;cursor:pointer}.tabbtn.on{color:#061720;background:var(--accent);border-color:var(--accent)}
+.view{display:none}.view.on{display:block}
+/* technical analysis */
+.tech-controls{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:12px}.tech-controls label{display:block;font-size:12px;color:var(--dim);margin-bottom:5px}.stock-select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;color:var(--txt);font:700 14px inherit;padding:10px 12px;direction:ltr}.toggles{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.ind-toggle{border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:600 12px inherit;border-radius:999px;padding:6px 10px;cursor:pointer}.ind-toggle.on{color:var(--up);border-color:var(--up);background:rgba(45,212,167,.12)}
+.chartbox{height:440px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.chartload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}.tv-wrap,.tv-wrap>div{height:100%}
+.explain{font-size:12.5px;color:var(--dim);margin:8px 2px 0}.edu-grid{display:grid;gap:9px}.educard{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:12px 13px}.educard h3{font-size:14px;color:var(--gold);margin-bottom:3px}.educard p{font-size:12.5px;color:#c3cedb}.fundbox{height:420px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}.fundbox>div{height:100%}.signal-key{display:grid;grid-template-columns:1fr 1fr;gap:8px}.signal{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px}.signal b{display:block;font-size:13px;color:var(--accent)}.signal span{font-size:11.5px;color:var(--dim)}
 @media (min-width:420px){.grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -98,7 +106,11 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
   <div><span class="badge" id="feedBadge"><span class="dot"></span><span id="feedBadgeTxt">טוען נתונים…</span></span></div>
 </header>
 <div class="wrap">
-
+<nav class="tabs" aria-label="ניווט בדשבורד">
+  <button class="tabbtn on" data-view="home">סקירה</button>
+  <button class="tabbtn" data-view="technical">ניתוח טכני</button>
+</nav>
+<div class="view on" id="view-home">
 <section id="sec-quotes">
   <div class="sechead"><h2>ציטוטים</h2><span class="hint" id="quotesHint"></span></div>
   <div class="grid" id="quoteGrid"><div class="skel">טוען…</div></div>
@@ -126,6 +138,51 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
   </div>
 </section>
 
+</div>
+<div class="view" id="view-technical">
+<section>
+  <div class="sechead"><h2>ניתוח טכני</h2><span class="hint">גרף אינטראקטיבי</span></div>
+  <div class="tech-controls">
+    <label for="techSymbol">בחירת נייר</label>
+    <select class="stock-select" id="techSymbol">
+      <option value="NASDAQ:CIFR">CIFR — סייפר מיינינג</option><option value="NASDAQ:IREN">IREN</option>
+      <option value="NYSE:CLS">CLS — סלסטיקה</option><option value="NASDAQ:ACMR">ACMR — איי־סי־אם ריסרץ'</option>
+      <option value="NASDAQ:META">META — מטא</option><option value="NASDAQ:ADEA">ADEA — אדיאה</option>
+      <option value="TASE:ENLT">ENLT — אנלייט</option><option value="SP:SPX">מדד אס־אנד־פי 500</option>
+      <option value="NASDAQ:NDX">מדד נאסד״ק 100</option><option value="DJ:DJI">מדד דאו ג׳ונס</option>
+      <option value="TVC:GOLD">זהב</option><option value="TVC:USOIL">נפט</option><option value="TVC:US10Y">אג״ח ארצות הברית לעשר שנים</option><option value="COINBASE:BTCUSD">ביטקוין</option>
+    </select>
+    <div class="toggles" aria-label="מדדים על הגרף">
+      <button class="ind-toggle on" data-study="MASimple@tv-basicstudies">ממוצע נע פשוט</button>
+      <button class="ind-toggle" data-study="MAExp@tv-basicstudies">ממוצע נע מעריכי</button>
+      <button class="ind-toggle" data-study="RSI@tv-basicstudies">מדד עוצמה יחסית</button>
+      <button class="ind-toggle" data-study="MACD@tv-basicstudies">התכנסות והתבדרות ממוצעים</button>
+    </div>
+  </div>
+  <div class="chartbox"><div class="chartload" id="chartLoad">טוען גרף…</div><div class="tv-wrap" id="tvChart"></div></div>
+  <p class="explain">אפשר להתקרב, לשנות טווח ולסמן או להסתיר מדדים. נתוני המסחר עשויים להיות מושהים לפי הבורסה.</p>
+</section>
+<section>
+  <div class="sechead"><h2>מכפילי שווי</h2><span class="hint">נתונים לנייר שנבחר</span></div>
+  <div class="fundbox" id="tvFund"></div>
+  <div class="edu-grid" style="margin-top:10px">
+    <div class="educard"><h3>מכפיל רווח</h3><p>כמה השוק משלם על כל יחידת רווח שנתית. מכפיל גבוה יכול לשקף ציפיות צמיחה, אך גם תמחור יקר.</p></div>
+    <div class="educard"><h3>מכפיל מכירות</h3><p>שווי החברה ביחס להכנסות. שימושי במיוחד כשהרווח עדיין נמוך או תנודתי.</p></div>
+    <div class="educard"><h3>מכפיל הון</h3><p>שווי השוק ביחס להון העצמי. כדאי להשוות בעיקר לחברות דומות ובאותו ענף.</p></div>
+  </div>
+</section>
+<section>
+  <div class="sechead"><h2>תבניות וסימנים</h2><span class="hint">מפת קריאה מהירה</span></div>
+  <div class="signal-key">
+    <div class="signal"><b>פריצה</b><span>סגירה מעל אזור התנגדות, רצוי במחזור גבוה.</span></div>
+    <div class="signal"><b>תמיכה</b><span>אזור שבו קונים בלמו ירידות שוב ושוב.</span></div>
+    <div class="signal"><b>ראש וכתפיים</b><span>תבנית אפשרית להיפוך מגמה לאחר שבירת קו הצוואר.</span></div>
+    <div class="signal"><b>דגל</b><span>התכנסות קצרה לאחר מהלך חד, שעשויה להמשיך את המגמה.</span></div>
+    <div class="signal"><b>מדד עוצמה יחסית</b><span>מעל שבעים עשוי להעיד על קניות יתר; מתחת לשלושים על מכירות יתר.</span></div>
+    <div class="signal"><b>התכנסות ממוצעים</b><span>חציית הקווים מסייעת לזהות שינוי בתנופה, אך עלולה לאחר.</span></div>
+  </div>
+</section>
+</div>
 <footer>
   האמור בדף זה, לרבות הניתוחים והתזות, אינו ייעוץ השקעות, שיווק השקעות או המלצה לביצוע פעולה בניירות ערך, ואינו תחליף לייעוץ אישי המתחשב בנתוניך. הנתונים עלולים להיות מושהים, חלקיים או שגויים. תזות המעקב הן להמחשה בלבד ואינן משקפות עסקאות שבוצעו בפועל.
 </footer>
@@ -306,6 +363,37 @@ document.getElementById('askInput').addEventListener('keydown', e=>{
 });
 boot();
 setInterval(boot, 120000);
+
+// Tab and TradingView widgets
+const activeStudies = new Set(['MASimple@tv-basicstudies']);
+function addTvScript(target, src, config){
+  target.innerHTML='';
+  const host=document.createElement('div'); host.className='tradingview-widget-container__widget'; host.style.height='100%'; host.style.width='100%'; target.appendChild(host);
+  const sc=document.createElement('script'); sc.type='text/javascript'; sc.src=src; sc.async=true; sc.textContent=JSON.stringify(config); target.appendChild(sc);
+}
+function renderTech(){
+  const symbol=document.getElementById('techSymbol').value;
+  document.getElementById('chartLoad').style.display='flex';
+  addTvScript(document.getElementById('tvChart'),'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js',{
+    autosize:true,symbol,interval:'D',timezone:'Asia/Jerusalem',theme:'dark',style:'1',locale:'he_IL',allow_symbol_change:true,calendar:false,hide_side_toolbar:true,withdateranges:true,details:true,hotlist:false,studies:[...activeStudies],support_host:'https://www.tradingview.com'
+  });
+  addTvScript(document.getElementById('tvFund'),'https://s3.tradingview.com/external-embedding/embed-widget-financials.js',{
+    isTransparent:true,largeChartUrl:'',displayMode:'regular',width:'100%',height:'100%',colorTheme:'dark',symbol,locale:'he_IL'
+  });
+  setTimeout(()=>{document.getElementById('chartLoad').style.display='none'},1800);
+}
+document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='view-'+b.dataset.view));
+  if(b.dataset.view==='technical'&&!document.getElementById('tvChart').children.length) renderTech();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.getElementById('techSymbol').onchange=renderTech;
+document.querySelectorAll('.ind-toggle').forEach(b=>b.onclick=()=>{
+  activeStudies.has(b.dataset.study)?activeStudies.delete(b.dataset.study):activeStudies.add(b.dataset.study);
+  b.classList.toggle('on',activeStudies.has(b.dataset.study)); renderTech();
+});
+
 </script>
 </body>
 </html>
