@@ -2,7 +2,7 @@
   "updated": "2026-09-14T07:35:05.840621+00:00",
   "updated_he": "14 בספטמבר 2026",
   "source": "Yahoo Finance quoteSummary, trailing twelve months",
-  "refresh_note": "Snapshot of valuation multiples for the dashboard's stock symbols. The daily refresh agent must regenerate this file alongside 3-history.json: for each symbol query Yahoo Finance quoteSummary modules=financialData,defaultKeyStatistics,summaryDetail,price (ENLT.TA for TASE:ENLT). pe=summaryDetail.trailingPE (null when trailing EPS is negative), pb=defaultKeyStatistics.priceToBook divided by 100 for ILA-priced symbols, ps=price.marketCap/totalRevenue with marketCap converted to the financialCurrency when they differ (USDILS=X for ENLT). Non-stock symbols (indices, commodities, FX, crypto) are intentionally absent so the UI can show its not-applicable note.",
+  "refresh_note": "Snapshot of valuation multiples for the dashboard's stock symbols and their comparison peers. The daily refresh agent must regenerate this file alongside 3-history.json: for each symbol in stocks query Yahoo Finance quoteSummary modules=financialData,defaultKeyStatistics,summaryDetail,price (ENLT.TA for TASE:ENLT; every peer symbol uses its plain US ticker, e.g. MARA, NEE). pe=summaryDetail.trailingPE (null plus pe_note=negative-eps when trailing EPS is negative), pb=defaultKeyStatistics.priceToBook divided by 100 for ILA-priced symbols, ps=price.marketCap/totalRevenue with marketCap converted to the financialCurrency when they differ (USDILS=X for ENLT). peer_sets maps each dashboard stock to a Hebrew group label (label_he) and 3-5 peer symbols; every symbol referenced in peer_sets must also exist as an entry in stocks so the comparison table can render. Non-stock symbols (indices, commodities, FX, crypto) are intentionally absent so the UI can show its not-applicable note.",
   "stocks": {
     "NASDAQ:CIFR": {
       "name": "Cipher Digital Inc.",
@@ -54,6 +54,224 @@
       "pe": 119.0,
       "ps": 17.2,
       "pb": 14.2
+    },
+    "NASDAQ:MARA": {
+      "name": "MARA Holdings, Inc.",
+      "currency": "USD",
+      "pe": null,
+      "ps": 5.2,
+      "pb": 2.0,
+      "pe_note": "negative-eps"
+    },
+    "NASDAQ:RIOT": {
+      "name": "Riot Platforms, Inc.",
+      "currency": "USD",
+      "pe": null,
+      "ps": 12.3,
+      "pb": 3.8,
+      "pe_note": "negative-eps"
+    },
+    "NASDAQ:CORZ": {
+      "name": "Core Scientific, Inc.",
+      "currency": "USD",
+      "pe": null,
+      "ps": 12.6,
+      "pb": null,
+      "pe_note": "negative-eps"
+    },
+    "NASDAQ:APLD": {
+      "name": "Applied Digital Corporation",
+      "currency": "USD",
+      "pe": null,
+      "ps": 14.9,
+      "pb": 5.2,
+      "pe_note": "negative-eps"
+    },
+    "NASDAQ:FLEX": {
+      "name": "Flex Ltd.",
+      "currency": "USD",
+      "pe": 64.3,
+      "ps": 2.0,
+      "pb": 10.6
+    },
+    "NYSE:JBL": {
+      "name": "Jabil Inc.",
+      "currency": "USD",
+      "pe": 47.3,
+      "ps": 1.1,
+      "pb": 27.7
+    },
+    "NASDAQ:SANM": {
+      "name": "Sanmina Corporation",
+      "currency": "USD",
+      "pe": 36.3,
+      "ps": 0.9,
+      "pb": 4.2
+    },
+    "NASDAQ:AMAT": {
+      "name": "Applied Materials, Inc.",
+      "currency": "USD",
+      "pe": 50.7,
+      "ps": 14.5,
+      "pb": 17.9
+    },
+    "NASDAQ:LRCX": {
+      "name": "Lam Research Corporation",
+      "currency": "USD",
+      "pe": 52.4,
+      "ps": 16.3,
+      "pb": 30.3
+    },
+    "NASDAQ:KLAC": {
+      "name": "KLA Corporation",
+      "currency": "USD",
+      "pe": 53.7,
+      "ps": 18.8,
+      "pb": 40.2
+    },
+    "NASDAQ:GOOGL": {
+      "name": "Alphabet Inc.",
+      "currency": "USD",
+      "pe": 17.0,
+      "ps": 9.3,
+      "pb": 6.7
+    },
+    "NASDAQ:AAPL": {
+      "name": "Apple Inc.",
+      "currency": "USD",
+      "pe": 36.7,
+      "ps": 10.0,
+      "pb": 43.5
+    },
+    "NASDAQ:MSFT": {
+      "name": "Microsoft Corporation",
+      "currency": "USD",
+      "pe": 28.6,
+      "ps": 11.5,
+      "pb": 8.6
+    },
+    "NASDAQ:AMZN": {
+      "name": "Amazon.com, Inc.",
+      "currency": "USD",
+      "pe": 21.4,
+      "ps": 3.6,
+      "pb": 5.2
+    },
+    "NASDAQ:RMBS": {
+      "name": "Rambus Inc.",
+      "currency": "USD",
+      "pe": 38.9,
+      "ps": 12.2,
+      "pb": 6.3
+    },
+    "NASDAQ:XPER": {
+      "name": "Xperi Inc.",
+      "currency": "USD",
+      "pe": null,
+      "ps": 0.6,
+      "pb": 0.7,
+      "pe_note": "negative-eps"
+    },
+    "NASDAQ:IDCC": {
+      "name": "InterDigital, Inc.",
+      "currency": "USD",
+      "pe": 39.7,
+      "ps": 11.2,
+      "pb": 7.4
+    },
+    "NYSE:NEE": {
+      "name": "NextEra Energy, Inc.",
+      "currency": "USD",
+      "pe": 19.1,
+      "ps": 6.2,
+      "pb": 3.1
+    },
+    "NYSE:BEP": {
+      "name": "Brookfield Renewable Partners L.P.",
+      "currency": "USD",
+      "pe": null,
+      "ps": 3.6,
+      "pb": 0.6,
+      "pe_note": "negative-eps"
+    },
+    "NYSE:CWEN": {
+      "name": "Clearway Energy, Inc.",
+      "currency": "USD",
+      "pe": 416.9,
+      "ps": 4.3,
+      "pb": 2.2
+    },
+    "NYSE:ORA": {
+      "name": "Ormat Technologies, Inc.",
+      "currency": "USD",
+      "pe": 54.0,
+      "ps": 5.7,
+      "pb": 2.6
     }
-  }
+  },
+  "peer_sets": {
+    "NASDAQ:CIFR": {
+      "label_he": "כריית ביטקוין ומרכזי נתונים",
+      "peers": [
+        "NASDAQ:IREN",
+        "NASDAQ:MARA",
+        "NASDAQ:RIOT",
+        "NASDAQ:CORZ",
+        "NASDAQ:APLD"
+      ]
+    },
+    "NASDAQ:IREN": {
+      "label_he": "כריית ביטקוין ומרכזי נתונים",
+      "peers": [
+        "NASDAQ:CIFR",
+        "NASDAQ:MARA",
+        "NASDAQ:RIOT",
+        "NASDAQ:CORZ",
+        "NASDAQ:APLD"
+      ]
+    },
+    "NYSE:CLS": {
+      "label_he": "ייצור אלקטרוניקה וחומרת AI",
+      "peers": [
+        "NASDAQ:FLEX",
+        "NYSE:JBL",
+        "NASDAQ:SANM"
+      ]
+    },
+    "NASDAQ:ACMR": {
+      "label_he": "ציוד לייצור שבבים",
+      "peers": [
+        "NASDAQ:AMAT",
+        "NASDAQ:LRCX",
+        "NASDAQ:KLAC"
+      ]
+    },
+    "NASDAQ:META": {
+      "label_he": "חברות הטכנולוגיה הגדולות",
+      "peers": [
+        "NASDAQ:GOOGL",
+        "NASDAQ:AAPL",
+        "NASDAQ:MSFT",
+        "NASDAQ:AMZN"
+      ]
+    },
+    "NASDAQ:ADEA": {
+      "label_he": "רישוי פטנטים וקניין רוחני",
+      "peers": [
+        "NASDAQ:RMBS",
+        "NASDAQ:XPER",
+        "NASDAQ:IDCC"
+      ]
+    },
+    "TASE:ENLT": {
+      "label_he": "אנרגיה מתחדשת (בינלאומי)",
+      "peers": [
+        "NYSE:NEE",
+        "NYSE:BEP",
+        "NYSE:CWEN",
+        "NYSE:ORA"
+      ]
+    }
+  },
+  "peers_source": "Peer snapshot values built 2026-09-14 from stockanalysis.com trailing ratios because Yahoo Finance rate-limited the build agent; the daily refresh regenerates every symbol from Yahoo and overwrites these."
 }
