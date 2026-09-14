@@ -409,7 +409,7 @@ async function renderTech(){
 document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x===b));
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='view-'+b.dataset.view));
-  if(b.dataset.view==='technical'&&!document.getElementById('tvChart').children.length) renderTech();
+  if(b.dataset.view==='technical'&&!historyData) renderTech();
   window.scrollTo({top:0,behavior:'smooth'});
 });
 document.getElementById('techSymbol').onchange=renderTech;
