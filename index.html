@@ -395,7 +395,7 @@ function renderTheses(){
 async function boot(){
   try{ await loadData(); }catch(e){ document.getElementById('feedBadgeTxt').textContent='שגיאה בטעינת הנתונים'; }
   const live = await tryLiveQuotes();
-  if(!live) applySnapshot();
+  applySnapshot(); // always fills ids the live feed does not cover (e.g. IBI snapshot-only cards); live values win
   renderQuotes(); renderUpdates(); renderTheses();
 }
 document.getElementById('refreshBtn').onclick = ()=>{ document.getElementById('feedBadgeTxt').textContent='מרענן…'; boot(); };
