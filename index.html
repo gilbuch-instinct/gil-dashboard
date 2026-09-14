@@ -89,7 +89,7 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
 .view{display:none}.view.on{display:block}
 /* technical analysis */
 .tech-controls{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:12px}.tech-controls label{display:block;font-size:12px;color:var(--dim);margin-bottom:5px}.stock-select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;color:var(--txt);font:700 14px 'Heebo',system-ui,sans-serif;padding:10px 12px;direction:ltr}.toggles{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.range-row{display:flex;gap:7px;margin-top:11px;direction:ltr}.range-btn{flex:1;min-height:38px;border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:700 12px 'Heebo',system-ui,sans-serif;border-radius:10px;cursor:pointer}.range-btn.on{color:#061720;background:var(--accent);border-color:var(--accent)}.ind-toggle{border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:600 12px 'Heebo',system-ui,sans-serif;border-radius:999px;padding:6px 10px;cursor:pointer}.ind-toggle.on{color:var(--up);border-color:var(--up);background:rgba(45,212,167,.12)}
-.chartbox{height:440px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.price-svg{width:100%;height:100%;display:block}.chart-label{fill:var(--dim);font-size:11px;font-family:Heebo,sans-serif}.chart-price{fill:var(--txt);font-weight:700;font-size:13px;font-family:Heebo,sans-serif}.chart-line{fill:none;stroke:var(--accent);stroke-width:2.5;vector-effect:non-scaling-stroke}.ma-line{fill:none;stroke:var(--gold);stroke-width:1.8;vector-effect:non-scaling-stroke}.ema-line{fill:none;stroke:var(--up);stroke-width:1.8;vector-effect:non-scaling-stroke}.grid-line{stroke:var(--line);stroke-width:1}.indicator-line{fill:none;stroke:#c084fc;stroke-width:1.7;vector-effect:non-scaling-stroke}.chartload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}.tv-wrap,.tv-wrap>div{height:100%}
+.chartbox{height:440px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.price-svg{width:100%;height:100%;display:block}.chart-label{fill:var(--dim);font-size:11px;font-family:Heebo,sans-serif}.chart-price{fill:var(--txt);font-weight:700;font-size:13px;font-family:Heebo,sans-serif}.chart-line{fill:none;stroke:var(--accent);stroke-width:2.5;vector-effect:non-scaling-stroke}.ma-line{fill:none;stroke:var(--gold);stroke-width:1.8;vector-effect:non-scaling-stroke}.ema-line{fill:none;stroke:var(--up);stroke-width:1.8;vector-effect:non-scaling-stroke}.ma100-line{fill:none;stroke:#fb923c;stroke-width:1.8;vector-effect:non-scaling-stroke}.ma200-line{fill:none;stroke:#e2e8f0;stroke-width:1.8;vector-effect:non-scaling-stroke}.grid-line{stroke:var(--line);stroke-width:1}.indicator-line{fill:none;stroke:#c084fc;stroke-width:1.7;vector-effect:non-scaling-stroke}.chartload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}.tv-wrap,.tv-wrap>div{height:100%}
 .wave-line{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-dasharray:5 4;vector-effect:non-scaling-stroke}.wave-corr{stroke:#c084fc}.wave-dot{fill:var(--card);stroke:var(--gold);stroke-width:1.5}.wave-dot-c{stroke:#c084fc}.wave-tag{fill:var(--gold);font-size:11px;font-weight:700;font-family:Heebo,sans-serif;text-anchor:middle}.wave-tag-c{fill:#c084fc}
 .wavepanel{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-size:13px;line-height:1.65;color:var(--txt)}
 .wavepanel h3{margin:0 0 4px;font-size:15px}.wavepanel .wave-summary{margin:0 0 6px}.wavepanel ul{margin:6px 0 0;padding:0 18px 0 0;color:var(--dim)}.wavepanel li{margin:3px 0}.wavepanel .wave-caveat{color:var(--dim);font-size:12px;margin:8px 0 0;border-top:1px solid var(--line);padding-top:8px}
@@ -226,6 +226,8 @@ body.a11y-large .sector-name{font-size:17px}body.a11y-large .sector-move{font-si
     <div class="toggles" aria-label="מדדים על הגרף">
       <button class="ind-toggle on" data-study="MASimple@tv-basicstudies">ממוצע נע פשוט</button><button class="info-dot" data-help="sma" data-title="ממוצע נע פשוט" aria-expanded="false" aria-label="הסבר על ממוצע נע פשוט">?</button>
       <button class="ind-toggle" data-study="MAExp@tv-basicstudies">ממוצע נע מעריכי</button><button class="info-dot" data-help="ema" data-title="ממוצע נע מעריכי" aria-expanded="false" aria-label="הסבר על ממוצע נע מעריכי">?</button>
+      <button class="ind-toggle on" data-study="SMA100@tv-basicstudies">ממוצע 100</button><button class="info-dot" data-help="sma100" data-title="ממוצע נע 100" aria-expanded="false" aria-label="הסבר על ממוצע נע 100">?</button>
+      <button class="ind-toggle on" data-study="SMA200@tv-basicstudies">ממוצע 200</button><button class="info-dot" data-help="sma200" data-title="ממוצע נע 200" aria-expanded="false" aria-label="הסבר על ממוצע נע 200">?</button>
       <button class="ind-toggle" data-study="RSI@tv-basicstudies">מדד עוצמה יחסית</button><button class="info-dot" data-help="rsi" data-title="מדד עוצמה יחסית" aria-expanded="false" aria-label="הסבר על מדד עוצמה יחסית">?</button>
       <button class="ind-toggle" data-study="MACD@tv-basicstudies">התכנסות והתבדרות ממוצעים</button><button class="info-dot" data-help="macd" data-title="התכנסות והתבדרות ממוצעים" aria-expanded="false" aria-label="הסבר על התכנסות והתבדרות ממוצעים">?</button>
       <button class="ind-toggle on" data-study="Elliott@waves">גלים באליוט</button><button class="info-dot" data-help="elliott" data-title="גלים באליוט" aria-expanded="false" aria-label="הסבר על גלי אליוט">?</button>
@@ -504,7 +506,7 @@ boot();
 setInterval(boot, 120000);
 
 // Tab, real historical chart and TradingView financials
-const activeStudies = new Set(['MASimple@tv-basicstudies','Elliott@waves']);
+const activeStudies = new Set(['MASimple@tv-basicstudies','SMA100@tv-basicstudies','SMA200@tv-basicstudies','Elliott@waves']);
 const rangeLabels={"1d":"היום · נרות 5 דקות","1w":"שבוע · נרות רבע שעה","6m":"6 חודשים","1y":"שנה","5y":"5 שנים",max:"כל ההיסטוריה"};
 let selectedRange='6m',historyData=null,intradayData=null,intradayLoading=null;
 const intradayRanges=new Set(['1d','1w']);
@@ -664,7 +666,15 @@ function renderPriceChart(){
   const baseDates=baseRows.map(r=>r[0]), baseP=baseRows.map(r=>r[1]),zoomKey=symbol+'|'+selectedRange;
   let zw=zoomWin[zoomKey]; if(!zw||zw.end>baseRows.length) zw=zoomWin[zoomKey]={start:0,end:baseRows.length};
   const rows=baseRows.slice(zw.start,zw.end), dates=rows.map(r=>r[0]), p=rows.map(r=>r[1]); let all=[...p];
-  const simple=sma(p,20), exp=ema(p,20), strength=rsi(p); if(activeStudies.has('MASimple@tv-basicstudies'))all.push(...simple.filter(Boolean));if(activeStudies.has('MAExp@tv-basicstudies'))all.push(...exp);
+  const simple=sma(p,20), exp=ema(p,20), strength=rsi(p);
+  let longP=null,longOff=0;
+  if(selectedRange==='6m'&&series.ranges['1y']&&series.ranges['1y'].rows.length>baseRows.length){
+    const yr=series.ranges['1y'].rows,off=yr.length-baseRows.length;
+    if(yr[yr.length-1][0]===baseRows[baseRows.length-1][0]&&yr[off]&&yr[off][0]===baseRows[0][0]){longP=yr.map(r=>r[1]);longOff=off}
+  }
+  const lp=longP||baseP,s100=sma(lp,100).slice(longOff+zw.start,longOff+zw.end),s200=sma(lp,200).slice(longOff+zw.start,longOff+zw.end);
+  if(activeStudies.has('MASimple@tv-basicstudies'))all.push(...simple.filter(Boolean));if(activeStudies.has('MAExp@tv-basicstudies'))all.push(...exp);
+  if(activeStudies.has('SMA100@tv-basicstudies'))all.push(...s100.filter(Boolean));if(activeStudies.has('SMA200@tv-basicstudies'))all.push(...s200.filter(Boolean));
   const dims=chartDims(); svg.setAttribute('viewBox','0 0 '+dims.w+' '+dims.h);
   const hasOsc=activeStudies.has('RSI@tv-basicstudies')||activeStudies.has('MACD@tv-basicstudies');
   let lo=Math.min(...all),hi=Math.max(...all),pad=(hi-lo)*.08||1;lo-=pad;hi+=pad;
@@ -674,8 +684,18 @@ function renderPriceChart(){
   for(let i=0;i<5;i++){let yy=top+i*(bottom-top)/4,val=hi-i*(hi-lo)/4;h+=`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" class="grid-line"/><text x="${left-8}" y="${yy+4}" text-anchor="end" class="chart-label">${val.toFixed(val>100?0:2)}</text>`}
   const lastBarT=typeof dates[dates.length-1]==='number'?' · עדכון '+jerTimeFmt.format(new Date(dates[dates.length-1]*1000)):'';
   h+=`<text x="${left}" y="25" class="chart-price">${series.name} · ${p[p.length-1].toLocaleString('he-IL',{maximumFractionDigits:2})}${lastBarT}</text><path d="${pathFor(p,x,y)}" class="chart-line"/>`;
-  if(activeStudies.has('MASimple@tv-basicstudies'))h+=`<path d="${pathFor(simple,x,y)}" class="ma-line"/><text x="${right}" y="25" text-anchor="end" class="chart-label">ממוצע פשוט</text>`;
+  if(activeStudies.has('MASimple@tv-basicstudies'))h+=`<path d="${pathFor(simple,x,y)}" class="ma-line"/>`;
   if(activeStudies.has('MAExp@tv-basicstudies'))h+=`<path d="${pathFor(exp,x,y)}" class="ema-line"/>`;
+  if(activeStudies.has('SMA100@tv-basicstudies'))h+=`<path d="${pathFor(s100,x,y)}" class="ma100-line"/>`;
+  if(activeStudies.has('SMA200@tv-basicstudies'))h+=`<path d="${pathFor(s200,x,y)}" class="ma200-line"/>`;
+  const lastV=a=>{for(let i=a.length-1;i>=0;i--)if(a[i]!=null)return a[i];return null};
+  const fmtV=v=>v==null?'—':v.toLocaleString('he-IL',{maximumFractionDigits:2});
+  const leg=[];
+  if(activeStudies.has('MASimple@tv-basicstudies'))leg.push(['ממוצע 20',lastV(simple),'var(--gold)']);
+  if(activeStudies.has('MAExp@tv-basicstudies'))leg.push(['ממוצע מעריכי 20',lastV(exp),'var(--up)']);
+  if(activeStudies.has('SMA100@tv-basicstudies'))leg.push(['ממוצע 100',lastV(s100),'#fb923c']);
+  if(activeStudies.has('SMA200@tv-basicstudies'))leg.push(['ממוצע 200',lastV(s200),'#e2e8f0']);
+  leg.forEach((L,i)=>{h+=`<text x="${right}" y="${40+i*14}" text-anchor="end" class="chart-label" style="fill:${L[2]}">${L[0]} · ${fmtV(L[1])}</text>`});
   const axisLbl=v=>typeof v==='number'?fmtD(v):v;
   h+=`<text x="${left}" y="${bottom+20}" class="chart-label">${axisLbl(dates[0])}</text><text x="${right}" y="${bottom+20}" text-anchor="end" class="chart-label">${axisLbl(dates[dates.length-1])}</text>`;
   if(activeStudies.has('RSI@tv-basicstudies')){let yy=v=>oBot-v/100*(oBot-oTop);h+=`<line x1="${left}" y1="${yy(70)}" x2="${right}" y2="${yy(70)}" class="grid-line"/><line x1="${left}" y1="${yy(30)}" x2="${right}" y2="${yy(30)}" class="grid-line"/><path d="${pathFor(strength,x,yy)}" class="indicator-line"/><text x="${left}" y="${oTop+12}" class="chart-label">מדד עוצמה יחסית · 70 / 30</text>`}
@@ -868,6 +888,8 @@ const HELP={
   range:'בוחר כמה אחורה מציג הגרף: יום המסחר בנרות של חמש דקות, שבוע בנרות של רבע שעה, שישה חודשים, שנה, חמש שנים או כל ההיסטוריה השמורה. הטווחים התוך־יומיים מתרעננים כל חצי שעה במהלך המסחר, והשעות מוצגות לפי שעון ישראל. בטווחים הארוכים הנתונים מדגומים ברמה שבועית כדי שהגרף יישאר מהיר.',
   sma:'קו שמחשב את ממוצע מחירי הסגירה של עשרים ימי המסחר האחרונים. הוא מחליק תנודות יומיומיות ומראה את כיוון המגמה: מחיר מעל הקו נחשב אות חיובי, ומחיר מתחתיו מעורר זהירות.',
   ema:'כמו הממוצע הפשוט, אך נותן משקל גדול יותר לימים האחרונים ולכן מגיב מהר יותר לשינויי מחיר. מתאים לזיהוי מוקדם של שינוי מגמה, אך עלול לייצר יותר אותות שווא.',
+  sma100:'ממוצע של מאה נרות (בטווח היומי: מאה ימי מסחר). קו איטי שמראה את המגמה הבינונית-ארוכה; מחיר מעליו נחשב חזק יחסית. הערך הנוכחי מופיע במקרא שעל הגרף.',
+  sma200:'ממוצע של מאתיים נרות (בטווח היומי: מאתיים ימי מסחר) - קו המגמה הארוכה הקלאסי. מעליו השוק נחשב במגמת עלייה רב-שנתית. בטווח של שישה חודשים הקו מחושב מתוך היסטוריה של שנה כדי שיוכל להופיע, והערך הנוכחי מופיע במקרא.',
   rsi:'מדד בין אפס למאה שמודד את מהירות העליות מול הירידות. מעל שבעים נחשב לקניית יתר — ייתכן שהמחיר התחמם; מתחת לשלושים נחשב למכירת יתר — ייתכן שהמחיר זול ביחס לתנועה.',
   macd:'מודד את הפער בין ממוצע מהיר לממוצע איטי. כשהקו עולה התנופה חיובית, וחציית קו האמצע מסייעת לזהות שינוי בכיוון — אך האות עלול להגיע באיחור.',
   elliott:'שיטה שמחלקת תנועת מחיר לחמישה גלים בכיוון המגמה ושלושה גלים נגדה. הסימון על הגרף אוטומטי ומבוסס על מחירי סגירה בלבד — זו פרשנות אחת אפשרית מתוך כמה, ולא המלצה לפעולה.',
