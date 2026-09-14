@@ -91,6 +91,7 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
 .tech-controls{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:12px}.tech-controls label{display:block;font-size:12px;color:var(--dim);margin-bottom:5px}.stock-select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;color:var(--txt);font:700 14px 'Heebo',system-ui,sans-serif;padding:10px 12px;direction:ltr}.toggles{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.range-row{display:flex;gap:7px;margin-top:11px;direction:ltr}.range-btn{flex:1;min-height:38px;border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:700 12px 'Heebo',system-ui,sans-serif;border-radius:10px;cursor:pointer}.range-btn.on{color:#061720;background:var(--accent);border-color:var(--accent)}.ind-toggle{border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:600 12px 'Heebo',system-ui,sans-serif;border-radius:999px;padding:6px 10px;cursor:pointer}.ind-toggle.on{color:var(--up);border-color:var(--up);background:rgba(45,212,167,.12)}
 .chartbox{height:440px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.price-svg{width:100%;height:100%;display:block}.chart-label{fill:var(--dim);font-size:11px;font-family:Heebo,sans-serif}.chart-price{fill:var(--txt);font-weight:700;font-size:13px;font-family:Heebo,sans-serif}.chart-line{fill:none;stroke:var(--accent);stroke-width:2.5;vector-effect:non-scaling-stroke}.ma-line{fill:none;stroke:var(--gold);stroke-width:1.8;vector-effect:non-scaling-stroke}.ema-line{fill:none;stroke:var(--up);stroke-width:1.8;vector-effect:non-scaling-stroke}.ma100-line{fill:none;stroke:#fb923c;stroke-width:1.8;vector-effect:non-scaling-stroke}.ma200-line{fill:none;stroke:#e2e8f0;stroke-width:1.8;vector-effect:non-scaling-stroke}.grid-line{stroke:var(--line);stroke-width:1}.indicator-line{fill:none;stroke:#c084fc;stroke-width:1.7;vector-effect:non-scaling-stroke}.chartload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}.tv-wrap,.tv-wrap>div{height:100%}
 .wave-line{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-dasharray:5 4;vector-effect:non-scaling-stroke}.wave-corr{stroke:#c084fc}.wave-dot{fill:var(--card);stroke:var(--gold);stroke-width:1.5}.wave-dot-c{stroke:#c084fc}.wave-tag{fill:var(--gold);font-size:11px;font-weight:700;font-family:Heebo,sans-serif;text-anchor:middle}.wave-tag-c{fill:#c084fc}
+.fib-line{fill:none;stroke:#f472b6;stroke-width:1.2;stroke-dasharray:6 5;vector-effect:non-scaling-stroke;opacity:.8}.fib-tag{fill:#f472b6;font-size:10px;font-family:Heebo,sans-serif}.cross-up{fill:var(--up)}.cross-down{fill:var(--down)}.cross-tag{font-size:10px;font-weight:700;font-family:Heebo,sans-serif;text-anchor:middle}body.a11y-large .fib-tag{font-size:13px}body.a11y-large .cross-tag{font-size:13px}
 .wavepanel{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-size:13px;line-height:1.65;color:var(--txt)}
 .wavepanel h3{margin:0 0 4px;font-size:15px}.wavepanel .wave-summary{margin:0 0 6px}.wavepanel ul{margin:6px 0 0;padding:0 18px 0 0;color:var(--dim)}.wavepanel li{margin:3px 0}.wavepanel .wave-caveat{color:var(--dim);font-size:12px;margin:8px 0 0;border-top:1px solid var(--line);padding-top:8px}
 .price-svg{touch-action:pan-y}.price-svg text{direction:ltr;unicode-bidi:plaintext}
@@ -231,11 +232,13 @@ body.a11y-large .sector-name{font-size:17px}body.a11y-large .sector-move{font-si
       <button class="ind-toggle" data-study="RSI@tv-basicstudies">מדד עוצמה יחסית</button><button class="info-dot" data-help="rsi" data-title="מדד עוצמה יחסית" aria-expanded="false" aria-label="הסבר על מדד עוצמה יחסית">?</button>
       <button class="ind-toggle" data-study="MACD@tv-basicstudies">התכנסות והתבדרות ממוצעים</button><button class="info-dot" data-help="macd" data-title="התכנסות והתבדרות ממוצעים" aria-expanded="false" aria-label="הסבר על התכנסות והתבדרות ממוצעים">?</button>
       <button class="ind-toggle on" data-study="Elliott@waves">גלים באליוט</button><button class="info-dot" data-help="elliott" data-title="גלים באליוט" aria-expanded="false" aria-label="הסבר על גלי אליוט">?</button>
+      <button class="ind-toggle on" data-study="MACross@local">חיתוכי ממוצעים</button><button class="info-dot" data-help="macross" data-title="חיתוכי ממוצעים" aria-expanded="false" aria-label="הסבר על חיתוכי ממוצעים">?</button>
+      <button class="ind-toggle on" data-study="Fib@local">רמות פיבונאצ׳י</button><button class="info-dot" data-help="fib" data-title="רמות פיבונאצ׳י" aria-expanded="false" aria-label="הסבר על רמות פיבונאצ׳י">?</button>
       <button class="ind-toggle" id="chartExpand">מסך מלא</button><button class="info-dot" data-help="fs" data-title="מסך מלא" aria-expanded="false" aria-label="הסבר על מסך מלא">?</button>
     </div>
     <div class="ctrl-help" id="ctrlHelp" hidden></div>
   </div>
-  <div class="chartbox"><button class="chart-fab chart-fab3" id="chartInfo" aria-expanded="false" aria-label="הסבר על הגרף">?</button><div class="chart-help" id="chartHelp" hidden><b>איך קוראים את הגרף</b><br>גרירה באצבע על הגרף מציגה מחיר ותאריך מדויקים. צביטה בשתי אצבעות מקרבת או מרחיקה, וכפתור ״איפוס תצוגה״ מחזיר לטווח המלא. ״מסך מלא״ פותח תצוגה רחבה, וכפתור ״סגירה״ מחזיר למסך הרגיל. המספרים והאותיות על הגרף מסמנים את נקודות גלי אליוט. בטווחי ״יום״ ו״שבוע״ הנתונים מתעדכנים כל חצי שעה במהלך המסחר, ובטווחים הארוכים פעם ביום; ייתכן פער ממחירי המסחר בזמן אמת.</div><button class="chart-fab" id="chartExit" hidden>✕ סגירה</button><button class="chart-fab chart-fab2" id="zoomReset" hidden>איפוס תצוגה</button><div class="chartload" id="chartLoad">טוען גרף…</div><svg class="price-svg" id="priceChart" viewBox="0 0 440 440" preserveAspectRatio="none" aria-label="גרף מחיר"></svg></div>
+  <div class="chartbox"><button class="chart-fab chart-fab3" id="chartInfo" aria-expanded="false" aria-label="הסבר על הגרף">?</button><div class="chart-help" id="chartHelp" hidden><b>איך קוראים את הגרף</b><br>גרירה באצבע על הגרף מציגה מחיר ותאריך מדויקים. צביטה בשתי אצבעות מקרבת או מרחיקה, וכפתור ״איפוס תצוגה״ מחזיר לטווח המלא. ״מסך מלא״ פותח תצוגה רחבה, וכפתור ״סגירה״ מחזיר למסך הרגיל. המספרים והאותיות על הגרף מסמנים את נקודות גלי אליוט. משולש ירוק או אדום מסמן חיתוך של ממוצע נע קצר דרך הארוך (שורי או דובי), והקווים הוורודים המקווקווים הם רמות פיבונאצ׳י. בטווחי ״יום״ ו״שבוע״ הנתונים מתעדכנים כל חצי שעה במהלך המסחר, ובטווחים הארוכים פעם ביום; ייתכן פער ממחירי המסחר בזמן אמת.</div><button class="chart-fab" id="chartExit" hidden>✕ סגירה</button><button class="chart-fab chart-fab2" id="zoomReset" hidden>איפוס תצוגה</button><div class="chartload" id="chartLoad">טוען גרף…</div><svg class="price-svg" id="priceChart" viewBox="0 0 440 440" preserveAspectRatio="none" aria-label="גרף מחיר"></svg></div>
   <div class="wavepanel" id="wavePanel" hidden></div>
   <p class="explain">גרירה על הגרף מציגה מחיר ותאריך, צביטה בשתי אצבעות מקרבת או מרחיקה, ומסך מלא פותח תצוגה אופקית רחבה. נתוני המסחר עשויים להיות מושהים לפי הבורסה.</p>
 </section>
@@ -506,7 +509,7 @@ boot();
 setInterval(boot, 120000);
 
 // Tab, real historical chart and TradingView financials
-const activeStudies = new Set(['MASimple@tv-basicstudies','SMA100@tv-basicstudies','SMA200@tv-basicstudies','Elliott@waves']);
+const activeStudies = new Set(['MASimple@tv-basicstudies','SMA100@tv-basicstudies','SMA200@tv-basicstudies','Elliott@waves','MACross@local','Fib@local']);
 const rangeLabels={"1d":"היום · נרות 5 דקות","1w":"שבוע · נרות רבע שעה","6m":"6 חודשים","1y":"שנה","5y":"5 שנים",max:"כל ההיסטוריה"};
 let selectedRange='6m',historyData=null,intradayData=null,intradayLoading=null;
 const intradayRanges=new Set(['1d','1w']);
@@ -520,6 +523,7 @@ function sma(a,n){return a.map((_,i)=>i<n-1?null:a.slice(i-n+1,i+1).reduce((x,y)
 function ema(a,n){let k=2/(n+1),v=a[0];return a.map((x,i)=>(v=i?x*k+v*(1-k):x,v))}
 function rsi(a,n=14){let out=Array(a.length).fill(null);for(let i=n;i<a.length;i++){let g=0,l=0;for(let j=i-n+1;j<=i;j++){let d=a[j]-a[j-1];d>0?g+=d:l-=d}out[i]=l?100-100/(1+g/l):100}return out}
 function pathFor(vals,x,y){let d='',open=false;vals.forEach((v,i)=>{if(v==null)return;d+=(open?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' ';open=true});return d}
+function findCrosses(short,long){const out=[];let prev=0;for(let i=0;i<short.length;i++){const a=short[i],b=long[i];if(a==null||b==null)continue;const sign=a>b?1:(a<b?-1:0);if(!sign)continue;if(prev&&sign!==prev)out.push({i,dir:sign>0?'up':'down',price:(a+b)/2});prev=sign}return out}
 
 // Elliott wave detection (zigzag pivots + impulse rules, scored across degrees)
 function zigzagPoints(p,pct,dirSign){
@@ -673,6 +677,7 @@ function renderPriceChart(){
     if(yr[yr.length-1][0]===baseRows[baseRows.length-1][0]&&yr[off]&&yr[off][0]===baseRows[0][0]){longP=yr.map(r=>r[1]);longOff=off}
   }
   const lp=longP||baseP,s100=sma(lp,100).slice(longOff+zw.start,longOff+zw.end),s200=sma(lp,200).slice(longOff+zw.start,longOff+zw.end);
+  const crossPair=isIntraday(selectedRange)?[20,50]:[50,200],cShort=sma(lp,crossPair[0]).slice(longOff+zw.start,longOff+zw.end),cLong=sma(lp,crossPair[1]).slice(longOff+zw.start,longOff+zw.end);
   if(activeStudies.has('MASimple@tv-basicstudies'))all.push(...simple.filter(Boolean));if(activeStudies.has('MAExp@tv-basicstudies'))all.push(...exp);
   if(activeStudies.has('SMA100@tv-basicstudies'))all.push(...s100.filter(Boolean));if(activeStudies.has('SMA200@tv-basicstudies'))all.push(...s200.filter(Boolean));
   const dims=chartDims(); svg.setAttribute('viewBox','0 0 '+dims.w+' '+dims.h);
@@ -680,9 +685,10 @@ function renderPriceChart(){
   let lo=Math.min(...all),hi=Math.max(...all),pad=(hi-lo)*.08||1;lo-=pad;hi+=pad;
   const left=64,right=dims.w-76,top=44,bottom=hasOsc?dims.h-130:dims.h-58;
   const oTop=bottom+25,oBot=dims.h-15;
-  const x=i=>left+i*(right-left)/(p.length-1), y=v=>bottom-(v-lo)*(bottom-top)/(hi-lo);let h='';
+  const x=i=>left+i*(right-left)/(p.length-1), y=v=>bottom-(v-lo)*(bottom-top)/(hi-lo);let h='',fibLvls=[];
   for(let i=0;i<5;i++){let yy=top+i*(bottom-top)/4,val=hi-i*(hi-lo)/4;h+=`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" class="grid-line"/><text x="${left-8}" y="${yy+4}" text-anchor="end" class="chart-label">${val.toFixed(val>100?0:2)}</text>`}
   const lastBarT=typeof dates[dates.length-1]==='number'?' · עדכון '+jerTimeFmt.format(new Date(dates[dates.length-1]*1000)):'';
+  if(activeStudies.has('Fib@local')){const fHi=Math.max(...p),fLo=Math.min(...p),fr=fHi-fLo;if(fr>0){fibLvls=[[78.6,fLo+0.214*fr],[61.8,fLo+0.382*fr],[50,fLo+0.5*fr],[38.2,fLo+0.618*fr]];fibLvls.forEach(L=>{const yy=y(L[1]);h+=`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" class="fib-line"/>`})}}
   h+=`<text x="${left}" y="25" class="chart-price">${series.name} · ${p[p.length-1].toLocaleString('he-IL',{maximumFractionDigits:2})}${lastBarT}</text><path d="${pathFor(p,x,y)}" class="chart-line"/>`;
   if(activeStudies.has('MASimple@tv-basicstudies'))h+=`<path d="${pathFor(simple,x,y)}" class="ma-line"/>`;
   if(activeStudies.has('MAExp@tv-basicstudies'))h+=`<path d="${pathFor(exp,x,y)}" class="ema-line"/>`;
@@ -696,6 +702,8 @@ function renderPriceChart(){
   if(activeStudies.has('SMA100@tv-basicstudies'))leg.push(['ממוצע 100',lastV(s100),'#fb923c']);
   if(activeStudies.has('SMA200@tv-basicstudies'))leg.push(['ממוצע 200',lastV(s200),'#e2e8f0']);
   leg.forEach((L,i)=>{h+=`<text x="${right}" y="${40+i*14}" text-anchor="end" class="chart-label" style="fill:${L[2]}">${L[0]} · ${fmtV(L[1])}</text>`});
+  fibLvls.forEach(L=>{const yy=y(L[1]);h+=`<text x="${left+3}" y="${yy-3}" class="fib-tag">${L[0]}% · ${fmtV(L[1])}</text>`});
+  if(activeStudies.has('MACross@local')){h+=`<text x="${right}" y="${40+leg.length*14}" text-anchor="end" class="chart-label" style="fill:#94a3b8">חיתוך ${crossPair[0]}/${crossPair[1]}</text>`;findCrosses(cShort,cLong).forEach(c=>{const cx=Math.max(left+8,Math.min(right-8,x(c.i))),cy=Math.max(top+6,Math.min(bottom-6,y(c.price))),up=c.dir==='up';const tri=up?`M${cx-5} ${cy+4}L${cx+5} ${cy+4}L${cx} ${cy-5}Z`:`M${cx-5} ${cy-4}L${cx+5} ${cy-4}L${cx} ${cy+5}Z`;const ly=Math.max(top+12,Math.min(bottom-2,up?cy+17:cy-11));h+=`<path d="${tri}" class="${up?'cross-up':'cross-down'}"/>`;h+=`<text x="${cx}" y="${ly}" class="cross-tag ${up?'cross-up':'cross-down'}">${up?'שורי':'דובי'}</text>`})}
   const axisLbl=v=>typeof v==='number'?fmtD(v):v;
   h+=`<text x="${left}" y="${bottom+20}" class="chart-label">${axisLbl(dates[0])}</text><text x="${right}" y="${bottom+20}" text-anchor="end" class="chart-label">${axisLbl(dates[dates.length-1])}</text>`;
   if(activeStudies.has('RSI@tv-basicstudies')){let yy=v=>oBot-v/100*(oBot-oTop);h+=`<line x1="${left}" y1="${yy(70)}" x2="${right}" y2="${yy(70)}" class="grid-line"/><line x1="${left}" y1="${yy(30)}" x2="${right}" y2="${yy(30)}" class="grid-line"/><path d="${pathFor(strength,x,yy)}" class="indicator-line"/><text x="${left}" y="${oTop+12}" class="chart-label">מדד עוצמה יחסית · 70 / 30</text>`}
@@ -893,6 +901,8 @@ const HELP={
   rsi:'מדד בין אפס למאה שמודד את מהירות העליות מול הירידות. מעל שבעים נחשב לקניית יתר — ייתכן שהמחיר התחמם; מתחת לשלושים נחשב למכירת יתר — ייתכן שהמחיר זול ביחס לתנועה.',
   macd:'מודד את הפער בין ממוצע מהיר לממוצע איטי. כשהקו עולה התנופה חיובית, וחציית קו האמצע מסייעת לזהות שינוי בכיוון — אך האות עלול להגיע באיחור.',
   elliott:'שיטה שמחלקת תנועת מחיר לחמישה גלים בכיוון המגמה ושלושה גלים נגדה. הסימון על הגרף אוטומטי ומבוסס על מחירי סגירה בלבד — זו פרשנות אחת אפשרית מתוך כמה, ולא המלצה לפעולה.',
+  macross:'מסמן את הנקודות שבהן ממוצע נע קצר חוצה את הארוך: חצייה כלפי מעלה נחשבת אות שורי (משולש ירוק) וכלפי מטה אות דובי (משולש אדום). בטווחים היומיים הזוג הוא חמישים מול מאתיים (הצלב המפורסם של חמישים מעל מאתיים נקרא ״צלב זהב״), ובטווחים התוך-יומיים עשרים מול חמישים. החישוב על מחירי סגירה והאות עלול להגיע באיחור - כלי עזר בלבד, לא המלצה.',
+  fib:'רמות באחוזים קבועים (38.2, 50, 61.8, 78.6) בין השפל לשיא של החלון שמוצג כרגע על המסך. סוחרים רבים רואים בהן תחומי תמיכה והתנגדות אפשריים בתיקונים, ולכן המחיר נוטה להגיב סביבן. הרמות נגזרות מהטווח המוצג ומשתנות כשמחליפים טווח או מקרבים תצוגה - שיטת פרשנות נפוצה, לא חיזוי ודאי.',
   fs:'פותח את הגרף על כל המסך; כדאי להפוך את הטלפון לרוחב כדי לראות טווח ארוך בנוחות. כפתור ״סגירה״ מחזיר לתצוגה הרגילה.'
 };
 let helpKey=null;
