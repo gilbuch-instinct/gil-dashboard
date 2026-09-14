@@ -135,6 +135,12 @@ body.a11y-large .qcard .premkt{font-size:13.5px}
 .badge-help{font-size:12px;color:var(--dim);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-top:6px;line-height:1.5;text-align:right}
 body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large h2{font-size:21px}body.a11y-large .sub{font-size:15px}body.a11y-large .badge{font-size:14px}body.a11y-large #refreshBtn{font-size:20px}body.a11y-large .hint{font-size:14px}body.a11y-large .qcard .sym{font-size:14.5px}body.a11y-large .qcard .nm{font-size:16.5px}body.a11y-large .qcard .px{font-size:24px}body.a11y-large .qcard.na .px{font-size:18px}body.a11y-large .qcard .ch{font-size:15px}body.a11y-large .grouplabel{font-size:14.5px}body.a11y-large .tag{font-size:13.5px}body.a11y-large .upd time{font-size:14px}body.a11y-large .upd h3{font-size:18px}body.a11y-large .upd p{font-size:16.5px}body.a11y-large .upd .src{font-size:14px}body.a11y-large .th h3{font-size:19px}body.a11y-large .th .tk{font-size:14px}body.a11y-large .mockbadge{font-size:13px}body.a11y-large .th .body{font-size:16.5px}body.a11y-large .thnums .k{font-size:13px}body.a11y-large .thnums .v{font-size:17px}body.a11y-large .th .win{font-size:14px}body.a11y-large .trackbtn{font-size:14.5px}body.a11y-large .askbox label{font-size:17px}body.a11y-large .askbox textarea{font-size:17px}body.a11y-large .askbtn{font-size:19px}body.a11y-large .asknote{font-size:14px}body.a11y-large footer{font-size:13.5px}body.a11y-large .skel{font-size:16px}body.a11y-large .tabbtn{font-size:15px}body.a11y-large .tech-controls label{font-size:14.5px}body.a11y-large .stock-select{font-size:17px}body.a11y-large .ind-toggle{font-size:14.5px}body.a11y-large .range-btn{font-size:14.5px}body.a11y-large .chartload{font-size:16px}body.a11y-large .chart-label{font-size:13.5px}body.a11y-large .chart-price{font-size:16px}body.a11y-large .wave-tag{font-size:13.5px}body.a11y-large .xh-txt{font-size:14.5px}body.a11y-large .wavepanel{font-size:16px}body.a11y-large .wavepanel h3{font-size:18px}body.a11y-large .wavepanel .wave-caveat{font-size:14.5px}body.a11y-large .chart-fab{font-size:16px}body.a11y-large .explain{font-size:15px}body.a11y-large .educard h3{font-size:17px}body.a11y-large .educard p{font-size:15px}body.a11y-large .multcard h3{font-size:15px}body.a11y-large .multval{font-size:26px}body.a11y-large .multnote{font-size:13.5px}body.a11y-large .fundnote{font-size:16.5px}body.a11y-large .fundmeta{font-size:13.5px}body.a11y-large .signal b{font-size:16px}body.a11y-large .signal span{font-size:14px}body.a11y-large .a11y-panel h2{font-size:19px}body.a11y-large .a11y-actions button{font-size:16px}.a11y-contrast{--bg:#000;--bg2:#000;--card:#060606;--card2:#111;--line:#fff;--txt:#fff;--dim:#eee;--accent:#00e5ff;--gold:#ffe600;--up:#00ff9d;--down:#ff6b6b}.a11y-links a{text-decoration:underline!important;text-decoration-thickness:3px!important;background:#ffe600!important;color:#000!important}body.a11y-readable,body.a11y-readable *{font-family:Arial,'Helvetica Neue',sans-serif!important;letter-spacing:.03em!important;line-height:1.6!important}button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media (min-width:420px){.grid{grid-template-columns:1fr 1fr}}
+
+/* Sector heatmap and recommendations */
+.sector-hero{background:linear-gradient(135deg,rgba(56,189,248,.13),rgba(45,212,167,.05));border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:12px}.sector-hero h2{font-size:21px}.sector-hero p{font-size:12.5px;color:var(--dim);margin-top:4px}.sector-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.sector-card{position:relative;min-height:165px;border:1px solid var(--line);border-radius:16px;padding:13px;overflow:hidden;background:var(--card);cursor:pointer;transition:transform .15s}.sector-card:active{transform:scale(.985)}.sector-card.up{background:linear-gradient(145deg,rgba(45,212,167,var(--heat)),var(--card) 70%)}.sector-card.down{background:linear-gradient(145deg,rgba(248,113,113,var(--heat)),var(--card) 70%)}.sector-top{display:flex;justify-content:space-between;align-items:start;gap:6px}.sector-code{font-size:11px;font-weight:800;color:var(--dim);direction:ltr}.sector-name{font-size:14px;font-weight:700;margin-top:3px}.sector-move{font-size:26px;font-weight:800;direction:ltr;text-align:right;margin-top:10px}.sector-card.up .sector-move{color:var(--up)}.sector-card.down .sector-move{color:var(--down)}.sector-stats{display:grid;grid-template-columns:1fr 1fr;gap:5px;border-top:1px solid rgba(143,161,179,.18);padding-top:8px;margin-top:9px;font-size:11px;color:var(--dim);direction:ltr}.sector-stats span{display:flex;flex-direction:column;gap:2px}.sector-stats b{color:var(--txt);white-space:nowrap}.sector-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.sector-tag{font-size:10.5px;border:1px solid var(--line);border-radius:999px;padding:2px 7px;background:rgba(11,15,20,.55);direction:ltr}.sector-tag.mine{color:var(--gold);border-color:rgba(245,196,81,.45)}.sector-detail{display:none;margin-top:10px;padding-top:9px;border-top:1px solid var(--line);font-size:11.5px;color:#c3cedb}.sector-card.open .sector-detail{display:block}.sector-add{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px}.sector-add h3{font-size:15px}.add-row{display:grid;grid-template-columns:1fr 1.15fr;gap:7px;margin-top:9px}.ticker-input,.sector-select,.category-select{width:100%;background:var(--bg2);color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:13px}.add-btn{grid-column:1/-1;border:0;border-radius:10px;background:var(--accent);color:#061720;padding:10px;font:inherit;font-weight:800}.add-status{font-size:11.5px;color:var(--dim);margin-top:7px;min-height:18px}.rec-intro{background:linear-gradient(145deg,rgba(245,196,81,.12),var(--card));border:1px solid rgba(245,196,81,.3);border-radius:16px;padding:14px;margin-bottom:10px}.rec-intro h2{font-size:20px}.rec-intro p{font-size:12.5px;color:var(--dim);margin-top:4px}.category-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}.category-box label{font-weight:700;font-size:15px}.category-select{margin:10px 0}.category-btn{width:100%;border:0;border-radius:11px;background:var(--wa);color:#052811;padding:11px;font:inherit;font-weight:800}.category-note{font-size:11.5px;color:var(--dim);margin-top:8px}.data-note{font-size:11px;color:var(--dim);margin-top:8px}.view{display:none}.view.on{display:block}
+body.a11y-large .sector-name{font-size:17px}body.a11y-large .sector-move{font-size:31px}body.a11y-large .sector-detail{font-size:14px}body.a11y-large .sector-tag{font-size:13px}body.a11y-large .ticker-input,body.a11y-large .sector-select,body.a11y-large .category-select{font-size:16px}
+@media(max-width:360px){.sector-grid{grid-template-columns:1fr}.sector-card{min-height:145px}}
+
 </style>
 </head>
 <body>
@@ -154,6 +160,8 @@ body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large
 <nav class="tabs" aria-label="ניווט בדשבורד">
   <button class="tabbtn on" data-view="home">סקירה</button>
   <button class="tabbtn" data-view="technical">ניתוח טכני</button>
+  <button class="tabbtn" data-view="sectors">מפת סקטורים</button>
+  <button class="tabbtn" data-view="recommendations">המלצות</button>
 </nav>
 <div class="view on" id="view-home">
 <section id="sec-quotes">
@@ -164,11 +172,6 @@ body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large
 <section id="sec-updates">
   <div class="sechead"><h2>עדכונים מהעוזר</h2><span class="hint" id="updHint"></span></div>
   <div id="updList"><div class="skel">טוען…</div></div>
-</section>
-
-<section id="sec-theses">
-  <div class="sechead"><h2>תזות במעקב</h2><span class="hint">מעקב דמה — לא עסקאות אמיתיות</span></div>
-  <div id="thList"><div class="skel">טוען…</div></div>
 </section>
 
 <section id="sec-ask">
@@ -184,6 +187,24 @@ body.a11y-large{font-size:19px}body.a11y-large h1{font-size:27px}body.a11y-large
 </section>
 
 </div>
+
+<div class="view" id="view-sectors">
+<section>
+  <div class="sector-hero"><h2>מפת חום סקטוריאלית</h2><p>11 הסקטורים של S&amp;P 500, מסודרים לפי ביצועי היום. לחיצה על אריח פותחת הסבר ואחזקות בולטות.</p><div class="sector-meta"><span class="badge"><span class="dot"></span>מקור CNBC · מושהה כ-15 דקות</span><span class="badge" id="sectorUpdated"><span class="dot"></span>טוען…</span></div></div>
+  <div class="sector-grid" id="sectorGrid"><div class="skel">טוען מפת סקטורים…</div></div>
+  <div class="data-note">הצבע משקף כיוון ועוצמת שינוי יומי. "מול SPY" הוא הפער באחוזים מביצועי מדד S&amp;P 500.</div>
+  <div class="sector-add"><h3>הוספת מניה לאריח</h3><div class="add-row"><input class="ticker-input" id="sectorTicker" dir="ltr" maxlength="10" placeholder="Ticker, למשל META" aria-label="סימול מניה"><select class="sector-select" id="sectorChoice" aria-label="בחירת סקטור"></select><button class="add-btn" id="sectorAddBtn">בדיקה והוספה</button></div><div class="add-status" id="sectorAddStatus">הסימול ייבדק מול מקור הציטוטים לפני השמירה במכשיר.</div></div>
+</section>
+</div>
+<div class="view" id="view-recommendations">
+<section>
+  <div class="rec-intro"><h2>המלצות ותזות במעקב</h2><p>מעקב דמה בלבד, לא עסקאות אמיתיות ולא ייעוץ. המחיר הנוכחי והתשואה מחושבים אוטומטית מול מחיר הכניסה.</p></div>
+  <div class="sechead"><h2>תזות פעילות</h2><span class="hint">מניות · סקטורים · קרנות סל</span></div>
+  <div id="thList"><div class="skel">טוען…</div></div>
+</section>
+<section><div class="category-box"><label for="thesisCategory">בקש תזה חדשה לפי קטגוריה</label><select class="category-select" id="thesisCategory"><option>בינה מלאכותית</option><option>דאטה סנטרים וכריית ביטקוין</option><option>אנרגיה</option><option>טכנולוגיה</option><option>פיננסים</option><option>בריאות</option><option>תעשייה ותשתיות</option><option>זהב וסחורות</option><option>מניות ערך</option><option>מניות צמיחה</option><option>קרנות סל סקטוריאליות</option></select><button class="category-btn" id="categoryBtn">בקש מהעוזר תזה בוואטסאפ</button><div class="category-note">הבקשה תיפתח מוכנה לשליחה. התזה שתיכתב תופיע כאן ברענון התוכן הבא.</div></div></section>
+</div>
+
 <div class="view" id="view-technical">
 <section>
   <div class="sechead"><h2>ניתוח טכני</h2><span class="hint">גרף אינטראקטיבי</span></div>
@@ -286,6 +307,36 @@ const QUOTES = [
   {cnbc:'BTC=',   id:'BTC',  nm:'ביטקוין',           cur:'$'},
 ];
 const state = {data:null, quotes:{}, live:false, pre:{}};
+
+const SECTORS = [
+ {id:'XLE',name:'אנרגיה',desc:'חברות נפט, גז, זיקוק ושירותי אנרגיה.',hold:'Exxon Mobil, Chevron, ConocoPhillips'},
+ {id:'XLV',name:'בריאות',desc:'תרופות, ביוטק, ציוד רפואי ושירותי בריאות.',hold:'Eli Lilly, Johnson & Johnson, AbbVie'},
+ {id:'XLP',name:'צריכה בסיסית',desc:'מוצרים שקונים גם כשהכלכלה נחלשת: מזון, משקאות ומוצרי בית.',hold:'Walmart, Costco, Procter & Gamble'},
+ {id:'XLU',name:'תשתיות שירות',desc:'חשמל, גז ומים. ENLT מסומנת כאן לפי ההיגיון של גיל כאנרגיה מתחדשת, אף שהיא אינה אחזקה ב-ETF האמריקאי.',hold:'NextEra Energy, Southern, Duke Energy',known:['ENLT']},
+ {id:'XLF',name:'פיננסים',desc:'בנקים, ביטוח, שוקי הון ושירותים פיננסיים.',hold:'Berkshire Hathaway, JPMorgan, Visa'},
+ {id:'XLRE',name:'נדל״ן',desc:'קרנות ריט וחברות נדל״ן מניב, רגישות במיוחד לריבית.',hold:'Welltower, Prologis, American Tower'},
+ {id:'XLC',name:'שירותי תקשורת',desc:'פלטפורמות דיגיטליות, פרסום, מדיה וטלקום.',hold:'Meta, Alphabet, Netflix',known:['META']},
+ {id:'XLB',name:'חומרי גלם',desc:'כימיקלים, מתכות, אריזות וחומרי בנייה.',hold:'Linde, Newmont, Freeport-McMoRan'},
+ {id:'XLY',name:'צריכה מחזורית',desc:'קמעונאות, רכב ופנאי שמושפעים מביטחון הצרכן.',hold:'Amazon, Tesla, Home Depot'},
+ {id:'XLI',name:'תעשייה',desc:'תעופה, ציוד, תחבורה, בנייה ותשתיות.',hold:'GE Aerospace, Caterpillar, RTX',known:['CLS']},
+ {id:'XLK',name:'טכנולוגיה',desc:'שבבים, תוכנה וחומרה. CIFR ו-IREN מסומנות כאן כתמת דאטה סנטרים/כריית ביטקוין שמתאימה לאופן שבו גיל עוקב אחריהן, ולא כאחזקות ב-XLK.',hold:'Nvidia, Apple, Microsoft',known:['CIFR','IREN','ACMR','ADEA']}
+];
+const SECTOR_QUOTES=SECTORS.map(x=>({cnbc:x.id,id:x.id,nm:x.name,cur:'$'}));
+SECTOR_QUOTES.unshift({cnbc:'SPY',id:'SPY',nm:'S&P 500',cur:'$'});
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function trySectorQuotes(){
+ const url='https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols='+SECTOR_QUOTES.map(q=>encodeURIComponent(q.cnbc)).join('|')+'&exthrs=1&output=json';
+ try{const r=await fetch(url);if(!r.ok)throw 0;const a=((await r.json()).FormattedQuoteResult||{}).FormattedQuote||[];let ok=0;SECTOR_QUOTES.forEach(q=>{const x=a.find(v=>v.symbol===q.cnbc);if(x&&String(x.code)==='0'&&num(x.last)!=null){state.quotes[q.id]={px:num(x.last),ch:num(x.change_pct),live:true};ok++}});return ok>=10}catch(e){return false}
+}
+function savedSectorStocks(){try{return JSON.parse(localStorage.getItem('sectorStocks')||'{}')}catch(e){return {}}}
+function renderSectors(){
+ const g=document.getElementById('sectorGrid');if(!g)return;const spy=(state.quotes.SPY||{}).ch,extra=savedSectorStocks();
+ g.innerHTML=SECTORS.slice().sort((a,b)=>((state.quotes[b.id]||{}).ch??-99)-((state.quotes[a.id]||{}).ch??-99)).map((x,i)=>{const q=state.quotes[x.id]||{},ch=q.ch,rel=ch!=null&&spy!=null?ch-spy:null,cl=chClass(ch),heat=Math.min(.34,.08+Math.abs(ch||0)*.075),tags=[...(x.known||[]),...((extra[x.id]||[]).filter(t=>!(x.known||[]).includes(t)))];return '<article class="sector-card '+cl+'" style="--heat:'+heat+'" data-sector="'+x.id+'" tabindex="0" aria-expanded="false"><div class="sector-top"><div><div class="sector-code">'+x.id+' · '+String(i+1).padStart(2,'0')+'</div><div class="sector-name">'+x.name+'</div></div><span class="info-dot">?</span></div><div class="sector-move">'+chTxt(ch)+'</div><div class="sector-stats"><span>PRICE <b>'+fmtPx(q.px,{cur:'$'})+'</b></span><span>VS SPY <b class="'+chClass(rel)+'">'+chTxt(rel)+'</b></span></div><div class="sector-tags">'+tags.map(t=>'<span class="sector-tag '+(['CIFR','IREN'].includes(t)?'mine':'')+'">'+esc(t)+'</span>').join('')+'</div><div class="sector-detail"><b>'+x.desc+'</b><br>אחזקות בולטות: <span dir="ltr">'+x.hold+'</span></div></article>'}).join('');
+ g.querySelectorAll('.sector-card').forEach(c=>{const toggle=()=>{c.classList.toggle('open');c.setAttribute('aria-expanded',c.classList.contains('open'))};c.onclick=toggle;c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}}});
+ const snap=!SECTORS.some(x=>(state.quotes[x.id]||{}).live);document.getElementById('sectorUpdated').innerHTML='<span class="dot"></span>'+(snap?'סנאפשוט שמור · '+((state.data||{}).sector_quotes_updated||''):'חי · '+new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}));
+}
+function initSectorAdd(){const sel=document.getElementById('sectorChoice');sel.innerHTML=SECTORS.map(x=>'<option value="'+x.id+'">'+x.name+' ('+x.id+')</option>').join('');document.getElementById('sectorAddBtn').onclick=async()=>{const inp=document.getElementById('sectorTicker'),st=document.getElementById('sectorAddStatus'),t=inp.value.trim().toUpperCase().replace(/[^A-Z0-9.-]/g,'');if(!t){st.textContent='צריך להזין סימול.';return}st.textContent='בודק את '+t+'…';try{const u='https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols='+encodeURIComponent(t)+'&output=json',a=((await (await fetch(u)).json()).FormattedQuoteResult||{}).FormattedQuote||[],hit=a.find(x=>String(x.code)==='0'&&num(x.last)!=null);if(!hit)throw 0;const data=savedSectorStocks(),sid=sel.value;data[sid]=Array.from(new Set([...(data[sid]||[]),t]));localStorage.setItem('sectorStocks',JSON.stringify(data));inp.value='';st.textContent=t+' נוסף ונשמר במכשיר.';renderSectors()}catch(e){st.textContent='לא נמצא ציטוט תקין ל-'+t+'. בדוק את הסימול ונסה שוב.'}}}
+
 
 function num(s){
   if(s==null) return null;
@@ -410,7 +461,7 @@ function renderTheses(){
       ? Math.max(0, Math.min(1, (cur-t.entry_price)/(t.target_price-t.entry_price))) : 0;
     const on = !!tracked[t.id];
     return '<div class="th"><div class="head"><div><span class="tk">'+t.ticker+'</span><h3>'+t.title+'</h3></div>'
-      + '<span class="mockbadge">דוגמה להמחשה</span></div>'
+      + '<span class="mockbadge">השקעת דמה · להמחשה</span></div>'
       + '<div class="body">'+t.thesis+'</div>'
       + '<div class="thnums">'
       + '<div class="cell"><div class="k">כניסה · '+t.entry_date+'</div><div class="v">'+fmtPx(t.entry_price, qcfg)+'</div></div>'
@@ -433,8 +484,10 @@ function renderTheses(){
 async function boot(){
   try{ await loadData(); }catch(e){ document.getElementById('feedBadgeTxt').textContent='שגיאה בטעינת הנתונים'; }
   const live = await tryLiveQuotes();
-  applySnapshot(); // always fills ids the live feed does not cover (e.g. IBI snapshot-only cards); live values win
-  renderQuotes(); renderUpdates(); renderTheses();
+  await trySectorQuotes();
+  applySnapshot();
+  const ss=(state.data&&state.data.sector_quotes)||{};for(const id in ss)if(!state.quotes[id])state.quotes[id]={px:ss[id].px,ch:ss[id].ch,live:false,d:ss[id].d}; // always fills ids the live feed does not cover (e.g. IBI snapshot-only cards); live values win
+  renderQuotes(); renderUpdates(); renderTheses(); renderSectors();
 }
 document.getElementById('refreshBtn').onclick = ()=>{ document.getElementById('feedBadgeTxt').textContent='מרענן…'; boot(); };
 document.getElementById('askBtn').onclick = ()=>{
@@ -445,6 +498,8 @@ document.getElementById('askBtn').onclick = ()=>{
 document.getElementById('askInput').addEventListener('keydown', e=>{
   if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); document.getElementById('askBtn').click(); }
 });
+initSectorAdd();
+document.getElementById('categoryBtn').onclick=()=>{const c=document.getElementById('thesisCategory').value,txt='אשמח שתכין תזת השקעה מדומה חדשה לקטגוריה: '+c+'. נא לכלול סימול, מחיר כניסה, יעד, חלון זמן ונימוקים, ולהוסיף אותה ללשונית ההמלצות בדשבורד ברענון התוכן הבא.';window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(txt),'_blank')};
 boot();
 setInterval(boot, 120000);
 

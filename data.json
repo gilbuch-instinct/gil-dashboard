@@ -1,6 +1,11 @@
 {
+<<<<<<< Updated upstream
   "updated_he": "14 בספטמבר 2026, 15:52 שעון ישראל",
   "quotes_updated": "14.9 · 15:52",
+=======
+  "updated_he": "14 בספטמבר 2026, 15:55 שעון ישראל",
+  "quotes_updated": "14.9 · 15:19",
+>>>>>>> Stashed changes
   "quotes": {
     "SPX": {
       "px": 7656.98,
@@ -163,5 +168,68 @@
       "window": "3-6 חודשים"
     }
   ],
-  "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal."
+  "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable.",
+  "sector_quotes": {
+    "SPY": {
+      "px": 764.29,
+      "ch": 0.85,
+      "d": "11.9"
+    },
+    "XLE": {
+      "px": 65.14,
+      "ch": 0.32,
+      "d": "11.9"
+    },
+    "XLV": {
+      "px": 165.36,
+      "ch": -0.18,
+      "d": "11.9"
+    },
+    "XLP": {
+      "px": 83.38,
+      "ch": 0.35,
+      "d": "11.9"
+    },
+    "XLU": {
+      "px": 42.39,
+      "ch": -0.31,
+      "d": "11.9"
+    },
+    "XLF": {
+      "px": 57.25,
+      "ch": 0.67,
+      "d": "11.9"
+    },
+    "XLRE": {
+      "px": 43.42,
+      "ch": 0.86,
+      "d": "11.9"
+    },
+    "XLC": {
+      "px": 112.6,
+      "ch": 0.99,
+      "d": "11.9"
+    },
+    "XLB": {
+      "px": 50.95,
+      "ch": 0.37,
+      "d": "11.9"
+    },
+    "XLY": {
+      "px": 112.96,
+      "ch": 0.89,
+      "d": "11.9"
+    },
+    "XLI": {
+      "px": 172.37,
+      "ch": 1.07,
+      "d": "11.9"
+    },
+    "XLK": {
+      "px": 187.67,
+      "ch": 1.32,
+      "d": "11.9"
+    }
+  },
+  "sector_quotes_updated": "11.9.2026 · סגירת מסחר"
 }
