@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>הדשבורד של גיל</title>
+<meta name="theme-color" content="#0b0f14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f14; --bg2:#10161e; --card:#141c26; --card2:#182230; --line:#223042;
+  --txt:#e8eef5; --dim:#8fa1b3; --up:#2dd4a7; --down:#f87171; --gold:#f5c451;
+  --accent:#38bdf8; --wa:#25d366;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Heebo',system-ui,sans-serif;font-size:16px;line-height:1.5;overflow-x:hidden}
+.wrap{max-width:480px;margin:0 auto;padding:0 14px 90px}
+header.top{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--bg) 75%,transparent);padding:14px 14px 18px;max-width:480px;margin:0 auto}
+.toprow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+h1{font-size:22px;font-weight:800;letter-spacing:.2px}
+h1 .g{color:var(--gold)}
+.sub{color:var(--dim);font-size:12.5px;margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--dim);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin-top:8px}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.badge.live .dot{background:var(--up);box-shadow:0 0 6px var(--up)}
+#refreshBtn{background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:12px;width:40px;height:40px;font-size:17px;cursor:pointer;flex:none}
+#refreshBtn:active{transform:rotate(40deg)}
+section{margin-top:26px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+h2{font-size:17px;font-weight:700}
+h2::before{content:"";display:inline-block;width:4px;height:16px;background:var(--gold);border-radius:2px;margin-left:8px;vertical-align:-2px}
+.hint{font-size:11.5px;color:var(--dim)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px 14px;position:relative;overflow:hidden}
+.qcard .sym{font-size:12px;color:var(--dim);font-weight:600;letter-spacing:.4px}
+.qcard .nm{font-size:13.5px;font-weight:600;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qcard .px{font-size:20px;font-weight:800;margin-top:6px;font-variant-numeric:tabular-nums;direction:ltr;text-align:right;unicode-bidi:plaintext}
+.qcard .ch{display:inline-flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;margin-top:4px;padding:2px 8px;border-radius:999px;direction:ltr}
+.ch.up{color:var(--up);background:rgba(45,212,167,.12)}
+.ch.down{color:var(--down);background:rgba(248,113,113,.12)}
+.ch.flat{color:var(--dim);background:rgba(143,161,179,.12)}
+.qcard.na .px{color:var(--dim);font-size:15px}
+.grouplabel{grid-column:1/-1;font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.5px;margin-top:6px}
+/* updates */
+.upd{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin-bottom:10px}
+.upd .meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;background:rgba(56,189,248,.14);color:var(--accent)}
+.tag.hot{background:rgba(248,113,113,.14);color:var(--down)}
+.tag.deep{background:rgba(245,196,81,.14);color:var(--gold)}
+.upd time{font-size:11.5px;color:var(--dim)}
+.upd h3{font-size:15px;font-weight:700;margin-bottom:5px}
+.upd p{font-size:13.5px;color:#c3cedb}
+.upd .src{display:block;margin-top:7px;font-size:11.5px;color:var(--dim)}
+.upd .src a{color:var(--dim);text-decoration:underline}
+/* theses */
+.th{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:12px}
+.th .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.th h3{font-size:15.5px;font-weight:700}
+.th .tk{font-size:11.5px;color:var(--gold);font-weight:700;letter-spacing:.5px}
+.mockbadge{font-size:10.5px;font-weight:700;color:var(--gold);background:rgba(245,196,81,.12);border:1px solid rgba(245,196,81,.35);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.th .body{font-size:13.5px;color:#c3cedb;margin:8px 0 12px}
+.thnums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.thnums .cell{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:7px 4px}
+.thnums .k{font-size:10.5px;color:var(--dim)}
+.thnums .v{font-size:14px;font-weight:800;margin-top:2px;font-variant-numeric:tabular-nums;direction:ltr}
+.pnl.up{color:var(--up)} .pnl.down{color:var(--down)}
+.bar{height:6px;background:var(--bg2);border-radius:3px;margin-top:12px;position:relative;overflow:visible}
+.bar .fill{position:absolute;top:0;right:0;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--up));max-width:100%}
+.th .foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.th .win{font-size:11.5px;color:var(--dim)}
+.trackbtn{font-size:12px;font-weight:700;border-radius:999px;padding:5px 14px;cursor:pointer;border:1px solid var(--line);background:var(--card2);color:var(--txt)}
+.trackbtn.on{background:rgba(45,212,167,.15);border-color:var(--up);color:var(--up)}
+/* ask */
+.askbox{background:linear-gradient(150deg,#0f2418,#10161e);border:1px solid #1d4630;border-radius:20px;padding:16px}
+.askbox label{font-size:14px;font-weight:700;display:block;margin-bottom:8px}
+.askbox textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:14px;color:var(--txt);font-family:inherit;font-size:14px;padding:12px;min-height:74px;resize:vertical;direction:rtl}
+.askbox textarea:focus{outline:none;border-color:var(--wa)}
+.askbtn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:11px;background:var(--wa);color:#062b16;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:13px;cursor:pointer}
+.askbtn:active{transform:scale(.985)}
+.asknote{font-size:11.5px;color:var(--dim);margin-top:8px;text-align:center}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--dim);line-height:1.7;text-align:center}
+.skel{color:var(--dim);font-size:13px;padding:18px;text-align:center}
+@media (min-width:420px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="toprow">
+    <div>
+      <h1>הדשבורד של <span class="g">גיל</span></h1>
+      <div class="sub">מניות, מדדים ומאקרו — תמונה אחת מהירה</div>
+    </div>
+    <button id="refreshBtn" title="רענון">&#x21bb;</button>
+  </div>
+  <div><span class="badge" id="feedBadge"><span class="dot"></span><span id="feedBadgeTxt">טוען נתונים…</span></span></div>
+</header>
+<div class="wrap">
+
+<section id="sec-quotes">
+  <div class="sechead"><h2>ציטוטים</h2><span class="hint" id="quotesHint"></span></div>
+  <div class="grid" id="quoteGrid"><div class="skel">טוען…</div></div>
+</section>
+
+<section id="sec-updates">
+  <div class="sechead"><h2>עדכונים מהעוזר</h2><span class="hint" id="updHint"></span></div>
+  <div id="updList"><div class="skel">טוען…</div></div>
+</section>
+
+<section id="sec-theses">
+  <div class="sechead"><h2>תזות במעקב</h2><span class="hint">מעקב דמה — לא עסקאות אמיתיות</span></div>
+  <div id="thList"><div class="skel">טוען…</div></div>
+</section>
+
+<section id="sec-ask">
+  <div class="askbox">
+    <label for="askInput">יש שאלה? שלח ישר לעוזר בוואטסאפ</label>
+    <textarea id="askInput" placeholder="למשל: מה קורה עם CIFR היום?"></textarea>
+    <button class="askbtn" id="askBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 2 .5 4 1.5 5.7L.5 23.5l6.1-1.6c1.7.9 3.5 1.4 5.4 1.4 6.3 0 11.4-5.1 11.4-11.4S18.3.5 12 .5zm0 20.9c-1.7 0-3.4-.5-4.9-1.3l-.3-.2-3.6 1 1-3.5-.2-.4a9.4 9.4 0 0 1-1.4-5c0-5.2 4.2-9.4 9.4-9.4s9.4 4.2 9.4 9.4-4.2 9.4-9.4 9.4zm5.2-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+      שליחה בוואטסאפ
+    </button>
+    <div class="asknote">נפתח צ'אט וואטסאפ עם השאלה מוכנה לשליחה</div>
+  </div>
+</section>
+
+<footer>
+  האמור בדף זה, לרבות הניתוחים והתזות, אינו ייעוץ השקעות, שיווק השקעות או המלצה לביצוע פעולה בניירות ערך, ואינו תחליף לייעוץ אישי המתחשב בנתוניך. הנתונים עלולים להיות מושהים, חלקיים או שגויים. תזות המעקב הן להמחשה בלבד ואינן משקפות עסקאות שבוצעו בפועל.
+</footer>
+</div>
+
+<script>
+const WA_NUMBER = '16508702892';
+const QUOTES = [
+  {group:'מדדים'},
+  {cnbc:'.SPX',  id:'SPX',  nm:'S&P 500',              cur:''},
+  {cnbc:'.NDX',  id:'NDX',  nm:'נאסד״ק 100',            cur:''},
+  {cnbc:'.DJI',  id:'DJI',  nm:'דאו ג׳ונס',             cur:''},
+  {group:'המניות שלך'},
+  {cnbc:'CIFR', id:'CIFR', nm:'CIFR — Cipher Mining', cur:'$'},
+  {cnbc:'IREN', id:'IREN', nm:'IREN',                 cur:'$'},
+  {cnbc:'CLS',  id:'CLS',  nm:'CLS — Celestica',      cur:'$'},
+  {cnbc:'ACMR', id:'ACMR', nm:'ACMR — ACM Research',  cur:'$'},
+  {cnbc:'META', id:'META', nm:'META — Meta',          cur:'$'},
+  {cnbc:'ADEA', id:'ADEA', nm:'ADEA — Adeia',         cur:'$'},
+  {cnbc:'ENLT-IL', id:'ENLT', nm:'ENLT — אנלייט',     cur:'₪', div100:true},
+  {group:'מאקרו וסחורות'},
+  {cnbc:'@GC.1',  id:'GOLD', nm:'זהב',               cur:'$'},
+  {cnbc:'@CL.1',  id:'WTI',  nm:'נפט WTI',           cur:'$'},
+  {cnbc:'@LCO.1', id:'BRENT',nm:'נפט ברנט',          cur:'$'},
+  {cnbc:'US10Y',  id:'US10Y',nm:'אג״ח ארה״ב 10 שנים', cur:'', suffix:'%'},
+  {cnbc:'BTC=',   id:'BTC',  nm:'ביטקוין',           cur:'$'},
+];
+const state = {data:null, quotes:{}, live:false};
+
+function num(s){
+  if(s==null) return null;
+  s = String(s).replace(/[,%$+ ]/g,'');
+  if(s==='' || s==='UNCH') return null;
+  const v = parseFloat(s);
+  return isNaN(v) ? null : v;
+}
+function fmtPx(v, q){
+  if(v==null||isNaN(v)) return '—';
+  let s = v>=1000 ? v.toLocaleString('en-US',{maximumFractionDigits:1})
+        : v.toLocaleString('en-US',{maximumFractionDigits:2});
+  return (q && q.cur ? q.cur : '') + s + (q && q.suffix ? q.suffix : '');
+}
+function chClass(p){ return p==null ? 'flat' : (p>0.005?'up':p<-0.005?'down':'flat'); }
+function chTxt(p){ if(p==null) return '—'; const a=p>0?'+':''; return a+p.toFixed(2)+'%'; }
+
+async function loadData(){
+  const r = await fetch('data.json?ts='+Date.now(), {cache:'no-store'});
+  state.data = await r.json();
+}
+
+async function tryLiveQuotes(){
+  const list = QUOTES.filter(q=>q.cnbc);
+  const url = 'https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols='
+    + list.map(q=>encodeURIComponent(q.cnbc)).join('|') + '&output=json';
+  const ctrl = new AbortController();
+  const to = setTimeout(()=>ctrl.abort(), 8000);
+  try{
+    const r = await fetch(url, {signal:ctrl.signal});
+    clearTimeout(to);
+    if(!r.ok) throw 0;
+    const j = await r.json();
+    const arr = (((j||{}).FormattedQuoteResult)||{}).FormattedQuote || [];
+    let ok = 0;
+    for(const q of list){
+      const x = arr.find(a => a.symbol === q.cnbc);
+      if(!x || x.code !== 0 && x.code !== '0') continue;
+      let px = num(x.last);
+      let ch = num(x.change_pct);
+      if(String(x.change_pct).indexOf('UNCH') >= 0) ch = 0;
+      if(px == null) continue;
+      if(q.div100) px = px/100;
+      state.quotes[q.id] = {px:px, ch:ch, live:true};
+      ok++;
+    }
+    if(ok < 8) throw 0;
+    state.live = true;
+    return true;
+  }catch(e){ clearTimeout(to); return false; }
+}
+
+function applySnapshot(){
+  const snap = (state.data && state.data.quotes) || {};
+  for(const id in snap){
+    if(!state.quotes[id] && snap[id] && snap[id].px!=null)
+      state.quotes[id] = {px:snap[id].px, ch:snap[id].ch, live:false};
+  }
+}
+
+function renderQuotes(){
+  const g = document.getElementById('quoteGrid');
+  let html = '';
+  for(const q of QUOTES){
+    if(q.group){ html += '<div class="grouplabel">'+q.group+'</div>'; continue; }
+    const d = state.quotes[q.id];
+    if(!d){ html += '<div class="card qcard na"><div class="sym">'+q.id+'</div><div class="nm">'+q.nm+'</div><div class="px">אין נתון</div></div>'; continue; }
+    const cc = chClass(d.ch);
+    const arrow = cc==='up'?'▲':cc==='down'?'▼':'•';
+    html += '<div class="card qcard"><div class="sym">'+q.id+'</div><div class="nm">'+q.nm+'</div>'
+      + '<div class="px">'+fmtPx(d.px, q)+'</div>'
+      + '<div class="ch '+cc+'">'+arrow+' '+chTxt(d.ch)+'</div></div>';
+  }
+  g.innerHTML = html;
+  const badge = document.getElementById('feedBadge');
+  const txt = document.getElementById('feedBadgeTxt');
+  if(state.live){
+    badge.classList.add('live');
+    txt.textContent = 'ציטוטים חיים · מושהים כ-15 דקות · עודכן '+new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('quotesHint').textContent = 'מקור: CNBC, מושהה';
+  }else{
+    const ts = state.data && state.data.quotes_updated;
+    txt.textContent = 'סנאפשוט שמור' + (ts ? ' · '+ts : '') + ' · ציטוט חי לא זמין כרגע';
+    document.getElementById('quotesHint').textContent = 'נתונים שמורים';
+  }
+}
+
+function renderUpdates(){
+  const list = document.getElementById('updList');
+  const ups = (state.data && state.data.updates) || [];
+  if(!ups.length){ list.innerHTML = '<div class="skel">אין עדכונים עדיין</div>'; return; }
+  list.innerHTML = ups.map(u=>{
+    const cls = u.kind==='deep' ? 'deep' : u.kind==='hot' ? 'hot' : '';
+    return '<div class="upd"><div class="meta"><span class="tag '+cls+'">'+u.tag+'</span><time>'+u.date+'</time></div>'
+      + '<h3>'+u.title+'</h3><p>'+u.body+'</p>'
+      + (u.source_url ? '<span class="src">מקור: <a href="'+u.source_url+'" target="_blank" rel="noopener">'+u.source_name+'</a></span>' : '')
+      + '</div>';
+  }).join('');
+  document.getElementById('updHint').textContent = 'עודכן '+(state.data.updated_he||'');
+}
+
+function renderTheses(){
+  const list = document.getElementById('thList');
+  const ths = (state.data && state.data.theses) || [];
+  const tracked = JSON.parse(localStorage.getItem('tracked')||'{}');
+  if(!ths.length){ list.innerHTML = '<div class="skel">אין תזות עדיין</div>'; return; }
+  list.innerHTML = ths.map(t=>{
+    const q = state.quotes[t.quote_id] || {};
+    const qcfg = QUOTES.find(x=>x.id===t.quote_id) || {cur:'$'};
+    const cur = q.px;
+    const pnl = (cur!=null && t.entry_price) ? (cur-t.entry_price)/t.entry_price*100 : null;
+    const toTarget = (cur!=null && t.entry_price && t.target_price)
+      ? Math.max(0, Math.min(1, (cur-t.entry_price)/(t.target_price-t.entry_price))) : 0;
+    const on = !!tracked[t.id];
+    return '<div class="th"><div class="head"><div><span class="tk">'+t.ticker+'</span><h3>'+t.title+'</h3></div>'
+      + '<span class="mockbadge">דוגמה להמחשה</span></div>'
+      + '<div class="body">'+t.thesis+'</div>'
+      + '<div class="thnums">'
+      + '<div class="cell"><div class="k">כניסה · '+t.entry_date+'</div><div class="v">'+fmtPx(t.entry_price, qcfg)+'</div></div>'
+      + '<div class="cell"><div class="k">מחיר נוכחי</div><div class="v">'+(cur!=null?fmtPx(cur, qcfg):'—')+'</div></div>'
+      + '<div class="cell"><div class="k">יעד</div><div class="v">'+fmtPx(t.target_price, qcfg)+'</div></div>'
+      + '</div>'
+      + '<div class="bar"><div class="fill" style="width:'+Math.round(toTarget*100)+'%"></div></div>'
+      + '<div class="foot"><span class="win">חלון צפוי: '+t.window+' · תשואת דמה: '
+      + '<b class="pnl '+(pnl==null?'':pnl>=0?'up':'down')+'">'+(pnl==null?'—':(pnl>0?'+':'')+pnl.toFixed(1)+'%')+'</b></span>'
+      + '<button class="trackbtn'+(on?' on':'')+'" data-id="'+t.id+'">'+(on?'במעקב ✓':'עקוב')+'</button></div></div>';
+  }).join('');
+  list.querySelectorAll('.trackbtn').forEach(b=>b.onclick=()=>{
+    tracked[b.dataset.id]=!tracked[b.dataset.id];
+    if(!tracked[b.dataset.id]) delete tracked[b.dataset.id];
+    localStorage.setItem('tracked', JSON.stringify(tracked));
+    renderTheses();
+  });
+}
+
+async function boot(){
+  try{ await loadData(); }catch(e){ document.getElementById('feedBadgeTxt').textContent='שגיאה בטעינת הנתונים'; }
+  const live = await tryLiveQuotes();
+  if(!live) applySnapshot();
+  renderQuotes(); renderUpdates(); renderTheses();
+}
+document.getElementById('refreshBtn').onclick = ()=>{ document.getElementById('feedBadgeTxt').textContent='מרענן…'; boot(); };
+document.getElementById('askBtn').onclick = ()=>{
+  const q = document.getElementById('askInput').value.trim();
+  const txt = q ? q : 'מה חדש בשוק?';
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(txt), '_blank');
+};
+document.getElementById('askInput').addEventListener('keydown', e=>{
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); document.getElementById('askBtn').click(); }
+});
+boot();
+setInterval(boot, 120000);
+</script>
+</body>
+</html>
