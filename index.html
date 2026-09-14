@@ -89,12 +89,16 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
 .view{display:none}.view.on{display:block}
 /* technical analysis */
 .tech-controls{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:12px}.tech-controls label{display:block;font-size:12px;color:var(--dim);margin-bottom:5px}.stock-select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;color:var(--txt);font:700 14px inherit;padding:10px 12px;direction:ltr}.toggles{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.ind-toggle{border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:600 12px inherit;border-radius:999px;padding:6px 10px;cursor:pointer}.ind-toggle.on{color:var(--up);border-color:var(--up);background:rgba(45,212,167,.12)}
-.chartbox{height:440px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.chartload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}.tv-wrap,.tv-wrap>div{height:100%}
+.chartbox{height:440px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.price-svg{width:100%;height:100%;display:block}.chart-label{fill:var(--dim);font-size:11px;font-family:Heebo,sans-serif}.chart-price{fill:var(--txt);font-weight:700;font-size:13px;font-family:Heebo,sans-serif}.chart-line{fill:none;stroke:var(--accent);stroke-width:2.5;vector-effect:non-scaling-stroke}.ma-line{fill:none;stroke:var(--gold);stroke-width:1.8;vector-effect:non-scaling-stroke}.ema-line{fill:none;stroke:var(--up);stroke-width:1.8;vector-effect:non-scaling-stroke}.grid-line{stroke:var(--line);stroke-width:1}.indicator-line{fill:none;stroke:#c084fc;stroke-width:1.7;vector-effect:non-scaling-stroke}.chartload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}.tv-wrap,.tv-wrap>div{height:100%}
 .explain{font-size:12.5px;color:var(--dim);margin:8px 2px 0}.edu-grid{display:grid;gap:9px}.educard{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:12px 13px}.educard h3{font-size:14px;color:var(--gold);margin-bottom:3px}.educard p{font-size:12.5px;color:#c3cedb}.fundbox{height:420px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}.fundbox>div{height:100%}.signal-key{display:grid;grid-template-columns:1fr 1fr;gap:8px}.signal{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px}.signal b{display:block;font-size:13px;color:var(--accent)}.signal span{font-size:11.5px;color:var(--dim)}
+/* accessibility */
+.a11y-fab{position:fixed;left:14px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;border:2px solid var(--accent);background:#07131b;color:var(--accent);font-size:22px;cursor:pointer;box-shadow:0 5px 20px #0008}.a11y-panel{position:fixed;left:14px;bottom:76px;z-index:89;width:min(310px,calc(100vw - 28px));background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:14px;box-shadow:0 10px 35px #000b;display:none}.a11y-panel.open{display:block}.a11y-panel h2{font-size:16px;margin-bottom:10px}.a11y-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.a11y-actions button{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);color:var(--txt);font:600 13px inherit;cursor:pointer}.a11y-actions button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
+body.a11y-large{font-size:19px}.a11y-contrast{--bg:#000;--bg2:#000;--card:#060606;--card2:#111;--line:#fff;--txt:#fff;--dim:#eee;--accent:#00e5ff;--gold:#ffe600;--up:#00ff9d;--down:#ff6b6b}.a11y-links a{text-decoration:underline!important;text-decoration-thickness:3px!important;background:#ffe600!important;color:#000!important}.a11y-readable,.a11y-readable *{font-family:Arial,sans-serif!important;letter-spacing:.02em}button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media (min-width:420px){.grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+<a href="#mainContent" style="position:absolute;right:-9999px" onfocus="this.style.right='10px'" onblur="this.style.right='-9999px'">דלג לתוכן הראשי</a>
 <header class="top">
   <div class="toprow">
     <div>
@@ -105,7 +109,7 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
   </div>
   <div><span class="badge" id="feedBadge"><span class="dot"></span><span id="feedBadgeTxt">טוען נתונים…</span></span></div>
 </header>
-<div class="wrap">
+<main class="wrap" id="mainContent">
 <nav class="tabs" aria-label="ניווט בדשבורד">
   <button class="tabbtn on" data-view="home">סקירה</button>
   <button class="tabbtn" data-view="technical">ניתוח טכני</button>
@@ -159,7 +163,7 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
       <button class="ind-toggle" data-study="MACD@tv-basicstudies">התכנסות והתבדרות ממוצעים</button>
     </div>
   </div>
-  <div class="chartbox"><div class="chartload" id="chartLoad">טוען גרף…</div><div class="tv-wrap" id="tvChart"></div></div>
+  <div class="chartbox"><div class="chartload" id="chartLoad">טוען גרף…</div><svg class="price-svg" id="priceChart" viewBox="0 0 440 440" preserveAspectRatio="none" aria-label="גרף מחיר"></svg></div>
   <p class="explain">אפשר להתקרב, לשנות טווח ולסמן או להסתיר מדדים. נתוני המסחר עשויים להיות מושהים לפי הבורסה.</p>
 </section>
 <section>
@@ -186,7 +190,13 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
 <footer>
   האמור בדף זה, לרבות הניתוחים והתזות, אינו ייעוץ השקעות, שיווק השקעות או המלצה לביצוע פעולה בניירות ערך, ואינו תחליף לייעוץ אישי המתחשב בנתוניך. הנתונים עלולים להיות מושהים, חלקיים או שגויים. תזות המעקב הן להמחשה בלבד ואינן משקפות עסקאות שבוצעו בפועל.
 </footer>
-</div>
+</main>
+<button class="a11y-fab" id="a11yBtn" aria-label="פתיחת אפשרויות נגישות" aria-expanded="false">♿</button>
+<aside class="a11y-panel" id="a11yPanel" aria-label="אפשרויות נגישות">
+<h2>אפשרויות נגישות</h2><div class="a11y-actions">
+<button data-a11y="large" aria-pressed="false">הגדלת טקסט</button><button data-a11y="contrast" aria-pressed="false">ניגודיות גבוהה</button>
+<button data-a11y="links" aria-pressed="false">הדגשת קישורים</button><button data-a11y="readable" aria-pressed="false">גופן קריא</button>
+<button id="a11yReset">איפוס</button><button id="a11yClose">סגירה</button></div></aside>
 
 <script>
 const WA_NUMBER = '16508702892';
@@ -364,23 +374,37 @@ document.getElementById('askInput').addEventListener('keydown', e=>{
 boot();
 setInterval(boot, 120000);
 
-// Tab and TradingView widgets
+// Tab, real historical chart and TradingView financials
 const activeStudies = new Set(['MASimple@tv-basicstudies']);
+let historyData=null;
 function addTvScript(target, src, config){
-  target.innerHTML='';
-  const host=document.createElement('div'); host.className='tradingview-widget-container__widget'; host.style.height='100%'; host.style.width='100%'; target.appendChild(host);
+  target.innerHTML=''; const host=document.createElement('div'); host.className='tradingview-widget-container__widget'; host.style.height='100%'; host.style.width='100%'; target.appendChild(host);
   const sc=document.createElement('script'); sc.type='text/javascript'; sc.src=src; sc.async=true; sc.textContent=JSON.stringify(config); target.appendChild(sc);
 }
-function renderTech(){
-  const symbol=document.getElementById('techSymbol').value;
-  document.getElementById('chartLoad').style.display='flex';
-  addTvScript(document.getElementById('tvChart'),'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js',{
-    autosize:true,symbol,interval:'D',timezone:'Asia/Jerusalem',theme:'dark',style:'1',locale:'he_IL',allow_symbol_change:true,calendar:false,hide_side_toolbar:true,withdateranges:true,details:true,hotlist:false,studies:[...activeStudies],support_host:'https://www.tradingview.com'
-  });
-  addTvScript(document.getElementById('tvFund'),'https://s3.tradingview.com/external-embedding/embed-widget-financials.js',{
-    isTransparent:true,largeChartUrl:'',displayMode:'regular',width:'100%',height:'100%',colorTheme:'dark',symbol,locale:'he_IL'
-  });
-  setTimeout(()=>{document.getElementById('chartLoad').style.display='none'},1800);
+function sma(a,n){return a.map((_,i)=>i<n-1?null:a.slice(i-n+1,i+1).reduce((x,y)=>x+y,0)/n)}
+function ema(a,n){let k=2/(n+1),v=a[0];return a.map((x,i)=>(v=i?x*k+v*(1-k):x,v))}
+function rsi(a,n=14){let out=Array(a.length).fill(null);for(let i=n;i<a.length;i++){let g=0,l=0;for(let j=i-n+1;j<=i;j++){let d=a[j]-a[j-1];d>0?g+=d:l-=d}out[i]=l?100-100/(1+g/l):100}return out}
+function pathFor(vals,x,y){let d='',open=false;vals.forEach((v,i)=>{if(v==null)return;d+=(open?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' ';open=true});return d}
+function renderPriceChart(){
+  const symbol=document.getElementById('techSymbol').value, svg=document.getElementById('priceChart'), series=historyData&&historyData.series[symbol];
+  if(!series){svg.innerHTML='<text x="220" y="220" text-anchor="middle" class="chart-label">אין נתונים זמינים</text>';return}
+  const rows=series.rows.slice(-126), dates=rows.map(r=>r[0]), p=rows.map(r=>r[1]); let all=[...p];
+  const simple=sma(p,20), exp=ema(p,20), strength=rsi(p); if(activeStudies.has('MASimple@tv-basicstudies'))all.push(...simple.filter(Boolean));if(activeStudies.has('MAExp@tv-basicstudies'))all.push(...exp);
+  let lo=Math.min(...all),hi=Math.max(...all),pad=(hi-lo)*.08||1;lo-=pad;hi+=pad;const left=48,right=426,top=38,bottom=activeStudies.has('RSI@tv-basicstudies')||activeStudies.has('MACD@tv-basicstudies')?315:390;
+  const x=i=>left+i*(right-left)/(p.length-1), y=v=>bottom-(v-lo)*(bottom-top)/(hi-lo);let h='';
+  for(let i=0;i<5;i++){let yy=top+i*(bottom-top)/4,val=hi-i*(hi-lo)/4;h+=`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" class="grid-line"/><text x="42" y="${yy+4}" text-anchor="end" class="chart-label">${val.toFixed(val>100?0:2)}</text>`}
+  h+=`<text x="${left}" y="22" class="chart-price">${series.name} · ${p[p.length-1].toLocaleString('he-IL',{maximumFractionDigits:2})}</text><path d="${pathFor(p,x,y)}" class="chart-line"/>`;
+  if(activeStudies.has('MASimple@tv-basicstudies'))h+=`<path d="${pathFor(simple,x,y)}" class="ma-line"/><text x="${right}" y="22" text-anchor="end" class="chart-label">ממוצע פשוט</text>`;
+  if(activeStudies.has('MAExp@tv-basicstudies'))h+=`<path d="${pathFor(exp,x,y)}" class="ema-line"/>`;
+  h+=`<text x="${left}" y="${bottom+20}" class="chart-label">${dates[0]}</text><text x="${right}" y="${bottom+20}" text-anchor="end" class="chart-label">${dates[dates.length-1]}</text>`;
+  if(activeStudies.has('RSI@tv-basicstudies')){let yy=v=>425-v*.9;h+=`<line x1="${left}" y1="362" x2="${right}" y2="362" class="grid-line"/><line x1="${left}" y1="398" x2="${right}" y2="398" class="grid-line"/><path d="${pathFor(strength,x,yy)}" class="indicator-line"/><text x="${left}" y="337" class="chart-label">מדד עוצמה יחסית · 70 / 30</text>`}
+  if(activeStudies.has('MACD@tv-basicstudies')){let fast=ema(p,12),slow=ema(p,26),m=fast.map((v,i)=>v-slow[i]),mm=Math.max(...m.map(Math.abs))||1,yy=v=>380-v/mm*35;h+=`<line x1="${left}" y1="380" x2="${right}" y2="380" class="grid-line"/><path d="${pathFor(m,x,yy)}" class="indicator-line"/><text x="${left}" y="337" class="chart-label">התכנסות והתבדרות ממוצעים</text>`}
+  svg.innerHTML=h;document.getElementById('chartLoad').style.display='none';
+}
+async function renderTech(){
+  const symbol=document.getElementById('techSymbol').value;document.getElementById('chartLoad').style.display='flex';
+  if(!historyData)historyData=await fetch('3-history.json?ts='+Date.now()).then(r=>r.json());renderPriceChart();
+  addTvScript(document.getElementById('tvFund'),'https://s3.tradingview.com/external-embedding/embed-widget-financials.js',{isTransparent:true,displayMode:'regular',width:'100%',height:'100%',colorTheme:'dark',symbol,locale:'he_IL'});
 }
 document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x===b));
@@ -391,9 +415,16 @@ document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
 document.getElementById('techSymbol').onchange=renderTech;
 document.querySelectorAll('.ind-toggle').forEach(b=>b.onclick=()=>{
   activeStudies.has(b.dataset.study)?activeStudies.delete(b.dataset.study):activeStudies.add(b.dataset.study);
-  b.classList.toggle('on',activeStudies.has(b.dataset.study)); renderTech();
+  b.classList.toggle('on',activeStudies.has(b.dataset.study)); renderPriceChart();
 });
 
+
+// Accessibility controls, persisted on this device
+const a11yMap={large:'a11y-large',contrast:'a11y-contrast',links:'a11y-links',readable:'a11y-readable'};
+function applyA11y(){let saved=JSON.parse(localStorage.getItem('a11y')||'{}');Object.entries(a11yMap).forEach(([k,c])=>{document.body.classList.toggle(c,!!saved[k]);let b=document.querySelector('[data-a11y="'+k+'"]');if(b)b.setAttribute('aria-pressed',!!saved[k])})}
+document.getElementById('a11yBtn').onclick=()=>{let p=document.getElementById('a11yPanel'),open=!p.classList.contains('open');p.classList.toggle('open',open);document.getElementById('a11yBtn').setAttribute('aria-expanded',open)};
+document.querySelectorAll('[data-a11y]').forEach(b=>b.onclick=()=>{let s=JSON.parse(localStorage.getItem('a11y')||'{}'),k=b.dataset.a11y;s[k]=!s[k];localStorage.setItem('a11y',JSON.stringify(s));applyA11y()});
+document.getElementById('a11yReset').onclick=()=>{localStorage.removeItem('a11y');applyA11y()};document.getElementById('a11yClose').onclick=()=>document.getElementById('a11yBtn').click();applyA11y();
 </script>
 </body>
 </html>
