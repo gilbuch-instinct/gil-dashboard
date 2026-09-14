@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>הדשבורד של גיל</title>
+<meta name="theme-color" content="#0b0f14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f14; --bg2:#10161e; --card:#141c26; --card2:#182230; --line:#223042;
+  --txt:#e8eef5; --dim:#8fa1b3; --up:#2dd4a7; --down:#f87171; --gold:#f5c451;
+  --accent:#38bdf8; --wa:#25d366;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Heebo',system-ui,sans-serif;font-size:16px;line-height:1.5;overflow-x:hidden}
+.wrap{max-width:480px;margin:0 auto;padding:0 14px 90px}
+header.top{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--bg) 75%,transparent);padding:14px 14px 18px;max-width:480px;margin:0 auto}
+.toprow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+h1{font-size:22px;font-weight:800;letter-spacing:.2px}
+h1 .g{color:var(--gold)}
+.sub{color:var(--dim);font-size:12.5px;margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--dim);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin-top:8px}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.badge.live .dot{background:var(--up);box-shadow:0 0 6px var(--up)}
+#refreshBtn{background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:12px;width:40px;height:40px;font-size:17px;cursor:pointer;flex:none}
+#refreshBtn:active{transform:rotate(40deg)}
+section{margin-top:26px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+h2{font-size:17px;font-weight:700}
+h2::before{content:"";display:inline-block;width:4px;height:16px;background:var(--gold);border-radius:2px;margin-left:8px;vertical-align:-2px}
+.hint{font-size:11.5px;color:var(--dim)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px 14px;position:relative;overflow:hidden}
+.qcard .sym{font-size:12px;color:var(--dim);font-weight:600;letter-spacing:.4px}
+.qcard .nm{font-size:13.5px;font-weight:600;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qcard .px{font-size:20px;font-weight:800;margin-top:6px;font-variant-numeric:tabular-nums;direction:ltr;text-align:right;unicode-bidi:plaintext}
+.qcard .ch{display:inline-flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;margin-top:4px;padding:2px 8px;border-radius:999px;direction:ltr}
+.ch.up{color:var(--up);background:rgba(45,212,167,.12)}
+.ch.down{color:var(--down);background:rgba(248,113,113,.12)}
+.ch.flat{color:var(--dim);background:rgba(143,161,179,.12)}
+.qcard.na .px{color:var(--dim);font-size:15px}
+.grouplabel{grid-column:1/-1;font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.5px;margin-top:6px}
+/* updates */
+.upd{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin-bottom:10px}
+.upd .meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;background:rgba(56,189,248,.14);color:var(--accent)}
+.tag.hot{background:rgba(248,113,113,.14);color:var(--down)}
+.tag.deep{background:rgba(245,196,81,.14);color:var(--gold)}
+.upd time{font-size:11.5px;color:var(--dim)}
+.upd h3{font-size:15px;font-weight:700;margin-bottom:5px}
+.upd p{font-size:13.5px;color:#c3cedb}
+.upd .src{display:block;margin-top:7px;font-size:11.5px;color:var(--dim)}
+.upd .src a{color:var(--dim);text-decoration:underline}
+/* theses */
+.th{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:12px}
+.th .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.th h3{font-size:15.5px;font-weight:700}
+.th .tk{font-size:11.5px;color:var(--gold);font-weight:700;letter-spacing:.5px}
+.mockbadge{font-size:10.5px;font-weight:700;color:var(--gold);background:rgba(245,196,81,.12);border:1px solid rgba(245,196,81,.35);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.th .body{font-size:13.5px;color:#c3cedb;margin:8px 0 12px}
+.thnums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.thnums .cell{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:7px 4px}
+.thnums .k{font-size:10.5px;color:var(--dim)}
+.thnums .v{font-size:14px;font-weight:800;margin-top:2px;font-variant-numeric:tabular-nums;direction:ltr}
+.pnl.up{color:var(--up)} .pnl.down{color:var(--down)}
+.bar{height:6px;background:var(--bg2);border-radius:3px;margin-top:12px;position:relative;overflow:visible}
+.bar .fill{position:absolute;top:0;right:0;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--up));max-width:100%}
+.th .foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.th .win{font-size:11.5px;color:var(--dim)}
+.trackbtn{font-size:12px;font-weight:700;border-radius:999px;padding:5px 14px;cursor:pointer;border:1px solid var(--line);background:var(--card2);color:var(--txt)}
+.trackbtn.on{background:rgba(45,212,167,.15);border-color:var(--up);color:var(--up)}
+/* ask */
+.askbox{background:linear-gradient(150deg,#0f2418,#10161e);border:1px solid #1d4630;border-radius:20px;padding:16px}
+.askbox label{font-size:14px;font-weight:700;display:block;margin-bottom:8px}
+.askbox textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:14px;color:var(--txt);font-family:inherit;font-size:14px;padding:12px;min-height:74px;resize:vertical;direction:rtl}
+.askbox textarea:focus{outline:none;border-color:var(--wa)}
+.askbtn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:11px;background:var(--wa);color:#062b16;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:13px;cursor:pointer}
+.askbtn:active{transform:scale(.985)}
+.asknote{font-size:11.5px;color:var(--dim);margin-top:8px;text-align:center}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--dim);line-height:1.7;text-align:center}
+.skel{color:var(--dim);font-size:13px;padding:18px;text-align:center}
+/* navigation */
+.tabs{position:sticky;top:105px;z-index:45;display:flex;gap:7px;overflow-x:auto;padding:3px 0 10px;background:linear-gradient(180deg,var(--bg) 75%,transparent);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}.tabbtn{flex:none;border:1px solid var(--line);background:var(--card);color:var(--dim);font-family:inherit;font-size:12.5px;font-weight:700;border-radius:999px;padding:7px 13px;cursor:pointer}.tabbtn.on{color:#061720;background:var(--accent);border-color:var(--accent)}
+.view{display:none}.view.on{display:block}
+/* technical analysis */
+.tech-controls{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:12px}.tech-controls label{display:block;font-size:12px;color:var(--dim);margin-bottom:5px}.stock-select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;color:var(--txt);font:700 14px inherit;padding:10px 12px;direction:ltr}.toggles{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.ind-toggle{border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:600 12px inherit;border-radius:999px;padding:6px 10px;cursor:pointer}.ind-toggle.on{color:var(--up);border-color:var(--up);background:rgba(45,212,167,.12)}
+.chartbox{height:440px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.price-svg{width:100%;height:100%;display:block}.chart-label{fill:var(--dim);font-size:11px;font-family:Heebo,sans-serif}.chart-price{fill:var(--txt);font-weight:700;font-size:13px;font-family:Heebo,sans-serif}.chart-line{fill:none;stroke:var(--accent);stroke-width:2.5;vector-effect:non-scaling-stroke}.ma-line{fill:none;stroke:var(--gold);stroke-width:1.8;vector-effect:non-scaling-stroke}.ema-line{fill:none;stroke:var(--up);stroke-width:1.8;vector-effect:non-scaling-stroke}.grid-line{stroke:var(--line);stroke-width:1}.indicator-line{fill:none;stroke:#c084fc;stroke-width:1.7;vector-effect:non-scaling-stroke}.chartload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}.tv-wrap,.tv-wrap>div{height:100%}
+.wave-line{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-dasharray:5 4;vector-effect:non-scaling-stroke}.wave-corr{stroke:#c084fc}.wave-dot{fill:var(--card);stroke:var(--gold);stroke-width:1.5}.wave-dot-c{stroke:#c084fc}.wave-tag{fill:var(--gold);font-size:11px;font-weight:700;font-family:Heebo,sans-serif;text-anchor:middle}.wave-tag-c{fill:#c084fc}
+.wavepanel{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-size:13px;line-height:1.65;color:var(--txt)}
+.wavepanel h3{margin:0 0 4px;font-size:15px}.wavepanel .wave-summary{margin:0 0 6px}.wavepanel ul{margin:6px 0 0;padding:0 18px 0 0;color:var(--dim)}.wavepanel li{margin:3px 0}.wavepanel .wave-caveat{color:var(--dim);font-size:12px;margin:8px 0 0;border-top:1px solid var(--line);padding-top:8px}
+.price-svg{touch-action:pan-y}
+.chart-fab{position:absolute;top:8px;left:8px;z-index:6;background:#07131bd9;border:1px solid var(--line);color:var(--txt);border-radius:8px;font-size:13px;padding:5px 10px;cursor:pointer;font-family:Heebo,sans-serif}
+.chart-fab2{top:46px}
+.chartbox.expanded{position:fixed;inset:0;z-index:200;height:100dvh;border-radius:0;background:var(--bg)}
+.xh-line{stroke:var(--dim);stroke-width:1;stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
+.xh-dot{fill:var(--accent);stroke:var(--bg);stroke-width:1.5}
+.xh-bg{fill:#07131be6;stroke:var(--line)}
+.xh-txt{fill:var(--txt);font-size:12px;font-family:Heebo,sans-serif;text-anchor:middle}
+.explain{font-size:12.5px;color:var(--dim);margin:8px 2px 0}.edu-grid{display:grid;gap:9px}.educard{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:12px 13px}.educard h3{font-size:14px;color:var(--gold);margin-bottom:3px}.educard p{font-size:12.5px;color:#c3cedb}.fundbox{height:420px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}.fundbox>div{height:100%}.signal-key{display:grid;grid-template-columns:1fr 1fr;gap:8px}.signal{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px}.signal b{display:block;font-size:13px;color:var(--accent)}.signal span{font-size:11.5px;color:var(--dim)}
+/* accessibility */
+.a11y-fab{position:fixed;left:14px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;border:2px solid var(--accent);background:#07131b;color:var(--accent);font-size:22px;cursor:pointer;box-shadow:0 5px 20px #0008}.a11y-panel{position:fixed;left:14px;bottom:76px;z-index:89;width:min(310px,calc(100vw - 28px));background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:14px;box-shadow:0 10px 35px #000b;display:none}.a11y-panel.open{display:block}.a11y-panel h2{font-size:16px;margin-bottom:10px}.a11y-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.a11y-actions button{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);color:var(--txt);font:600 13px inherit;cursor:pointer}.a11y-actions button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
+body.a11y-large{font-size:19px}.a11y-contrast{--bg:#000;--bg2:#000;--card:#060606;--card2:#111;--line:#fff;--txt:#fff;--dim:#eee;--accent:#00e5ff;--gold:#ffe600;--up:#00ff9d;--down:#ff6b6b}.a11y-links a{text-decoration:underline!important;text-decoration-thickness:3px!important;background:#ffe600!important;color:#000!important}.a11y-readable,.a11y-readable *{font-family:Arial,sans-serif!important;letter-spacing:.02em}button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (min-width:420px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<a href="#mainContent" style="position:absolute;right:-9999px" onfocus="this.style.right='10px'" onblur="this.style.right='-9999px'">דלג לתוכן הראשי</a>
+<header class="top">
+  <div class="toprow">
+    <div>
+      <h1>הדשבורד של <span class="g">גיל</span></h1>
+      <div class="sub">מניות, מדדים ומאקרו — תמונה אחת מהירה</div>
+    </div>
+    <button id="refreshBtn" title="רענון">&#x21bb;</button>
+  </div>
+  <div><span class="badge" id="feedBadge"><span class="dot"></span><span id="feedBadgeTxt">טוען נתונים…</span></span></div>
+</header>
+<main class="wrap" id="mainContent">
+<nav class="tabs" aria-label="ניווט בדשבורד">
+  <button class="tabbtn on" data-view="home">סקירה</button>
+  <button class="tabbtn" data-view="technical">ניתוח טכני</button>
+</nav>
+<div class="view on" id="view-home">
+<section id="sec-quotes">
+  <div class="sechead"><h2>ציטוטים</h2><span class="hint" id="quotesHint"></span></div>
+  <div class="grid" id="quoteGrid"><div class="skel">טוען…</div></div>
+</section>
+
+<section id="sec-updates">
+  <div class="sechead"><h2>עדכונים מהעוזר</h2><span class="hint" id="updHint"></span></div>
+  <div id="updList"><div class="skel">טוען…</div></div>
+</section>
+
+<section id="sec-theses">
+  <div class="sechead"><h2>תזות במעקב</h2><span class="hint">מעקב דמה — לא עסקאות אמיתיות</span></div>
+  <div id="thList"><div class="skel">טוען…</div></div>
+</section>
+
+<section id="sec-ask">
+  <div class="askbox">
+    <label for="askInput">יש שאלה? שלח ישר לעוזר בוואטסאפ</label>
+    <textarea id="askInput" placeholder="למשל: מה קורה עם CIFR היום?"></textarea>
+    <button class="askbtn" id="askBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 2 .5 4 1.5 5.7L.5 23.5l6.1-1.6c1.7.9 3.5 1.4 5.4 1.4 6.3 0 11.4-5.1 11.4-11.4S18.3.5 12 .5zm0 20.9c-1.7 0-3.4-.5-4.9-1.3l-.3-.2-3.6 1 1-3.5-.2-.4a9.4 9.4 0 0 1-1.4-5c0-5.2 4.2-9.4 9.4-9.4s9.4 4.2 9.4 9.4-4.2 9.4-9.4 9.4zm5.2-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+      שליחה בוואטסאפ
+    </button>
+    <div class="asknote">נפתח צ'אט וואטסאפ עם השאלה מוכנה לשליחה</div>
+  </div>
+</section>
+
+</div>
+<div class="view" id="view-technical">
+<section>
+  <div class="sechead"><h2>ניתוח טכני</h2><span class="hint">גרף אינטראקטיבי</span></div>
+  <div class="tech-controls">
+    <label for="techSymbol">בחירת נייר</label>
+    <select class="stock-select" id="techSymbol">
+      <option value="NASDAQ:CIFR">CIFR — סייפר מיינינג</option><option value="NASDAQ:IREN">IREN</option>
+      <option value="NYSE:CLS">CLS — סלסטיקה</option><option value="NASDAQ:ACMR">ACMR — איי־סי־אם ריסרץ'</option>
+      <option value="NASDAQ:META">META — מטא</option><option value="NASDAQ:ADEA">ADEA — אדיאה</option>
+      <option value="TASE:ENLT">ENLT — אנלייט</option><option value="SP:SPX">מדד אס־אנד־פי 500</option>
+      <option value="NASDAQ:NDX">מדד נאסד״ק 100</option><option value="DJ:DJI">מדד דאו ג׳ונס</option>
+      <option value="TVC:GOLD">זהב</option><option value="TVC:USOIL">נפט</option><option value="TVC:US10Y">אג״ח ארצות הברית לעשר שנים</option><option value="COINBASE:BTCUSD">ביטקוין</option>
+    </select>
+    <div class="toggles" aria-label="מדדים על הגרף">
+      <button class="ind-toggle on" data-study="MASimple@tv-basicstudies">ממוצע נע פשוט</button>
+      <button class="ind-toggle" data-study="MAExp@tv-basicstudies">ממוצע נע מעריכי</button>
+      <button class="ind-toggle" data-study="RSI@tv-basicstudies">מדד עוצמה יחסית</button>
+      <button class="ind-toggle" data-study="MACD@tv-basicstudies">התכנסות והתבדרות ממוצעים</button>
+      <button class="ind-toggle on" data-study="Elliott@waves">גלים באליוט</button>
+      <button class="ind-toggle" id="chartExpand">מסך מלא</button>
+    </div>
+  </div>
+  <div class="chartbox"><button class="chart-fab" id="chartExit" hidden>✕ סגירה</button><button class="chart-fab chart-fab2" id="zoomReset" hidden>איפוס תצוגה</button><div class="chartload" id="chartLoad">טוען גרף…</div><svg class="price-svg" id="priceChart" viewBox="0 0 440 440" preserveAspectRatio="none" aria-label="גרף מחיר"></svg></div>
+  <div class="wavepanel" id="wavePanel" hidden></div>
+  <p class="explain">גרירה על הגרף מציגה מחיר ותאריך, צביטה בשתי אצבעות מקרבת או מרחיקה, ומסך מלא פותח תצוגה אופקית רחבה. נתוני המסחר עשויים להיות מושהים לפי הבורסה.</p>
+</section>
+<section>
+  <div class="sechead"><h2>מכפילי שווי</h2><span class="hint">נתונים לנייר שנבחר</span></div>
+  <div class="fundbox" id="tvFund"></div>
+  <div class="edu-grid" style="margin-top:10px">
+    <div class="educard"><h3>מכפיל רווח</h3><p>כמה השוק משלם על כל יחידת רווח שנתית. מכפיל גבוה יכול לשקף ציפיות צמיחה, אך גם תמחור יקר.</p></div>
+    <div class="educard"><h3>מכפיל מכירות</h3><p>שווי החברה ביחס להכנסות. שימושי במיוחד כשהרווח עדיין נמוך או תנודתי.</p></div>
+    <div class="educard"><h3>מכפיל הון</h3><p>שווי השוק ביחס להון העצמי. כדאי להשוות בעיקר לחברות דומות ובאותו ענף.</p></div>
+  </div>
+</section>
+<section>
+  <div class="sechead"><h2>תבניות וסימנים</h2><span class="hint">מפת קריאה מהירה</span></div>
+  <div class="signal-key">
+    <div class="signal"><b>פריצה</b><span>סגירה מעל אזור התנגדות, רצוי במחזור גבוה.</span></div>
+    <div class="signal"><b>תמיכה</b><span>אזור שבו קונים בלמו ירידות שוב ושוב.</span></div>
+    <div class="signal"><b>ראש וכתפיים</b><span>תבנית אפשרית להיפוך מגמה לאחר שבירת קו הצוואר.</span></div>
+    <div class="signal"><b>דגל</b><span>התכנסות קצרה לאחר מהלך חד, שעשויה להמשיך את המגמה.</span></div>
+    <div class="signal"><b>מדד עוצמה יחסית</b><span>מעל שבעים עשוי להעיד על קניות יתר; מתחת לשלושים על מכירות יתר.</span></div>
+    <div class="signal"><b>התכנסות ממוצעים</b><span>חציית הקווים מסייעת לזהות שינוי בתנופה, אך עלולה לאחר.</span></div>
+  </div>
+</section>
+</div>
+<footer>
+  האמור בדף זה, לרבות הניתוחים והתזות, אינו ייעוץ השקעות, שיווק השקעות או המלצה לביצוע פעולה בניירות ערך, ואינו תחליף לייעוץ אישי המתחשב בנתוניך. הנתונים עלולים להיות מושהים, חלקיים או שגויים. תזות המעקב הן להמחשה בלבד ואינן משקפות עסקאות שבוצעו בפועל.
+</footer>
+</main>
+<button class="a11y-fab" id="a11yBtn" aria-label="פתיחת אפשרויות נגישות" aria-expanded="false">♿</button>
+<aside class="a11y-panel" id="a11yPanel" aria-label="אפשרויות נגישות">
+<h2>אפשרויות נגישות</h2><div class="a11y-actions">
+<button data-a11y="large" aria-pressed="false">הגדלת טקסט</button><button data-a11y="contrast" aria-pressed="false">ניגודיות גבוהה</button>
+<button data-a11y="links" aria-pressed="false">הדגשת קישורים</button><button data-a11y="readable" aria-pressed="false">גופן קריא</button>
+<button id="a11yReset">איפוס</button><button id="a11yClose">סגירה</button></div></aside>
+
+<script>
+const WA_NUMBER = '16508702892';
+const QUOTES = [
+  {group:'מדדים'},
+  {cnbc:'.SPX',  id:'SPX',  nm:'S&P 500',              cur:''},
+  {cnbc:'.NDX',  id:'NDX',  nm:'נאסד״ק 100',            cur:''},
+  {cnbc:'.DJI',  id:'DJI',  nm:'דאו ג׳ונס',             cur:''},
+  {group:'המניות שלך'},
+  {cnbc:'CIFR', id:'CIFR', nm:'CIFR — Cipher Mining', cur:'$'},
+  {cnbc:'IREN', id:'IREN', nm:'IREN',                 cur:'$'},
+  {cnbc:'CLS',  id:'CLS',  nm:'CLS — Celestica',      cur:'$'},
+  {cnbc:'ACMR', id:'ACMR', nm:'ACMR — ACM Research',  cur:'$'},
+  {cnbc:'META', id:'META', nm:'META — Meta',          cur:'$'},
+  {cnbc:'ADEA', id:'ADEA', nm:'ADEA — Adeia',         cur:'$'},
+  {cnbc:'ENLT-IL', id:'ENLT', nm:'ENLT — אנלייט',     cur:'₪', div100:true},
+  {group:'מאקרו וסחורות'},
+  {cnbc:'@GC.1',  id:'GOLD', nm:'זהב',               cur:'$'},
+  {cnbc:'@CL.1',  id:'WTI',  nm:'נפט WTI',           cur:'$'},
+  {cnbc:'@LCO.1', id:'BRENT',nm:'נפט ברנט',          cur:'$'},
+  {cnbc:'US10Y',  id:'US10Y',nm:'אג״ח ארה״ב 10 שנים', cur:'', suffix:'%'},
+  {cnbc:'BTC=',   id:'BTC',  nm:'ביטקוין',           cur:'$'},
+];
+const state = {data:null, quotes:{}, live:false};
+
+function num(s){
+  if(s==null) return null;
+  s = String(s).replace(/[,%$+ ]/g,'');
+  if(s==='' || s==='UNCH') return null;
+  const v = parseFloat(s);
+  return isNaN(v) ? null : v;
+}
+function fmtPx(v, q){
+  if(v==null||isNaN(v)) return '—';
+  let s = v>=1000 ? v.toLocaleString('en-US',{maximumFractionDigits:1})
+        : v.toLocaleString('en-US',{maximumFractionDigits:2});
+  return (q && q.cur ? q.cur : '') + s + (q && q.suffix ? q.suffix : '');
+}
+function chClass(p){ return p==null ? 'flat' : (p>0.005?'up':p<-0.005?'down':'flat'); }
+function chTxt(p){ if(p==null) return '—'; const a=p>0?'+':''; return a+p.toFixed(2)+'%'; }
+
+async function loadData(){
+  const r = await fetch('data.json?ts='+Date.now(), {cache:'no-store'});
+  state.data = await r.json();
+}
+
+async function tryLiveQuotes(){
+  const list = QUOTES.filter(q=>q.cnbc);
+  const url = 'https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols='
+    + list.map(q=>encodeURIComponent(q.cnbc)).join('|') + '&output=json';
+  const ctrl = new AbortController();
+  const to = setTimeout(()=>ctrl.abort(), 8000);
+  try{
+    const r = await fetch(url, {signal:ctrl.signal});
+    clearTimeout(to);
+    if(!r.ok) throw 0;
+    const j = await r.json();
+    const arr = (((j||{}).FormattedQuoteResult)||{}).FormattedQuote || [];
+    let ok = 0;
+    for(const q of list){
+      const x = arr.find(a => a.symbol === q.cnbc);
+      if(!x || x.code !== 0 && x.code !== '0') continue;
+      let px = num(x.last);
+      let ch = num(x.change_pct);
+      if(String(x.change_pct).indexOf('UNCH') >= 0) ch = 0;
+      if(px == null) continue;
+      if(q.div100) px = px/100;
+      state.quotes[q.id] = {px:px, ch:ch, live:true};
+      ok++;
+    }
+    if(ok < 8) throw 0;
+    state.live = true;
+    return true;
+  }catch(e){ clearTimeout(to); return false; }
+}
+
+function applySnapshot(){
+  const snap = (state.data && state.data.quotes) || {};
+  for(const id in snap){
+    if(!state.quotes[id] && snap[id] && snap[id].px!=null)
+      state.quotes[id] = {px:snap[id].px, ch:snap[id].ch, live:false};
+  }
+}
+
+function renderQuotes(){
+  const g = document.getElementById('quoteGrid');
+  let html = '';
+  for(const q of QUOTES){
+    if(q.group){ html += '<div class="grouplabel">'+q.group+'</div>'; continue; }
+    const d = state.quotes[q.id];
+    if(!d){ html += '<div class="card qcard na"><div class="sym">'+q.id+'</div><div class="nm">'+q.nm+'</div><div class="px">אין נתון</div></div>'; continue; }
+    const cc = chClass(d.ch);
+    const arrow = cc==='up'?'▲':cc==='down'?'▼':'•';
+    html += '<div class="card qcard"><div class="sym">'+q.id+'</div><div class="nm">'+q.nm+'</div>'
+      + '<div class="px">'+fmtPx(d.px, q)+'</div>'
+      + '<div class="ch '+cc+'">'+arrow+' '+chTxt(d.ch)+'</div></div>';
+  }
+  g.innerHTML = html;
+  const badge = document.getElementById('feedBadge');
+  const txt = document.getElementById('feedBadgeTxt');
+  if(state.live){
+    badge.classList.add('live');
+    txt.textContent = 'ציטוטים חיים · מושהים כ-15 דקות · עודכן '+new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('quotesHint').textContent = 'מקור: CNBC, מושהה';
+  }else{
+    const ts = state.data && state.data.quotes_updated;
+    txt.textContent = 'סנאפשוט שמור' + (ts ? ' · '+ts : '') + ' · ציטוט חי לא זמין כרגע';
+    document.getElementById('quotesHint').textContent = 'נתונים שמורים';
+  }
+}
+
+function renderUpdates(){
+  const list = document.getElementById('updList');
+  const ups = (state.data && state.data.updates) || [];
+  if(!ups.length){ list.innerHTML = '<div class="skel">אין עדכונים עדיין</div>'; return; }
+  list.innerHTML = ups.map(u=>{
+    const cls = u.kind==='deep' ? 'deep' : u.kind==='hot' ? 'hot' : '';
+    return '<div class="upd"><div class="meta"><span class="tag '+cls+'">'+u.tag+'</span><time>'+u.date+'</time></div>'
+      + '<h3>'+u.title+'</h3><p>'+u.body+'</p>'
+      + (u.source_url ? '<span class="src">מקור: <a href="'+u.source_url+'" target="_blank" rel="noopener">'+u.source_name+'</a></span>' : '')
+      + '</div>';
+  }).join('');
+  document.getElementById('updHint').textContent = 'עודכן '+(state.data.updated_he||'');
+}
+
+function renderTheses(){
+  const list = document.getElementById('thList');
+  const ths = (state.data && state.data.theses) || [];
+  const tracked = JSON.parse(localStorage.getItem('tracked')||'{}');
+  if(!ths.length){ list.innerHTML = '<div class="skel">אין תזות עדיין</div>'; return; }
+  list.innerHTML = ths.map(t=>{
+    const q = state.quotes[t.quote_id] || {};
+    const qcfg = QUOTES.find(x=>x.id===t.quote_id) || {cur:'$'};
+    const cur = q.px;
+    const pnl = (cur!=null && t.entry_price) ? (cur-t.entry_price)/t.entry_price*100 : null;
+    const toTarget = (cur!=null && t.entry_price && t.target_price)
+      ? Math.max(0, Math.min(1, (cur-t.entry_price)/(t.target_price-t.entry_price))) : 0;
+    const on = !!tracked[t.id];
+    return '<div class="th"><div class="head"><div><span class="tk">'+t.ticker+'</span><h3>'+t.title+'</h3></div>'
+      + '<span class="mockbadge">דוגמה להמחשה</span></div>'
+      + '<div class="body">'+t.thesis+'</div>'
+      + '<div class="thnums">'
+      + '<div class="cell"><div class="k">כניסה · '+t.entry_date+'</div><div class="v">'+fmtPx(t.entry_price, qcfg)+'</div></div>'
+      + '<div class="cell"><div class="k">מחיר נוכחי</div><div class="v">'+(cur!=null?fmtPx(cur, qcfg):'—')+'</div></div>'
+      + '<div class="cell"><div class="k">יעד</div><div class="v">'+fmtPx(t.target_price, qcfg)+'</div></div>'
+      + '</div>'
+      + '<div class="bar"><div class="fill" style="width:'+Math.round(toTarget*100)+'%"></div></div>'
+      + '<div class="foot"><span class="win">חלון צפוי: '+t.window+' · תשואת דמה: '
+      + '<b class="pnl '+(pnl==null?'':pnl>=0?'up':'down')+'">'+(pnl==null?'—':(pnl>0?'+':'')+pnl.toFixed(1)+'%')+'</b></span>'
+      + '<button class="trackbtn'+(on?' on':'')+'" data-id="'+t.id+'">'+(on?'במעקב ✓':'עקוב')+'</button></div></div>';
+  }).join('');
+  list.querySelectorAll('.trackbtn').forEach(b=>b.onclick=()=>{
+    tracked[b.dataset.id]=!tracked[b.dataset.id];
+    if(!tracked[b.dataset.id]) delete tracked[b.dataset.id];
+    localStorage.setItem('tracked', JSON.stringify(tracked));
+    renderTheses();
+  });
+}
+
+async function boot(){
+  try{ await loadData(); }catch(e){ document.getElementById('feedBadgeTxt').textContent='שגיאה בטעינת הנתונים'; }
+  const live = await tryLiveQuotes();
+  if(!live) applySnapshot();
+  renderQuotes(); renderUpdates(); renderTheses();
+}
+document.getElementById('refreshBtn').onclick = ()=>{ document.getElementById('feedBadgeTxt').textContent='מרענן…'; boot(); };
+document.getElementById('askBtn').onclick = ()=>{
+  const q = document.getElementById('askInput').value.trim();
+  const txt = q ? q : 'מה חדש בשוק?';
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(txt), '_blank');
+};
+document.getElementById('askInput').addEventListener('keydown', e=>{
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); document.getElementById('askBtn').click(); }
+});
+boot();
+setInterval(boot, 120000);
+
+// Tab, real historical chart and TradingView financials
+const activeStudies = new Set(['MASimple@tv-basicstudies','Elliott@waves']);
+let historyData=null;
+function addTvScript(target, src, config){
+  target.innerHTML=''; const host=document.createElement('div'); host.className='tradingview-widget-container__widget'; host.style.height='100%'; host.style.width='100%'; target.appendChild(host);
+  const sc=document.createElement('script'); sc.type='text/javascript'; sc.src=src; sc.async=true; sc.textContent=JSON.stringify(config); target.appendChild(sc);
+}
+function sma(a,n){return a.map((_,i)=>i<n-1?null:a.slice(i-n+1,i+1).reduce((x,y)=>x+y,0)/n)}
+function ema(a,n){let k=2/(n+1),v=a[0];return a.map((x,i)=>(v=i?x*k+v*(1-k):x,v))}
+function rsi(a,n=14){let out=Array(a.length).fill(null);for(let i=n;i<a.length;i++){let g=0,l=0;for(let j=i-n+1;j<=i;j++){let d=a[j]-a[j-1];d>0?g+=d:l-=d}out[i]=l?100-100/(1+g/l):100}return out}
+function pathFor(vals,x,y){let d='',open=false;vals.forEach((v,i)=>{if(v==null)return;d+=(open?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' ';open=true});return d}
+
+// Elliott wave detection (zigzag pivots + impulse rules, scored across degrees)
+function zigzagPoints(p,pct,dirSign){
+  const n=p.length;if(n<8)return[];
+  const piv=[];let dir=0,extIdx=0,extPrice=p[0];
+  const ret=(a,b)=>dirSign*(a/b-1);
+  for(let i=1;i<n;i++){
+    if(dir>=0){
+      if(ret(p[i],extPrice)>=0){extPrice=p[i];extIdx=i}
+      else if(ret(p[i],extPrice)<=-pct){if(dir===1)piv.push({i:extIdx,price:extPrice,kind:'H'});dir=-1;extIdx=i;extPrice=p[i]}
+    }
+    if(dir<=0){
+      if(ret(p[i],extPrice)<=0){extPrice=p[i];extIdx=i}
+      else if(ret(p[i],extPrice)>=pct){piv.push({i:extIdx,price:extPrice,kind:'L'});dir=1;extIdx=i;extPrice=p[i]}
+    }
+  }
+  piv.push({i:extIdx,price:extPrice,kind:dir===1?'H':(dir===-1?'L':(ret(p[extIdx],p[0])>=0?'H':'L'))});
+  const out=[];
+  for(const pt of piv){
+    const last=out[out.length-1];
+    if(last&&last.kind===pt.kind){if((pt.kind==='H'&&ret(pt.price,last.price)>=0)||(pt.kind==='L'&&ret(pt.price,last.price)<=0))out[out.length-1]=pt}
+    else out.push(pt);
+  }
+  return out;
+}
+function waveScore(m,P,range,n){
+  const magnitude=Math.abs(P[m].price-P[0].price)/range, recency=P[m].i/n, staleness=(n-1-P[m].i)/n;
+  return m*2+magnitude*6+recency*4-staleness*10;
+}
+function fitImpulse(piv,n,range){
+  let best=null;
+  for(let s=0;s+3<piv.length;s++){
+    if(piv[s].kind!=='L')continue;
+    const P=piv.slice(s);
+    if(P[1].kind!=='H'||P[1].price<=P[0].price)continue;
+    const w1=P[1].price-P[0].price;
+    if(P[2].kind!=='L'||P[2].price<=P[0].price)continue;
+    const w2=P[1].price-P[2].price;if(w2<=0)continue;
+    if(P[3].kind!=='H'||P[3].price<=P[1].price)continue;
+    const w3=P[3].price-P[2].price;
+    if(P[1].i-P[0].i<2||P[3].i-P[2].i<2)continue;
+    const penFib=Math.min(Math.abs(w2/w1-0.618),0.6);
+    let m=3,score=waveScore(m,P,range,n)-penFib,overlap=0;
+    if(P.length>=5&&P[4].kind==='L'&&P[4].price>P[0].price&&P[4].price<P[3].price&&P[4].i-P[3].i>=2){
+      const w4=P[3].price-P[4].price;
+      if(P[4].price>P[0].price){
+        overlap=P[4].price<=P[1].price*0.985?1:0;
+        m=4;score=waveScore(m,P,range,n)-penFib-Math.min(Math.abs(w4/w3-0.382),0.5)-overlap*1.5;
+        if(P.length>=6&&P[5].kind==='H'&&P[5].price>P[4].price&&P[5].i-P[4].i>=2){
+          const w5=P[5].price-P[4].price;
+          if(w3>=Math.min(w1,w5)*0.999){m=5;score=waveScore(m,P,range,n)-penFib-Math.min(Math.abs(w4/w3-0.382),0.5)-overlap*1.5-Math.min(Math.abs(w5/w1-1),0.8)}
+        }
+      }
+    }
+    if(!best||score>best.score)best={start:s,m,score,overlap};
+  }
+  return best;
+}
+function elliottWaves(p){
+  const n=p.length,mn=Math.min(...p),mx=Math.max(...p),range=mx-mn||1;
+  let result=null;
+  for(const pct of [0.02,0.025,0.03,0.035,0.04,0.05,0.06,0.07,0.08,0.10,0.12,0.14]){
+    for(const dirSign of [1,-1]){
+      const piv=zigzagPoints(p,pct,dirSign);
+      if(piv.length<4)continue;
+      const fit=fitImpulse(piv,n,range);
+      if(!fit)continue;
+      const score=fit.score+pct*4;
+      if(!result||score>result.score)result={fit,piv,dirSign,score,pct};
+    }
+  }
+  if(!result)return null;
+  const {fit,piv,dirSign}=result,pts=[];
+  const labels=['0','1','2','3','4','5'];
+  for(let j=0;j<=fit.m;j++)pts.push({i:piv[fit.start+j].i,price:p[piv[fit.start+j].i],label:labels[j]});
+  let corr=0;
+  if(fit.m===5){
+    const rest=piv.slice(fit.start+6),cl=['A','B','C'];
+    for(let j=0;j<rest.length&&j<3;j++){
+      const expected=dirSign===1?(j%2===0?'L':'H'):(j%2===0?'H':'L');
+      if(rest[j].kind!==expected)break;
+      pts.push({i:rest[j].i,price:p[rest[j].i],label:cl[j]});corr=j+1;
+    }
+  }
+  return {points:pts,direction:dirSign===1?'up':'down',impulseWaves:fit.m,correctionLegs:corr,overlap:fit.overlap};
+}
+const waveMemo={};
+function wavesFor(symbol,p){
+  const key=symbol+'|'+p.length+'|'+p[p.length-1];
+  if(!(key in waveMemo))waveMemo[key]=elliottWaves(p);
+  return waveMemo[key];
+}
+function fmtD(iso){const[,m,d]=iso.split('-');return parseInt(d)+'.'+parseInt(m)}
+function fmtPct(a,b){const r=(b/a-1)*100,word=r>=0?'עלייה של':'ירידה של';return word+' '+Math.abs(r).toFixed(Math.abs(r)>=10?0:1)+'%'}
+const waveNotes={1:'הגל הראשון במגמה; רבים עדיין סקפטיים',2:'תיקון שנשאר מעל נקודת ההתחלה; תנאי בסיסי לספירה',3:'לרוב הגל החזק והארוך ביותר בדפוס',4:'תיקון ביניים לפני הגל האחרון',5:'הגל האחרון בדפוס; לעיתים עם מומנטום נחלש',A:'רגל ראשונה של התיקון',B:'תנועה נגדית בתוך התיקון; נוטה להטעות',C:'רגל התיקון האחרונה'};
+const hebLetter={A:'א',B:'ב',C:'ג'};
+function wavePanelHtml(w,dates,p){
+  const pts=w.points,n=p.length,last=pts[pts.length-1];
+  const up=w.direction==='up',dirWord=up?'כלפי מעלה':'כלפי מטה';
+  let summary;
+  if(w.impulseWaves<5){
+    const stage=w.impulseWaves===3?'המחיר בגל 4 — תיקון ביניים':'המחיר בגל 5 — הגל האחרון במגמה';
+    summary='דפוס דחיפה '+dirWord+' בתהווה: סומנו גלים 1 עד '+w.impulseWaves+'; לפי הספירה, '+stage+'.';
+  }else if(w.correctionLegs===0){
+    summary='הושלם דפוס של חמישה גלי דחיפה '+dirWord+' ב־'+fmtD(dates[pts[5].i])+'. אחרי דפוס מלא מצופה בדרך כלל תיקון.';
+  }else if(w.correctionLegs<3){
+    summary='הושלמו חמישה גלים ב־'+fmtD(dates[pts[5].i])+'; המחיר בתיקון — גל '+hebLetter[pts[5+w.correctionLegs].label]+' מתוך שלושה.';
+  }else{
+    summary='הושלם דפוס מלא: חמישה גלי דחיפה ותיקון א-ב-ג שהסתיים ב־'+fmtD(dates[last.i])+'. ספירה חדשה טרם אומתה.';
+  }
+  if(last.i<n-16)summary+=' שימו לב: הנקודה האחרונה בספירה מ־'+fmtD(dates[last.i])+', והתנועה מאז טרם משתלבת בדפוס.';
+  let items='';
+  for(let j=1;j<pts.length;j++){
+    const a=pts[j-1],b=pts[j],lbl=b.label,heb=hebLetter[lbl]||lbl;
+    let note=waveNotes[lbl]||'';
+    if(lbl==='4'&&w.overlap)note+='; נכנס לתחום גל 1, מה שמחליש את הספירה';
+    items+='<li>גל '+heb+' · '+fmtD(dates[a.i])+' – '+fmtD(dates[b.i])+' · '+fmtPct(a.price,b.price)+' · '+note+'</li>';
+  }
+  return '<h3>ספירת גלי אליוט (אפשרית)</h3><p class="wave-summary">'+summary+'</p><ul>'+items+'</ul>'+
+    '<p class="wave-caveat">הסימון אוטומטי ומבוסס על נתוני הסגירה של חצי השנה האחרונה. ספירת גלי אליוט היא דרך פרשנית להסתכל על הגרף — תמיד קיימות ספירות חלופיות, והיא אינה המלצה לקנייה או למכירה.</p>';
+}
+const wavePanelEmpty='<h3>ספירת גלי אליוט</h3><p class="wave-summary">לא נמצאה ספירה נקייה בחלון הנוכחי; ייתכן שהמבנה מורכב מדי או דל תנועה.</p>';
+
+let chartExpanded=false;
+const zoomWin={};
+let chartCtx=null, xhG=null;
+function chartDims(){return chartExpanded?{w:Math.max(window.innerWidth,480),h:Math.max(window.innerHeight,320)}:{w:440,h:440}}
+function renderPriceChart(){
+  const symbol=document.getElementById('techSymbol').value, svg=document.getElementById('priceChart'), series=historyData&&historyData.series[symbol];
+  const panel=document.getElementById('wavePanel');
+  if(!series){svg.innerHTML='<text x="220" y="220" text-anchor="middle" class="chart-label">אין נתונים זמינים</text>';panel.hidden=true;return}
+  const baseRows=series.rows.slice(-126), baseDates=baseRows.map(r=>r[0]), baseP=baseRows.map(r=>r[1]);
+  let zw=zoomWin[symbol]; if(!zw||zw.end>baseRows.length) zw=zoomWin[symbol]={start:0,end:baseRows.length};
+  const rows=baseRows.slice(zw.start,zw.end), dates=rows.map(r=>r[0]), p=rows.map(r=>r[1]); let all=[...p];
+  const simple=sma(p,20), exp=ema(p,20), strength=rsi(p); if(activeStudies.has('MASimple@tv-basicstudies'))all.push(...simple.filter(Boolean));if(activeStudies.has('MAExp@tv-basicstudies'))all.push(...exp);
+  const dims=chartDims(); svg.setAttribute('viewBox','0 0 '+dims.w+' '+dims.h);
+  const hasOsc=activeStudies.has('RSI@tv-basicstudies')||activeStudies.has('MACD@tv-basicstudies');
+  let lo=Math.min(...all),hi=Math.max(...all),pad=(hi-lo)*.08||1;lo-=pad;hi+=pad;
+  const left=48,right=dims.w-14,top=38,bottom=hasOsc?dims.h-125:dims.h-50;
+  const oTop=bottom+25,oBot=dims.h-15;
+  const x=i=>left+i*(right-left)/(p.length-1), y=v=>bottom-(v-lo)*(bottom-top)/(hi-lo);let h='';
+  for(let i=0;i<5;i++){let yy=top+i*(bottom-top)/4,val=hi-i*(hi-lo)/4;h+=`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" class="grid-line"/><text x="42" y="${yy+4}" text-anchor="end" class="chart-label">${val.toFixed(val>100?0:2)}</text>`}
+  h+=`<text x="${left}" y="22" class="chart-price">${series.name} · ${p[p.length-1].toLocaleString('he-IL',{maximumFractionDigits:2})}</text><path d="${pathFor(p,x,y)}" class="chart-line"/>`;
+  if(activeStudies.has('MASimple@tv-basicstudies'))h+=`<path d="${pathFor(simple,x,y)}" class="ma-line"/><text x="${right}" y="22" text-anchor="end" class="chart-label">ממוצע פשוט</text>`;
+  if(activeStudies.has('MAExp@tv-basicstudies'))h+=`<path d="${pathFor(exp,x,y)}" class="ema-line"/>`;
+  h+=`<text x="${left}" y="${bottom+20}" class="chart-label">${dates[0]}</text><text x="${right}" y="${bottom+20}" text-anchor="end" class="chart-label">${dates[dates.length-1]}</text>`;
+  if(activeStudies.has('RSI@tv-basicstudies')){let yy=v=>oBot-v/100*(oBot-oTop);h+=`<line x1="${left}" y1="${yy(70)}" x2="${right}" y2="${yy(70)}" class="grid-line"/><line x1="${left}" y1="${yy(30)}" x2="${right}" y2="${yy(30)}" class="grid-line"/><path d="${pathFor(strength,x,yy)}" class="indicator-line"/><text x="${left}" y="${oTop+12}" class="chart-label">מדד עוצמה יחסית · 70 / 30</text>`}
+  if(activeStudies.has('MACD@tv-basicstudies')){let fast=ema(p,12),slow=ema(p,26),m=fast.map((v,i)=>v-slow[i]),mm=Math.max(...m.map(Math.abs))||1,mid=(oTop+oBot)/2,yy=v=>mid-v/mm*(oBot-oTop)/2*.8;h+=`<line x1="${left}" y1="${mid}" x2="${right}" y2="${mid}" class="grid-line"/><path d="${pathFor(m,x,yy)}" class="indicator-line"/><text x="${left}" y="${oTop+12}" class="chart-label">התכנסות והתבדרות ממוצעים</text>`}
+  if(activeStudies.has('Elliott@waves')){
+    const w=wavesFor(symbol,baseP);
+    if(w){
+      const pts=w.points,impEnd=w.impulseWaves,vis=pts.map((pt,j)=>({...pt,j})).filter(pt=>pt.i>=zw.start&&pt.i<zw.end);
+      const isHigh=j=>{const l=pts[j].label;if('135'.includes(l))return w.direction==='up';if('024'.includes(l))return w.direction==='down';if(l==='B')return w.direction==='up';return w.direction==='down'};
+      let dImp='',dCorr='';
+      vis.forEach((pt,k)=>{const px=x(pt.i-zw.start),py=y(pt.price);
+        if(pt.j<=impEnd)dImp+=(k&&vis[k-1].j===pt.j-1?'L':'M')+px.toFixed(1)+' '+py.toFixed(1);
+        if(pt.j>=impEnd)dCorr+=(k&&vis[k-1].j===pt.j-1?'L':'M')+px.toFixed(1)+' '+py.toFixed(1)});
+      if(dImp)h+=`<path d="${dImp}" class="wave-line"/>`;
+      if(dCorr&&vis.some(pt=>pt.j>impEnd))h+=`<path d="${dCorr}" class="wave-line wave-corr"/>`;
+      vis.forEach(pt=>{if(pt.j===0)return;const high=isHigh(pt.j),corr=pt.j>impEnd,px=x(pt.i-zw.start),cy=y(pt.price),ty=Math.max(top+10,Math.min(bottom-4,high?cy-12:cy+18));
+        h+=`<circle cx="${px.toFixed(1)}" cy="${cy.toFixed(1)}" r="3" class="wave-dot${corr?' wave-dot-c':''}"/><text x="${px.toFixed(1)}" y="${ty.toFixed(1)}" class="wave-tag${corr?' wave-tag-c':''}">${pt.label}</text>`});
+      panel.innerHTML=wavePanelHtml(w,baseDates,baseP);panel.hidden=false;
+    }else{panel.innerHTML=wavePanelEmpty;panel.hidden=false}
+  }else{panel.hidden=true}
+  svg.innerHTML=h;xhG=null;
+  chartCtx={left,right,top,bottom,W:dims.w,H:dims.h,dates,p,x,y};
+  document.getElementById('zoomReset').hidden=!(zw.start>0||zw.end<baseRows.length);
+  document.getElementById('chartExit').hidden=!chartExpanded;
+  document.getElementById('chartLoad').style.display='none';
+}
+async function renderTech(){
+  const symbol=document.getElementById('techSymbol').value;document.getElementById('chartLoad').style.display='flex';
+  if(!historyData)historyData=await fetch('3-history.json?ts='+Date.now()).then(r=>r.json());renderPriceChart();
+  addTvScript(document.getElementById('tvFund'),'https://s3.tradingview.com/external-embedding/embed-widget-financials.js',{isTransparent:true,displayMode:'regular',width:'100%',height:'100%',colorTheme:'dark',symbol,locale:'he_IL'});
+}
+document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='view-'+b.dataset.view));
+  if(b.dataset.view==='technical'&&!historyData) renderTech();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.getElementById('techSymbol').onchange=renderTech;
+document.querySelectorAll('.ind-toggle').forEach(b=>b.onclick=()=>{
+  activeStudies.has(b.dataset.study)?activeStudies.delete(b.dataset.study):activeStudies.add(b.dataset.study);
+  b.classList.toggle('on',activeStudies.has(b.dataset.study)); renderPriceChart();
+});
+
+// Crosshair, pinch zoom, wheel zoom and landscape expand
+const chartSvg=document.getElementById('priceChart'), chartBox=document.querySelector('.chartbox');
+const SVGNS='http://www.w3.org/2000/svg';
+function ensureXh(){
+  if(xhG&&xhG.isConnected)return xhG;
+  xhG=document.createElementNS(SVGNS,'g');xhG.style.pointerEvents='none';
+  xhG.innerHTML='<line class="xh-line"/><circle class="xh-dot" r="4"/><rect class="xh-bg" rx="6"/><text class="xh-txt"></text>';
+  chartSvg.appendChild(xhG);return xhG;
+}
+function hideCrosshair(){if(xhG)xhG.style.display='none'}
+function updateCrosshair(clientX){
+  const c=chartCtx;if(!c)return;const r=chartSvg.getBoundingClientRect();
+  const vx=(clientX-r.left)/r.width*c.W;
+  let i=Math.round((vx-c.left)/(c.right-c.left)*(c.p.length-1));i=Math.max(0,Math.min(c.p.length-1,i));
+  const g=ensureXh();g.style.display='';
+  const cx=c.x(i),cy=c.y(c.p[i]);
+  const line=g.children[0];line.setAttribute('x1',cx);line.setAttribute('x2',cx);line.setAttribute('y1',c.top);line.setAttribute('y2',c.bottom);
+  const dot=g.children[1];dot.setAttribute('cx',cx);dot.setAttribute('cy',cy);
+  const bg=g.children[2],txt=g.children[3];
+  const label=fmtD(c.dates[i])+' · '+c.p[i].toLocaleString('he-IL',{maximumFractionDigits:2});
+  txt.textContent=label;
+  const tw=label.length*6.6+14,th=22;
+  const bx=Math.max(c.left+2,Math.min(c.right-tw-2,cx-tw/2));
+  bg.setAttribute('x',bx);bg.setAttribute('y',c.top+4);bg.setAttribute('width',tw);bg.setAttribute('height',th);
+  txt.setAttribute('x',bx+tw/2);txt.setAttribute('y',c.top+19);
+}
+const ptrs=new Map();let pinch0=null,rafPending=false;
+function ptrDist(){const a=[...ptrs.values()];return Math.hypot(a[0].clientX-a[1].clientX,a[0].clientY-a[1].clientY)}
+function ptrMidFrac(){const a=[...ptrs.values()],c=chartCtx,r=chartSvg.getBoundingClientRect();const mx=(a[0].clientX+a[1].clientX)/2;const vx=(mx-r.left)/r.width*c.W;return Math.max(0,Math.min(1,(vx-c.left)/(c.right-c.left)))}
+function baseLen(symbol){return historyData.series[symbol].rows.slice(-126).length}
+chartSvg.addEventListener('pointerdown',e=>{
+  try{chartSvg.setPointerCapture(e.pointerId)}catch(_){} ptrs.set(e.pointerId,e);
+  if(ptrs.size===2){const symbol=document.getElementById('techSymbol').value;pinch0={dist:ptrDist(),mid:ptrMidFrac(),win:{...zoomWin[symbol]},base:baseLen(symbol)};hideCrosshair()}
+  else updateCrosshair(e.clientX);
+});
+chartSvg.addEventListener('pointermove',e=>{
+  if(!ptrs.has(e.pointerId))return;ptrs.set(e.pointerId,e);
+  if(ptrs.size===2&&pinch0){
+    if(rafPending)return;rafPending=true;
+    requestAnimationFrame(()=>{rafPending=false;if(!pinch0)return;
+      const symbol=document.getElementById('techSymbol').value;
+      const size0=pinch0.win.end-pinch0.win.start;
+      let size=Math.round(size0*pinch0.dist/ptrDist());size=Math.max(15,Math.min(pinch0.base,size));
+      const center=pinch0.win.start+pinch0.mid*size0;
+      let start=Math.round(center-pinch0.mid*size);start=Math.max(0,Math.min(pinch0.base-size,start));
+      zoomWin[symbol]={start,end:start+size};renderPriceChart();
+    });
+  }else if(ptrs.size===1){updateCrosshair(e.clientX)}
+});
+function endPtr(e){ptrs.delete(e.pointerId);if(ptrs.size<2)pinch0=null;if(ptrs.size===0)setTimeout(()=>{if(ptrs.size===0)hideCrosshair()},1200)}
+chartSvg.addEventListener('pointerup',endPtr);chartSvg.addEventListener('pointercancel',endPtr);
+chartSvg.addEventListener('wheel',e=>{
+  if(!chartCtx)return;e.preventDefault();
+  const symbol=document.getElementById('techSymbol').value,base=baseLen(symbol),zw=zoomWin[symbol],size0=zw.end-zw.start;
+  let size=Math.round(size0*(e.deltaY>0?1.15:0.87));size=Math.max(15,Math.min(base,size));
+  const r=chartSvg.getBoundingClientRect(),vx=(e.clientX-r.left)/r.width*chartCtx.W;
+  const mid=Math.max(0,Math.min(1,(vx-chartCtx.left)/(chartCtx.right-chartCtx.left)));
+  const center=zw.start+mid*size0;
+  let start=Math.round(center-mid*size);start=Math.max(0,Math.min(base-size,start));
+  zoomWin[symbol]={start,end:start+size};renderPriceChart();
+},{passive:false});
+document.getElementById('zoomReset').onclick=()=>{delete zoomWin[document.getElementById('techSymbol').value];renderPriceChart()};
+document.getElementById('chartExpand').onclick=()=>{
+  chartExpanded=true;chartBox.classList.add('expanded');document.body.style.overflow='hidden';
+  if(chartBox.requestFullscreen)chartBox.requestFullscreen().catch(()=>{});
+  if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{});
+  renderPriceChart();
+};
+function exitExpand(){
+  chartExpanded=false;chartBox.classList.remove('expanded');document.body.style.overflow='';
+  if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});
+  if(screen.orientation&&screen.orientation.unlock)screen.orientation.unlock();
+  renderPriceChart();
+}
+document.getElementById('chartExit').onclick=exitExpand;
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&chartExpanded)exitExpand()});
+window.addEventListener('resize',()=>{if(chartExpanded)renderPriceChart()});
+
+
+// Accessibility controls, persisted on this device
+const a11yMap={large:'a11y-large',contrast:'a11y-contrast',links:'a11y-links',readable:'a11y-readable'};
+function applyA11y(){let saved=JSON.parse(localStorage.getItem('a11y')||'{}');Object.entries(a11yMap).forEach(([k,c])=>{document.body.classList.toggle(c,!!saved[k]);let b=document.querySelector('[data-a11y="'+k+'"]');if(b)b.setAttribute('aria-pressed',!!saved[k])})}
+document.getElementById('a11yBtn').onclick=()=>{let p=document.getElementById('a11yPanel'),open=!p.classList.contains('open');p.classList.toggle('open',open);document.getElementById('a11yBtn').setAttribute('aria-expanded',open)};
+document.querySelectorAll('[data-a11y]').forEach(b=>b.onclick=()=>{let s=JSON.parse(localStorage.getItem('a11y')||'{}'),k=b.dataset.a11y;s[k]=!s[k];localStorage.setItem('a11y',JSON.stringify(s));applyA11y()});
+document.getElementById('a11yReset').onclick=()=>{localStorage.removeItem('a11y');applyA11y()};document.getElementById('a11yClose').onclick=()=>document.getElementById('a11yBtn').click();applyA11y();
+</script>
+</body>
+</html>
