@@ -1,6 +1,6 @@
 {
-  "updated_he": "15 בספטמבר 2026, 23:18 שעון ישראל",
-  "quotes_updated": "15.9 · 23:18 · Yahoo Finance",
+  "updated_he": "15 בספטמבר 2026, 23:47 שעון ישראל",
+  "quotes_updated": "15.9 · 23:47 · Yahoo Finance",
   "quotes": {
     "SPX": {
       "px": 7585.73,
@@ -43,20 +43,20 @@
       "ch": -9.1065
     },
     "GOLD": {
-      "px": 4336.8,
-      "ch": -1.5996
+      "px": 4332.2,
+      "ch": -1.704
     },
     "WTI": {
-      "px": 106.06,
-      "ch": 3.4934
+      "px": 105.54,
+      "ch": 2.9859
     },
     "BRENT": {
-      "px": 108.77,
-      "ch": 1.0592
+      "px": 108.31,
+      "ch": 0.6318
     },
     "US2Y": {
-      "px": 4.676,
-      "ch": -0.0781
+      "px": 4.671,
+      "ch": -0.0703
     },
     "US10Y": {
       "px": 4.996,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 75960.38,
-      "ch": -1.5723
+      "px": 75836.22,
+      "ch": -1.7332
     },
     "TA125": {
       "px": 4082.76,
@@ -234,8 +234,8 @@
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock.",
   "sector_quotes": {
     "SPY": {
-      "px": 757.44,
-      "ch": -1.1123,
+      "px": 757.39,
+      "ch": -1.1189,
       "d": "15.9"
     },
     "XLE": {
@@ -294,5 +294,5 @@
       "d": "15.9"
     }
   },
-  "sector_quotes_updated": "15.9.2026 · 23:18 · Yahoo Finance"
+  "sector_quotes_updated": "15.9.2026 · 23:47 · Yahoo Finance"
 }
