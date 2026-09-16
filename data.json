@@ -1,38 +1,38 @@
 {
-  "updated_he": "16 בספטמבר 2026, 17:40 שעון ישראל",
-  "quotes_updated": "16.9 · 17:40 · Yahoo Finance",
+  "updated_he": "16 בספטמבר 2026, 18:09 שעון ישראל",
+  "quotes_updated": "16.9 · 18:09 · Yahoo Finance",
   "quotes": {
     "SPX": {
-      "px": 7604.95,
-      "ch": 0.253
+      "px": 7620.2,
+      "ch": 0.454
     },
     "NDX": {
-      "px": 29132.807,
-      "ch": 0.674
+      "px": 29214.637,
+      "ch": 0.957
     },
     "DJI": {
-      "px": 51997.67,
-      "ch": -0.183
+      "px": 52113.92,
+      "ch": 0.04
     },
     "CIFR": {
-      "px": 17.365,
-      "ch": 15.076
+      "px": 17.425,
+      "ch": 15.474
     },
     "IREN": {
-      "px": 43.57,
-      "ch": 4.786
+      "px": 43.547,
+      "ch": 4.729
     },
     "CLS": {
-      "px": 321.515,
-      "ch": 1.485
+      "px": 323.01,
+      "ch": 1.957
     },
     "ACMR": {
-      "px": 65.395,
-      "ch": 2.276
+      "px": 66.02,
+      "ch": 3.253
     },
     "META": {
-      "px": 679.88,
-      "ch": 1.438
+      "px": 679.5,
+      "ch": 1.382
     },
     "ADEA": {
       "px": 25.2,
@@ -43,28 +43,28 @@
       "ch": 3.151
     },
     "GOLD": {
-      "px": 4379.9,
-      "ch": 1.087
+      "px": 4396.3,
+      "ch": 1.466
     },
     "WTI": {
-      "px": 103.32,
-      "ch": -2.372
+      "px": 102.45,
+      "ch": -3.194
     },
     "BRENT": {
-      "px": 106.98,
-      "ch": -1.628
+      "px": 105.67,
+      "ch": -2.832
     },
     "US2Y": {
       "px": 4.649,
       "ch": 0.0313
     },
     "US10Y": {
-      "px": 4.967,
-      "ch": -0.58
+      "px": 4.961,
+      "ch": -0.701
     },
     "US30Y": {
-      "px": 5.345,
-      "ch": -0.354
+      "px": 5.34,
+      "ch": -0.447
     },
     "IL10Y": {
       "px": 4.01,
@@ -72,16 +72,16 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 75577.28,
-      "ch": -0.385
+      "px": 75523.79,
+      "ch": -1.231
     },
     "TA125": {
       "px": 4125.35,
-      "ch": 1.044
+      "ch": 1.043
     },
     "TA35": {
       "px": 4246.84,
-      "ch": 1.323
+      "ch": 1.321
     },
     "INFRA": {
       "px": 5382.67,
@@ -279,65 +279,65 @@
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock.",
   "sector_quotes": {
     "SPY": {
-      "px": 759.425,
-      "ch": 0.269,
+      "px": 760.92,
+      "ch": 0.466,
       "d": "16.9"
     },
     "XLE": {
-      "px": 64.49,
-      "ch": -2.184,
+      "px": 64.0,
+      "ch": -2.927,
       "d": "16.9"
     },
     "XLV": {
-      "px": 168.14,
-      "ch": 0.286,
+      "px": 168.105,
+      "ch": 0.265,
       "d": "16.9"
     },
     "XLP": {
-      "px": 83.765,
-      "ch": 0.042,
+      "px": 83.745,
+      "ch": 0.018,
       "d": "16.9"
     },
     "XLU": {
-      "px": 41.404,
-      "ch": 0.204,
+      "px": 41.57,
+      "ch": 0.605,
       "d": "16.9"
     },
     "XLF": {
-      "px": 56.63,
-      "ch": -0.387,
+      "px": 56.705,
+      "ch": -0.255,
       "d": "16.9"
     },
     "XLRE": {
-      "px": 43.18,
-      "ch": 0.255,
+      "px": 43.325,
+      "ch": 0.592,
       "d": "16.9"
     },
     "XLC": {
-      "px": 114.305,
-      "ch": 0.241,
+      "px": 114.36,
+      "ch": 0.289,
       "d": "16.9"
     },
     "XLB": {
-      "px": 50.85,
-      "ch": 0.237,
+      "px": 50.86,
+      "ch": 0.256,
       "d": "16.9"
     },
     "XLY": {
-      "px": 110.97,
-      "ch": 0.081,
+      "px": 111.37,
+      "ch": 0.442,
       "d": "16.9"
     },
     "XLI": {
-      "px": 169.49,
-      "ch": 0.379,
+      "px": 170.23,
+      "ch": 0.817,
       "d": "16.9"
     },
     "XLK": {
-      "px": 185.24,
-      "ch": 0.816,
+      "px": 185.83,
+      "ch": 1.137,
       "d": "16.9"
     }
   },
-  "sector_quotes_updated": "16.9.2026 · 17:40 · Yahoo Finance"
+  "sector_quotes_updated": "16.9.2026 · 18:09 · Yahoo Finance"
 }
