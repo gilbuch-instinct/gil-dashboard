@@ -1,70 +1,70 @@
 {
-  "updated_he": "16 בספטמבר 2026, 21:04 שעון ישראל",
-  "quotes_updated": "16.9 · 21:04 · Yahoo Finance",
+  "updated_he": "16 בספטמבר 2026, 21:35 שעון ישראל",
+  "quotes_updated": "16.9 · 21:35 · Yahoo Finance",
   "quotes": {
     "SPX": {
-      "px": 7614.91,
-      "ch": 0.385
+      "px": 7588.1,
+      "ch": 0.031
     },
     "NDX": {
-      "px": 29199.197,
-      "ch": 0.903
+      "px": 29062.96,
+      "ch": 0.432
     },
     "DJI": {
-      "px": 52078.4,
-      "ch": -0.028
+      "px": 51867.2,
+      "ch": -0.434
     },
     "CIFR": {
-      "px": 17.0,
-      "ch": 12.65
+      "px": 16.835,
+      "ch": 11.564
     },
     "IREN": {
-      "px": 43.137,
-      "ch": 3.745
+      "px": 42.744,
+      "ch": 2.799
     },
     "CLS": {
-      "px": 325.459,
-      "ch": 2.73
+      "px": 324.97,
+      "ch": 2.576
     },
     "ACMR": {
-      "px": 65.09,
-      "ch": 1.799
+      "px": 64.7,
+      "ch": 1.189
     },
     "META": {
-      "px": 677.025,
-      "ch": 1.012
+      "px": 677.48,
+      "ch": 1.08
     },
     "ADEA": {
-      "px": 25.35,
-      "ch": 1.807
+      "px": 25.295,
+      "ch": 1.586
     },
     "ENLT": {
       "px": 219.3,
       "ch": 3.151
     },
     "GOLD": {
-      "px": 4389.7,
-      "ch": 1.313
+      "px": 4356.8,
+      "ch": 0.554
     },
     "WTI": {
-      "px": 102.29,
-      "ch": -3.345
+      "px": 102.15,
+      "ch": -3.477
     },
     "BRENT": {
-      "px": 105.55,
-      "ch": -2.943
+      "px": 105.61,
+      "ch": -2.887
     },
     "US2Y": {
       "px": 4.649,
       "ch": 0.0313
     },
     "US10Y": {
-      "px": 4.947,
-      "ch": -0.981
+      "px": 4.953,
+      "ch": -0.861
     },
     "US30Y": {
-      "px": 5.327,
-      "ch": -0.69
+      "px": 5.312,
+      "ch": -0.969
     },
     "IL10Y": {
       "px": 4.01,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 75774.4,
-      "ch": -0.205
+      "px": 75485.28,
+      "ch": -0.586
     },
     "TA125": {
       "px": 4125.35,
@@ -99,6 +99,15 @@
     }
   },
   "updates": [
+    {
+      "tag": "הבנק המרכזי בארה״ב",
+      "kind": "hot",
+      "date": "16 בספטמבר 2026",
+      "title": "תחזיות הפד מאותתות על העלאה נוספת השנה",
+      "body": "התחזיות הרבעוניות החדשות של הפד מצביעות על טווח ריבית של 4%–4.25% בסוף 2026, לאחר שהוועדה העלתה היום את הריבית ל־3.75%–4%; כלומר, החציון מגלם עוד העלאה של רבע נקודת אחוז בחודשים הקרובים. התחזית משאירה את הריבית באותו טווח גם בסוף 2027, מסר של ריבית גבוהה לאורך זמן ולא מהלך חד־פעמי. השרשרת לשוק: ציפייה לריבית גבוהה לאורך זמן דוחפת מעלה את התשואות הריאליות ושיעורי ההיוון, מצמצמת את השווי הנוכחי של רווחים עתידיים ומקשה על מניות צמיחה ועל חברות שתלויות במימון חיצוני. מרכזי נתונים וכורי ביטקוין כמו סייפר ואיירן חשופים גם דרך עלות החוב וגם דרך סיכון שמחיר הביטקוין ייחלש מול דולר ותשואות גבוהים. מנגד, אם נחישות הפד תוריד את ציפיות האינפלציה, התשואות הארוכות עשויות להתייצב גם כשהריבית הקצרה עולה. כעת המשתנה החשוב אינו עצם ההעלאה שכבר תומחרה, אלא האם הנתונים יכריחו את הפד לבצע את העלייה הנוספת ולהחזיק אותה לתוך 2027.",
+      "source_name": "רויטרס",
+      "source_url": "https://www.reuters.com/business/warshs-words-may-matter-more-than-anticipated-fed-rate-hike-2026-09-16/"
+    },
     {
       "tag": "הבנק המרכזי בארה״ב",
       "kind": "hot",
@@ -306,65 +315,65 @@
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock.",
   "sector_quotes": {
     "SPY": {
-      "px": 760.2,
-      "ch": 0.371,
+      "px": 757.49,
+      "ch": 0.013,
       "d": "16.9"
     },
     "XLE": {
-      "px": 64.69,
-      "ch": -1.881,
+      "px": 64.57,
+      "ch": -2.063,
       "d": "16.9"
     },
     "XLV": {
-      "px": 168.58,
-      "ch": 0.549,
+      "px": 168.25,
+      "ch": 0.352,
       "d": "16.9"
     },
     "XLP": {
-      "px": 83.91,
-      "ch": 0.215,
+      "px": 83.75,
+      "ch": 0.024,
       "d": "16.9"
     },
     "XLU": {
-      "px": 41.49,
-      "ch": 0.411,
+      "px": 41.39,
+      "ch": 0.169,
       "d": "16.9"
     },
     "XLF": {
-      "px": 56.405,
-      "ch": -0.783,
+      "px": 56.33,
+      "ch": -0.915,
       "d": "16.9"
     },
     "XLRE": {
-      "px": 43.135,
-      "ch": 0.151,
+      "px": 43.06,
+      "ch": -0.023,
       "d": "16.9"
     },
     "XLC": {
-      "px": 113.865,
-      "ch": -0.145,
+      "px": 113.72,
+      "ch": -0.272,
       "d": "16.9"
     },
     "XLB": {
-      "px": 50.67,
-      "ch": -0.118,
+      "px": 50.53,
+      "ch": -0.394,
       "d": "16.9"
     },
     "XLY": {
-      "px": 111.13,
-      "ch": 0.225,
+      "px": 110.79,
+      "ch": -0.081,
       "d": "16.9"
     },
     "XLI": {
-      "px": 169.85,
-      "ch": 0.592,
+      "px": 169.22,
+      "ch": 0.219,
       "d": "16.9"
     },
     "XLK": {
-      "px": 185.81,
-      "ch": 1.127,
+      "px": 184.76,
+      "ch": 0.555,
       "d": "16.9"
     }
   },
-  "sector_quotes_updated": "16.9.2026 · 21:04 · Yahoo Finance"
+  "sector_quotes_updated": "16.9.2026 · 21:35 · Yahoo Finance"
 }
