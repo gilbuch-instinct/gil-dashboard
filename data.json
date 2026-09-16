@@ -1,6 +1,6 @@
 {
-  "updated_he": "16 בספטמבר 2026, 23:06 שעון ישראל",
-  "quotes_updated": "16.9 · 23:06 · Yahoo Finance",
+  "updated_he": "16 בספטמבר 2026, 23:36 שעון ישראל",
+  "quotes_updated": "16.9 · 23:36 · Yahoo Finance",
   "quotes": {
     "SPX": {
       "px": 7551.81,
@@ -23,8 +23,8 @@
       "ch": 2.501
     },
     "CLS": {
-      "px": 323.52,
-      "ch": 2.118
+      "px": 323.83,
+      "ch": 2.216
     },
     "ACMR": {
       "px": 64.82,
@@ -43,16 +43,16 @@
       "ch": 3.151
     },
     "GOLD": {
-      "px": 4309.6,
-      "ch": -0.535
+      "px": 4298.5,
+      "ch": -0.792
     },
     "WTI": {
-      "px": 101.88,
-      "ch": -3.732
+      "px": 102.13,
+      "ch": -3.496
     },
     "BRENT": {
-      "px": 105.31,
-      "ch": -3.163
+      "px": 105.52,
+      "ch": -2.97
     },
     "US2Y": {
       "px": 4.649,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 76295.44,
-      "ch": 0.556
+      "px": 76103.99,
+      "ch": 0.303
     },
     "TA125": {
       "px": 4125.35,
@@ -315,38 +315,38 @@
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock.",
   "sector_quotes": {
     "SPY": {
-      "px": 754.13,
-      "ch": -0.43,
+      "px": 754.05,
+      "ch": -0.441,
       "d": "16.9"
     },
     "XLE": {
-      "px": 64.07,
-      "ch": -2.821,
+      "px": 64.03,
+      "ch": -2.882,
       "d": "16.9"
     },
     "XLV": {
-      "px": 167.78,
-      "ch": 0.072,
+      "px": 167.77,
+      "ch": 0.066,
       "d": "16.9"
     },
     "XLP": {
-      "px": 83.37,
-      "ch": -0.43,
+      "px": 83.33,
+      "ch": -0.478,
       "d": "16.9"
     },
     "XLU": {
-      "px": 41.323,
-      "ch": 0.007,
+      "px": 41.32,
+      "ch": 0.0,
       "d": "16.9"
     },
     "XLF": {
-      "px": 55.94,
-      "ch": -1.601,
+      "px": 55.93,
+      "ch": -1.618,
       "d": "16.9"
     },
     "XLRE": {
-      "px": 42.8,
-      "ch": -0.627,
+      "px": 42.81,
+      "ch": -0.604,
       "d": "16.9"
     },
     "XLC": {
@@ -355,25 +355,25 @@
       "d": "16.9"
     },
     "XLB": {
-      "px": 50.375,
-      "ch": -0.7,
+      "px": 50.36,
+      "ch": -0.729,
       "d": "16.9"
     },
     "XLY": {
-      "px": 110.15,
-      "ch": -0.658,
+      "px": 110.18,
+      "ch": -0.631,
       "d": "16.9"
     },
     "XLI": {
-      "px": 168.65,
-      "ch": -0.118,
+      "px": 168.71,
+      "ch": -0.083,
       "d": "16.9"
     },
     "XLK": {
-      "px": 183.98,
-      "ch": 0.131,
+      "px": 183.93,
+      "ch": 0.103,
       "d": "16.9"
     }
   },
-  "sector_quotes_updated": "16.9.2026 · 23:06 · Yahoo Finance"
+  "sector_quotes_updated": "16.9.2026 · 23:36 · Yahoo Finance"
 }
