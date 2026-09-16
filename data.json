@@ -1,70 +1,70 @@
 {
-  "updated_he": "16 בספטמבר 2026, 18:09 שעון ישראל",
-  "quotes_updated": "16.9 · 18:09 · Yahoo Finance",
+  "updated_he": "16 בספטמבר 2026, 18:11 שעון ישראל",
+  "quotes_updated": "16.9 · 18:11 · Yahoo Finance",
   "quotes": {
     "SPX": {
-      "px": 7620.2,
-      "ch": 0.454
+      "px": 7618.21,
+      "ch": 0.428
     },
     "NDX": {
-      "px": 29214.637,
-      "ch": 0.957
+      "px": 29210.104,
+      "ch": 0.941
     },
     "DJI": {
-      "px": 52113.92,
-      "ch": 0.04
+      "px": 52112.49,
+      "ch": 0.037
     },
     "CIFR": {
-      "px": 17.425,
-      "ch": 15.474
+      "px": 17.48,
+      "ch": 15.838
     },
     "IREN": {
-      "px": 43.547,
-      "ch": 4.729
+      "px": 43.59,
+      "ch": 4.834
     },
     "CLS": {
-      "px": 323.01,
-      "ch": 1.957
+      "px": 323.29,
+      "ch": 2.045
     },
     "ACMR": {
-      "px": 66.02,
-      "ch": 3.253
+      "px": 65.905,
+      "ch": 3.073
     },
     "META": {
-      "px": 679.5,
-      "ch": 1.382
+      "px": 678.97,
+      "ch": 1.303
     },
     "ADEA": {
-      "px": 25.2,
-      "ch": 1.205
+      "px": 25.205,
+      "ch": 1.225
     },
     "ENLT": {
       "px": 219.3,
       "ch": 3.151
     },
     "GOLD": {
-      "px": 4396.3,
-      "ch": 1.466
+      "px": 4397.2,
+      "ch": 1.486
     },
     "WTI": {
-      "px": 102.45,
-      "ch": -3.194
+      "px": 102.05,
+      "ch": -3.572
     },
     "BRENT": {
-      "px": 105.67,
-      "ch": -2.832
+      "px": 105.3,
+      "ch": -3.172
     },
     "US2Y": {
       "px": 4.649,
       "ch": 0.0313
     },
     "US10Y": {
-      "px": 4.961,
-      "ch": -0.701
+      "px": 4.963,
+      "ch": -0.661
     },
     "US30Y": {
-      "px": 5.34,
-      "ch": -0.447
+      "px": 5.343,
+      "ch": -0.391
     },
     "IL10Y": {
       "px": 4.01,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 75523.79,
-      "ch": -1.231
+      "px": 75727.59,
+      "ch": -0.964
     },
     "TA125": {
       "px": 4125.35,
@@ -99,6 +99,15 @@
     }
   },
   "updates": [
+    {
+      "tag": "אנרגיה",
+      "kind": "hot",
+      "date": "16 בספטמבר 2026",
+      "title": "סעודיה מציעה מטענים נוספים לאסיה דרך עומאן",
+      "body": "רויטרס דיווחה שסעודיה מציעה לבתי זיקוק באסיה מטעני נפט נוספים באמצעות העברה בין אוניות מול נמל סוהאר שבעומאן, לאחר שהפגיעה בצינור לינבוע צמצמה את נתיב היצוא לים האדום. מחיר ברנט ירד בכ־1.6% ומחיר הנפט האמריקאי בכ־2.5%, סימן שהשוק מתמחר יכולת חלקית לעקוף את ההפרעה. השרשרת לשוק: אם ההעברות דרך עומאן יגדלו, הן עשויות להחזיר חביות לשוק האסייתי, לצמצם את פרמיית המחסור ולהקל על לחץ האינפלציה והתשואות; הדבר עשוי לתמוך באג״ח ובמניות צמיחה אך למתן את התמיכה במניות אנרגיה. עם זאת, סולר באירופה נותר סמוך לשיא והמסלול דורש תפעול ימי נוסף, כך שהוא אינו תחליף מלא לצינור ולינבוע. היקף המטענים ומשך השימוש בנתיב טרם פורסמו, ולכן מידת ההקלה עדיין לא ידועה.",
+      "source_name": "רויטרס",
+      "source_url": "https://www.reuters.com/business/energy/oil-falls-us-crude-inventories-rise-despite-saudi-supply-concerns-2026-09-16/"
+    },
     {
       "tag": "תימן והים האדום",
       "kind": "hot",
@@ -279,23 +288,23 @@
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock.",
   "sector_quotes": {
     "SPY": {
-      "px": 760.92,
-      "ch": 0.466,
+      "px": 760.69,
+      "ch": 0.436,
       "d": "16.9"
     },
     "XLE": {
-      "px": 64.0,
-      "ch": -2.927,
+      "px": 63.96,
+      "ch": -2.988,
       "d": "16.9"
     },
     "XLV": {
-      "px": 168.105,
-      "ch": 0.265,
+      "px": 168.225,
+      "ch": 0.337,
       "d": "16.9"
     },
     "XLP": {
-      "px": 83.745,
-      "ch": 0.018,
+      "px": 83.76,
+      "ch": 0.036,
       "d": "16.9"
     },
     "XLU": {
@@ -304,40 +313,40 @@
       "d": "16.9"
     },
     "XLF": {
-      "px": 56.705,
-      "ch": -0.255,
+      "px": 56.64,
+      "ch": -0.369,
       "d": "16.9"
     },
     "XLRE": {
-      "px": 43.325,
-      "ch": 0.592,
+      "px": 43.315,
+      "ch": 0.569,
       "d": "16.9"
     },
     "XLC": {
-      "px": 114.36,
-      "ch": 0.289,
+      "px": 114.31,
+      "ch": 0.246,
       "d": "16.9"
     },
     "XLB": {
-      "px": 50.86,
-      "ch": 0.256,
+      "px": 50.88,
+      "ch": 0.296,
       "d": "16.9"
     },
     "XLY": {
-      "px": 111.37,
-      "ch": 0.442,
+      "px": 111.4,
+      "ch": 0.469,
       "d": "16.9"
     },
     "XLI": {
-      "px": 170.23,
-      "ch": 0.817,
+      "px": 170.1,
+      "ch": 0.74,
       "d": "16.9"
     },
     "XLK": {
-      "px": 185.83,
-      "ch": 1.137,
+      "px": 185.73,
+      "ch": 1.083,
       "d": "16.9"
     }
   },
-  "sector_quotes_updated": "16.9.2026 · 18:09 · Yahoo Finance"
+  "sector_quotes_updated": "16.9.2026 · 18:11 · Yahoo Finance"
 }
