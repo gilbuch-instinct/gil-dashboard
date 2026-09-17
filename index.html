@@ -218,7 +218,7 @@ body.a11y-large .heat-select,body.a11y-large .heat-full{font-size:16px}
       <option value="NASDAQ:META">META — מטא</option><option value="NASDAQ:ADEA">ADEA — אדיאה</option>
       <option value="TASE:ENLT">ENLT — אנלייט</option><option value="SP:SPX">מדד אס־אנד־פי 500</option>
       <option value="NASDAQ:NDX">מדד נאסד״ק 100</option><option value="DJ:DJI">מדד דאו ג׳ונס</option>
-      <option value="TASE:TA125">תא 125</option><option value="TASE:TA35">תא 35</option>
+      <option value="TASE:TA125">תא 125</option><option value="TASE:TA35">תא 35</option><option value="TASE:KSM125K">קסם כשרה תא 125</option><option value="TASE:TAINFRA">תא תשתיות</option>
       <option value="IBI:2126">תשתיות לאומיות — אי.בי.איי</option><option value="IBI:5143078">אי.בי.איי יצור חשמל — קרן</option>
       <option value="TVC:GOLD">זהב</option><option value="TVC:USOIL">נפט</option><option value="TVC:US02Y">אג״ח ארה״ב שנתיים</option><option value="TVC:US10Y">אג״ח ארצות הברית לעשר שנים</option><option value="TVC:US30Y">אג״ח ארה״ב 30 שנה</option><option value="TASE:1227784">אג״ח ממשלתי ישראלי 10 שנים (מחיר)</option><option value="COINBASE:BTCUSD">ביטקוין</option>
     </select>
@@ -292,6 +292,8 @@ const QUOTES = [
   {group:'ישראל'},
   {cnbc:'.TA125', id:'TA125', nm:'תא 125',                cur:''},
   {cnbc:'.TA35',  id:'TA35',  nm:'תא 35',                 cur:''},
+  {id:'KSM125K', nm:'קסם כשרה תא 125 · 1155365', cur:'₪', div100:true},
+  {id:'TAINFRA', nm:'מדד תא תשתיות · 206', cur:''},
   {id:'INFRA', nm:'תשתיות לאומיות',                       cur:''},
   {id:'ELEC',  nm:'אי.בי.איי יצור חשמל (קרן)',            cur:'₪'},
   {group:'המניות שלך'},
