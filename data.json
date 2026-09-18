@@ -106,6 +106,10 @@
       "px": 4017.68,
       "ch": 0.38,
       "d": "16.9"
+    },
+    "NVO": {
+      "px": 43.09,
+      "ch": -0.232
     }
   },
   "updates": [
@@ -410,6 +414,23 @@
       "source_url": "https://investors.quantaservices.com/news-events/press-releases/detail/402/quanta-services-reports-second-quarter-2026-results",
       "current_price_snapshot": 622.02,
       "mock_return_pct": -0.21
+    },
+    {
+      "id": "nvo-obesity-recovery-2026",
+      "ticker": "NVO",
+      "quote_id": "NVO",
+      "title": "נובו נורדיסק — התאוששות בתרופות השמנה",
+      "thesis": "תזה מדומה בלבד, לא המלצה: נובו נורדיסק נסחרת לאחר ירידה חדה, אך העסק מראה שיפור. ברבעון השני המכירות המתואמות עלו ב־7% והרווח התפעולי המתואם עלה ב־11% במטבע קבוע. החברה העלתה את תחזית 2026, גלולת ויגובי עברה 265 אלף מרשמים שבועיים ויותר מ־5 מיליון מרשמים מאז ההשקה, והתזרים החופשי במחצית הראשונה הגיע ל־55.3 מיליארד כתר דני. מנועי התזה הם הרחבת הגלולה מחוץ לארצות הברית, שיפור הנגישות והמחיר, והתקדמות קגריסמה. הסיכונים: תחרות חזקה מול אלי לילי, מלחמת מחירים ולחץ החזרים, ירידת מחירים ומרווחים, תחרות גנרית, כישלון קליני או רגולטורי וסיכון מטבע. טכנית המניה מתחת לממוצעי 20, 50 ו־200 יום ומדד העוצמה היחסית סביב 39, ולכן זו תזת התאוששות ולא קניית מומנטום; תמיכה סביב 40 דולר ואחריה 35–36, והתנגדות סביב 45–47.",
+      "entry_date": "18 בספטמבר",
+      "entry_price": 43.09,
+      "target_price": 52.0,
+      "window": "9-15 חודשים",
+      "category": "בריאות ותרופות",
+      "status": "פעילה — מעקב מדומה",
+      "source_name": "נובו נורדיסק, דוח מחצית ראשונה ורבעון שני 2026",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm",
+      "current_price_snapshot": 43.09,
+      "mock_return_pct": 0.0
     }
   ],
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock. Permanent tracked additions: KSM125K = קסם ETF כשרה תא 125, TASE security 1155365 (Bizportal paper_id 1155365, end-of-day); TAINFRA = מדד תא תשתיות, official TASE index 206 (Bizportal index paper_id 784, end-of-day). Refresh both from Bizportal yearly graph endpoint and carry latest date in d. These are distinct from INFRA/IBI 2126.",
