@@ -1,6 +1,6 @@
 {
-  "updated_he": "19 בספטמבר 2026, 09:51 שעון ישראל",
-  "quotes_updated": "19.9 · 09:51 · Yahoo Finance",
+  "updated_he": "19 בספטמבר 2026, 10:22 שעון ישראל",
+  "quotes_updated": "19.9 · 10:22 · Yahoo Finance",
   "quotes": {
     "SPX": {
       "px": 7650.5,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 81033.11,
-      "ch": 4.522
+      "px": 81145.07,
+      "ch": 4.387
     },
     "TA125": {
       "px": 4164.35,
@@ -517,5 +517,5 @@
       "d": "19.9"
     }
   },
-  "sector_quotes_updated": "19.9.2026 · 09:51 · Yahoo Finance"
+  "sector_quotes_updated": "19.9.2026 · 10:22 · Yahoo Finance"
 }
