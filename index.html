@@ -481,7 +481,7 @@ function renderTheses(){
       ? Math.max(0, Math.min(1, (cur-t.entry_price)/(t.target_price-t.entry_price))) : 0;
     const on = !!tracked[t.id];
     return '<div class="th"><div class="head"><div><span class="tk">'+t.ticker+'</span><h3>'+t.title+'</h3></div>'
-      + '<span class="mockbadge">השקעת דמה · להמחשה</span></div>'
+      + '<span class="mockbadge">השקעת דמה · להמחשה'+(t.allocation_pct?' · '+t.allocation_pct+'% מהתיק':'')+'</span></div>'
       + '<div class="body">'+t.thesis+'</div>'
       + '<div class="thnums">'
       + '<div class="cell"><div class="k">כניסה · '+t.entry_date+'</div><div class="v">'+fmtPx(t.entry_price, qcfg)+'</div></div>'
