@@ -505,5 +505,29 @@
       "ch": 1.028
     }
   },
-  "sector_quotes_updated": "20.9 · 11:01 · Yahoo Finance"
+  "sector_quotes_updated": "20.9 · 11:01 · Yahoo Finance",
+  "virtual_portfolio": {
+    "budget": 10000,
+    "target_return_pct": 10,
+    "horizon": "שנה",
+    "entry_date": "20 בספטמבר 2026",
+    "positions": [
+      {
+        "symbol": "PWR",
+        "entry_price": 636.71,
+        "allocation": 4000
+      },
+      {
+        "symbol": "NVO",
+        "entry_price": 43.24,
+        "allocation": 3500
+      },
+      {
+        "symbol": "XLF",
+        "entry_price": 55.86,
+        "allocation": 2500
+      }
+    ],
+    "label": "מעקב דמה בלבד, לא ייעוץ השקעות"
+  }
 }
