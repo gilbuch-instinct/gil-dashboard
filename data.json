@@ -408,17 +408,18 @@
       "quote_id": "PWR",
       "title": "קוואנטה סרוויסס — תשתיות החשמל של גל הביקוש החדש",
       "thesis": "תזה מדומה בלבד, לא המלצה: קוואנטה בונה ומתחזקת קווי הולכה, רשתות חשמל, מתקני ייצור ותשתיות קריטיות למרכזי נתונים. ברבעון השני הצבר הגיע ל-53.44 מיליארד דולר, והחברה העלתה את תחזית 2026 להכנסות של 39.3 עד 39.7 מיליארד דולר, לרווח מתואם של 16.45 עד 16.95 דולר למניה ולתזרים חופשי של 2.0 עד 2.5 מיליארד דולר. היעד נשען על מימוש הצבר והמשך השקעות ברשת ובמרכזי נתונים, אך נשאר מתחת לשיא 52 השבועות. הסיכונים: תמחור גבוה, עיכובי היתרים ופרויקטים, מחסור בכוח אדם, מזג אוויר, אינטגרציית רכישות והאטה בהשקעות תשתית.",
-      "entry_date": "20 בספטמבר",
-      "entry_price": 636.71,
+      "entry_date": "14 בספטמבר",
+      "entry_price": 623.35,
       "target_price": 750.0,
       "window": "9-15 חודשים",
       "category": "תעשייה ותשתיות",
-      "status": "פעילה — מעקב מדומה בתיק הווירטואלי",
+      "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "קוואנטה סרוויסס, תוצאות הרבעון השני 2026",
       "source_url": "https://investors.quantaservices.com/news-events/press-releases/detail/402/quanta-services-reports-second-quarter-2026-results",
       "current_price_snapshot": 636.71,
-      "mock_return_pct": 0.0,
-      "allocation_pct": 40
+      "mock_return_pct": 2.14,
+      "allocation_pct": 40,
+      "allocation_usd": 4000
     },
     {
       "id": "nvo-obesity-recovery-2026",
@@ -426,17 +427,18 @@
       "quote_id": "NVO",
       "title": "נובו נורדיסק — התאוששות בתרופות השמנה",
       "thesis": "תזה מדומה בלבד, לא המלצה: נובו נורדיסק נסחרת לאחר ירידה חדה, אך העסק מראה שיפור. ברבעון השני המכירות המתואמות עלו ב־7% והרווח התפעולי המתואם עלה ב־11% במטבע קבוע. החברה העלתה את תחזית 2026, גלולת ויגובי עברה 265 אלף מרשמים שבועיים ויותר מ־5 מיליון מרשמים מאז ההשקה, והתזרים החופשי במחצית הראשונה הגיע ל־55.3 מיליארד כתר דני. מנועי התזה הם הרחבת הגלולה מחוץ לארצות הברית, שיפור הנגישות והמחיר, והתקדמות קגריסמה. הסיכונים: תחרות חזקה מול אלי לילי, מלחמת מחירים ולחץ החזרים, ירידת מחירים ומרווחים, תחרות גנרית, כישלון קליני או רגולטורי וסיכון מטבע. טכנית המניה מתחת לממוצעי 20, 50 ו־200 יום ומדד העוצמה היחסית סביב 39, ולכן זו תזת התאוששות ולא קניית מומנטום; תמיכה סביב 40 דולר ואחריה 35–36, והתנגדות סביב 45–47.",
-      "entry_date": "20 בספטמבר",
-      "entry_price": 43.24,
+      "entry_date": "18 בספטמבר",
+      "entry_price": 43.09,
       "target_price": 52.0,
       "window": "9-15 חודשים",
       "category": "בריאות ותרופות",
-      "status": "פעילה — מעקב מדומה בתיק הווירטואלי",
+      "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "נובו נורדיסק, דוח מחצית ראשונה ורבעון שני 2026",
       "source_url": "https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm",
       "current_price_snapshot": 43.24,
-      "mock_return_pct": 0.0,
-      "allocation_pct": 35
+      "mock_return_pct": 0.35,
+      "allocation_pct": 35,
+      "allocation_usd": 3500
     },
     {
       "id": "xlf-financials-2026",
@@ -444,17 +446,18 @@
       "quote_id": "XLF",
       "title": "קרן הפיננסים האמריקאית — ריבית גבוהה עם פיזור",
       "thesis": "תזה מדומה בלבד, לא המלצה: הקרן נותנת חשיפה ל־76 חברות פיננסיות גדולות בדמי ניהול של 0.08%. לפי מנהל הקרן, מכפיל הרווח החזוי הוא כ־16.1 והמכפיל להון כ־2.44. סביבת ריבית גבוהה יכולה לתמוך בתשואות על נכסים ובהכנסות ריבית, בעוד שהתמחור המסודר בשוק האג״ח ומרווחי האשראי הצרים מפחיתים כרגע את סיכון הלחץ המערכתי. הסיכונים: מיתון והפסדי אשראי, עלויות פיקדונות ומימון, עקום תשואות בעייתי, הקשחת דרישות הון ורגולציה, ירידת ריבית מהירה, נזקי ביטוח וריכוז במשקלים גבוהים של ג׳יי־פי מורגן וברקשייר האת׳וויי. טכנית מדד העוצמה היחסית סביב 31 והקרן מתחת לממוצעי 20 ו־50 יום אך מעל ממוצע 200 יום, ולכן מדובר במעקב אחר נסיגה בתוך מגמה ארוכה יותר; תמיכה סביב 54 דולר ואחריה 48, והתנגדות סביב 57–58.6.",
-      "entry_date": "20 בספטמבר",
-      "entry_price": 55.86,
+      "entry_date": "18 בספטמבר",
+      "entry_price": 55.88,
       "target_price": 63.0,
       "window": "9-15 חודשים",
       "category": "קרנות סל סקטוריאליות",
-      "status": "פעילה — מעקב מדומה בתיק הווירטואלי",
+      "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "סטייט סטריט, נתוני קרן XLF",
       "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-financial-select-sector-spdr-etf-xlf",
       "current_price_snapshot": 55.86,
-      "mock_return_pct": 0.0,
-      "allocation_pct": 25
+      "mock_return_pct": -0.04,
+      "allocation_pct": 25,
+      "allocation_usd": 2500
     }
   ],
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock. Permanent tracked additions: KSM125K = קסם ETF כשרה תא 125, TASE security 1155365 (Bizportal paper_id 1155365, end-of-day); TAINFRA = מדד תא תשתיות, official TASE index 206 (Bizportal index paper_id 784, end-of-day). Refresh both from Bizportal yearly graph endpoint and carry latest date in d. These are distinct from INFRA/IBI 2126.",
@@ -508,29 +511,5 @@
       "ch": 1.028
     }
   },
-  "sector_quotes_updated": "20.9 · 12:02 · Yahoo Finance",
-  "virtual_portfolio": {
-    "budget": 10000,
-    "target_return_pct": 10,
-    "horizon": "שנה",
-    "entry_date": "20 בספטמבר 2026",
-    "positions": [
-      {
-        "symbol": "PWR",
-        "entry_price": 636.71,
-        "allocation": 4000
-      },
-      {
-        "symbol": "NVO",
-        "entry_price": 43.24,
-        "allocation": 3500
-      },
-      {
-        "symbol": "XLF",
-        "entry_price": 55.86,
-        "allocation": 2500
-      }
-    ],
-    "label": "מעקב דמה בלבד, לא ייעוץ השקעות"
-  }
+  "sector_quotes_updated": "20.9 · 12:02 · Yahoo Finance"
 }
