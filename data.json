@@ -1,58 +1,58 @@
 {
-  "updated_he": "22 בספטמבר 2026, 22:34 שעון ישראל",
-  "quotes_updated": "22.9 · 22:34 · Yahoo Finance",
+  "updated_he": "22 בספטמבר 2026, 23:00 שעון ישראל",
+  "quotes_updated": "22.9 · 23:00 · Yahoo Finance",
   "quotes": {
     "SPX": {
-      "px": 7776.8,
-      "ch": 0.156
+      "px": 7764.83,
+      "ch": 0.002
     },
     "NDX": {
-      "px": 30740.082,
-      "ch": 0.846
+      "px": 30732.396,
+      "ch": 0.82
     },
     "DJI": {
-      "px": 51934.48,
-      "ch": -0.22
+      "px": 51863.8,
+      "ch": -0.355
     },
     "CIFR": {
-      "px": 19.05,
-      "ch": 0.794
+      "px": 19.095,
+      "ch": 1.032
     },
     "IREN": {
-      "px": 48.43,
-      "ch": 2.541
+      "px": 48.605,
+      "ch": 2.911
     },
     "CLS": {
-      "px": 356.95,
-      "ch": 3.644
+      "px": 356.402,
+      "ch": 3.485
     },
     "ACMR": {
-      "px": 75.1,
-      "ch": 3.202
+      "px": 75.855,
+      "ch": 4.239
     },
     "META": {
-      "px": 739.36,
-      "ch": -0.255
+      "px": 736.3,
+      "ch": -0.668
     },
     "ADEA": {
-      "px": 25.79,
-      "ch": 1.018
+      "px": 25.84,
+      "ch": 1.214
     },
     "ENLT": {
       "px": 22290.0,
       "ch": -2.664
     },
     "GOLD": {
-      "px": 4395.1,
-      "ch": 0.255
+      "px": 4406.8,
+      "ch": 0.522
     },
     "WTI": {
-      "px": 90.15,
-      "ch": -5.878
+      "px": 89.07,
+      "ch": -7.006
     },
     "BRENT": {
-      "px": 98.95,
-      "ch": -1.385
+      "px": 97.84,
+      "ch": -2.492
     },
     "US2Y": {
       "px": 4.649,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 86396.94,
-      "ch": -0.238
+      "px": 86220.47,
+      "ch": -0.442
     },
     "TA125": {
       "px": 4173.28,
@@ -94,8 +94,8 @@
       "d": "10.9"
     },
     "PWR": {
-      "px": 644.825,
-      "ch": 0.345
+      "px": 643.065,
+      "ch": 0.071
     },
     "KSM125K": {
       "px": 40140,
@@ -108,12 +108,12 @@
       "d": "16.9"
     },
     "NVO": {
-      "px": 39.555,
-      "ch": -0.616
+      "px": 39.42,
+      "ch": -0.955
     },
     "XLF": {
-      "px": 54.95,
-      "ch": -1.699
+      "px": 54.79,
+      "ch": -1.986
     }
   },
   "updates": [
@@ -166,10 +166,10 @@
       "tag": "הורמוז ודיפלומטיה ימית",
       "kind": "hot",
       "date": "22 בספטמבר 2026",
-      "title": "איראן מאשרת לרויטרס: פתיחת הורמוז בתוך שבעה ימים מותנית בצעדים אמריקאיים",
-      "body": "גורם איראני בכיר אישר לרויטרס כי איראן יכולה לפתוח את מצר הורמוז בתוך שבעה ימים אם ארצות הברית תפחית את הלחץ הצבאי ותסיר את המצור על נמלי איראן. האישור הישיר לרויטרס מחזק את הדיווחים הקודמים של אי־פי וקיודו על מסלול זמני עם עומאן ועל הצעה שהועברה דרך מתווכים, אך אין עדיין קבלה אמריקאית, לוח זמנים מוסכם או פתיחה בפועל. אותו גורם אמר כי וושינגטון צריכה להצהיר רשמית שהיא בוחרת בפתרון דיפלומטי; במקביל, הפיקוד האיראני הזהיר שפעולה אמריקאית חדשה תיענה ללא מגבלות. השרשרת לשוק: הסכמה מחייבת ופתיחה מדידה עשויות להחזיר מכליות, להפחית פרמיות מלחמה והובלה ולהוריד את פרמיית הסיכון בנפט ובגז; מנגד, התנאים נוגעים ישירות למצור וללחץ הצבאי ולכן דחייה אמריקאית עלולה להפוך את ההצעה למנוף הסלמה. אין שינוי בתזות כעת; נקודת האימות היא תגובה אמריקאית רשמית, הכרזה משותפת ועלייה רציפה בתנועת האוניות.",
-      "source_name": "רויטרס; אי־פי; קיודו",
-      "source_url": "https://www.reuters.com/world/middle-east/iran-ready-reopen-strait-hormuz-if-us-eases-military-pressure-lifts-blockade-2026-09-22/"
+      "title": "טראמפ אומר שהמגעים עם איראן מתקיימים גם היום, אך מאיים בבידוד ובהשמדה אם לא יהיה הסכם",
+      "body": "רויטרס דיווחה כי נשיא ארצות הברית דונלד טראמפ אמר לאחר פגישה באו״ם שאיראן רוצה לדבר ושמגעים התקיימו גם היום, וכי היחסים בין הצדדים מתפתחים. במקביל, שעות קודם לכן הוא קרא לבידוד כלכלי מלא של איראן ואיים להשמידה אם לא יושג הסכם, ואף העריך שהסכם עשוי להגיע רק אחרי בחירות האמצע בנובמבר. גורם איראני בכיר אמר שטהרן העבירה דרך מתווכים הצעה לפתוח את הורמוז בתוך שבעה ימים אם ארצות הברית תפחית לחץ צבאי ותסיר את המצור על נמלי איראן; אין ידיעה על פגישה ישירה, קבלת התנאים או פתיחה בפועל. השרשרת לשוק: אישור אמריקאי לכך שהערוץ פעיל מעלה את ההסתברות להסדר ולחזרת מכליות, ולכן יכול להפחית פרמיות מלחמה, הובלה ונפט; מנגד, הפער בין שפת המגעים לאיום בבידוד ובהשמדה משאיר סיכון גבוה לכישלון ולהסלמה פתאומית. אין שינוי בתזות; נקודות האימות הן הודעה משותפת, הקלה ממשית במצור ותנועה רציפה של מכליות.",
+      "source_name": "רויטרס",
+      "source_url": "https://theprint.in/world/trump-says-iran-deal-nearing-tehran-offers-hormuz-reopening/3050425/"
     },
     {
       "tag": "הורמוז והסלמה ימית",
@@ -543,8 +543,8 @@
       "entry_price": 16.85,
       "target_price": 22.0,
       "window": "3-6 חודשים",
-      "current_price_snapshot": 19.05,
-      "mock_return_pct": 13.06
+      "current_price_snapshot": 19.095,
+      "mock_return_pct": 13.32
     },
     {
       "id": "pwr-grid-infrastructure-2026",
@@ -560,8 +560,8 @@
       "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "קוואנטה סרוויסס, תוצאות הרבעון השני 2026",
       "source_url": "https://investors.quantaservices.com/news-events/press-releases/detail/402/quanta-services-reports-second-quarter-2026-results",
-      "current_price_snapshot": 644.825,
-      "mock_return_pct": 3.45,
+      "current_price_snapshot": 643.065,
+      "mock_return_pct": 3.16,
       "allocation_pct": 40,
       "allocation_usd": 4000
     },
@@ -579,8 +579,8 @@
       "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "נובו נורדיסק, דוח מחצית ראשונה ורבעון שני 2026",
       "source_url": "https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm",
-      "current_price_snapshot": 39.555,
-      "mock_return_pct": -8.2,
+      "current_price_snapshot": 39.42,
+      "mock_return_pct": -8.52,
       "allocation_pct": 35,
       "allocation_usd": 3500
     },
@@ -598,8 +598,8 @@
       "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "סטייט סטריט, נתוני קרן XLF",
       "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-financial-select-sector-spdr-etf-xlf",
-      "current_price_snapshot": 54.95,
-      "mock_return_pct": -1.66,
+      "current_price_snapshot": 54.79,
+      "mock_return_pct": -1.95,
       "allocation_pct": 25,
       "allocation_usd": 2500
     }
@@ -607,53 +607,53 @@
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock. Permanent tracked additions: KSM125K = קסם ETF כשרה תא 125, TASE security 1155365 (Bizportal paper_id 1155365, end-of-day); TAINFRA = מדד תא תשתיות, official TASE index 206 (Bizportal index paper_id 784, end-of-day). Refresh both from Bizportal yearly graph endpoint and carry latest date in d. These are distinct from INFRA/IBI 2126.",
   "sector_quotes": {
     "SPY": {
-      "px": 774.73,
-      "ch": 0.159
+      "px": 773.49,
+      "ch": -0.001
     },
     "XLE": {
-      "px": 61.86,
-      "ch": -0.961
+      "px": 61.77,
+      "ch": -1.105
     },
     "XLV": {
-      "px": 170.16,
-      "ch": 0.68
+      "px": 169.925,
+      "ch": 0.541
     },
     "XLP": {
-      "px": 82.83,
-      "ch": 1.111
+      "px": 82.72,
+      "ch": 0.977
     },
     "XLU": {
-      "px": 40.605,
-      "ch": -0.135
+      "px": 40.52,
+      "ch": -0.344
     },
     "XLF": {
-      "px": 54.945,
-      "ch": -1.708
+      "px": 54.79,
+      "ch": -1.986
     },
     "XLRE": {
-      "px": 42.585,
-      "ch": -0.012
+      "px": 42.49,
+      "ch": -0.235
     },
     "XLC": {
-      "px": 113.75,
-      "ch": -0.871
+      "px": 113.515,
+      "ch": -1.076
     },
     "XLB": {
-      "px": 50.565,
-      "ch": 1.72
+      "px": 50.525,
+      "ch": 1.64
     },
     "XLY": {
-      "px": 112.53,
-      "ch": 0.267
+      "px": 112.32,
+      "ch": 0.08
     },
     "XLI": {
-      "px": 170.125,
-      "ch": 0.085
+      "px": 170.31,
+      "ch": 0.194
     },
     "XLK": {
-      "px": 196.3,
-      "ch": 0.744
+      "px": 196.24,
+      "ch": 0.713
     }
   },
-  "sector_quotes_updated": "22.9 · 22:34 · Yahoo Finance"
+  "sector_quotes_updated": "22.9 · 23:00 · Yahoo Finance"
 }
