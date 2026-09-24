@@ -1,6 +1,6 @@
 {
-  "updated_he": "25 בספטמבר 2026, 01:42 שעון ישראל",
-  "quotes_updated": "25.9 · 01:42 · Yahoo Finance",
+  "updated_he": "25 בספטמבר 2026, 02:12 שעון ישראל",
+  "quotes_updated": "25.9 · 02:12 · Yahoo Finance",
   "quotes": {
     "SPX": {
       "px": 7704.13,
@@ -43,12 +43,12 @@
       "ch": -5.066
     },
     "GOLD": {
-      "px": 4306.8,
-      "ch": -0.269
+      "px": 4307.6,
+      "ch": -0.25
     },
     "WTI": {
-      "px": 94.39,
-      "ch": 2.42
+      "px": 94.32,
+      "ch": 2.344
     },
     "BRENT": {
       "px": 106.45,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 84076.6,
-      "ch": -0.363
+      "px": 84348.81,
+      "ch": -0.041
     },
     "TA125": {
       "px": 4100.4,
@@ -745,5 +745,5 @@
       "ch": -0.323
     }
   },
-  "sector_quotes_updated": "25.9 · 01:42 · Yahoo Finance"
+  "sector_quotes_updated": "25.9 · 02:12 · Yahoo Finance"
 }
