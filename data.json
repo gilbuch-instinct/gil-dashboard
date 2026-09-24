@@ -1,6 +1,6 @@
 {
-  "updated_he": "24 בספטמבר 2026, 23:09 שעון ישראל",
-  "quotes_updated": "24.9 · 23:09 · Yahoo Finance",
+  "updated_he": "24 בספטמבר 2026, 23:39 שעון ישראל",
+  "quotes_updated": "24.9 · 23:39 · Yahoo Finance",
   "quotes": {
     "SPX": {
       "px": 7704.13,
@@ -23,8 +23,8 @@
       "ch": -1.913
     },
     "CLS": {
-      "px": 373.58,
-      "ch": 3.245
+      "px": 373.56,
+      "ch": 3.239
     },
     "ACMR": {
       "px": 76.18,
@@ -43,16 +43,16 @@
       "ch": -5.066
     },
     "GOLD": {
-      "px": 4308.1,
-      "ch": -0.239
+      "px": 4300.6,
+      "ch": -0.412
     },
     "WTI": {
-      "px": 95.18,
-      "ch": 3.277
+      "px": 95.11,
+      "ch": 3.201
     },
     "BRENT": {
-      "px": 107.35,
-      "ch": 4.142
+      "px": 107.41,
+      "ch": 4.201
     },
     "US2Y": {
       "px": 4.649,
@@ -72,8 +72,8 @@
       "d": "14.9"
     },
     "BTC": {
-      "px": 84396.74,
-      "ch": 0.016
+      "px": 84355.02,
+      "ch": -0.033
     },
     "TA125": {
       "px": 4100.4,
@@ -94,8 +94,8 @@
       "d": "10.9"
     },
     "PWR": {
-      "px": 643.36,
-      "ch": 1.332
+      "px": 643.5,
+      "ch": 1.355
     },
     "KSM125K": {
       "px": 40140,
@@ -108,12 +108,12 @@
       "d": "16.9"
     },
     "NVO": {
-      "px": 38.63,
-      "ch": 1.205
+      "px": 38.62,
+      "ch": 1.179
     },
     "XLF": {
-      "px": 54.52,
-      "ch": -0.037
+      "px": 54.53,
+      "ch": -0.018
     }
   },
   "updates": [
@@ -641,8 +641,8 @@
       "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "קוואנטה סרוויסס, תוצאות הרבעון השני 2026",
       "source_url": "https://investors.quantaservices.com/news-events/press-releases/detail/402/quanta-services-reports-second-quarter-2026-results",
-      "current_price_snapshot": 643.36,
-      "mock_return_pct": 3.21,
+      "current_price_snapshot": 643.5,
+      "mock_return_pct": 3.23,
       "allocation_pct": 40,
       "allocation_usd": 4000
     },
@@ -660,8 +660,8 @@
       "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "נובו נורדיסק, דוח מחצית ראשונה ורבעון שני 2026",
       "source_url": "https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm",
-      "current_price_snapshot": 38.63,
-      "mock_return_pct": -10.35,
+      "current_price_snapshot": 38.62,
+      "mock_return_pct": -10.37,
       "allocation_pct": 35,
       "allocation_usd": 3500
     },
@@ -679,8 +679,8 @@
       "status": "פעילה — מעקב מדומה, לא ייעוץ",
       "source_name": "סטייט סטריט, נתוני קרן XLF",
       "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-financial-select-sector-spdr-etf-xlf",
-      "current_price_snapshot": 54.52,
-      "mock_return_pct": -2.43,
+      "current_price_snapshot": 54.53,
+      "mock_return_pct": -2.42,
       "allocation_pct": 25,
       "allocation_usd": 2500
     }
@@ -688,53 +688,53 @@
   "refresh_note": "Daily refresh agent: keep quotes current. TA35/TA125 and the US symbols come from the CNBC quote webservice (.TA35/.TA125 live values also drive the cards when available). INFRA = IBI index 2126 (אינדקס תשתיות לאומיות ישראל) — end-of-day only: take the latest row from https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id=2126&period=6&page_number=0 (needs cookies from the bizportal index page and X-Requested-With header; same values are server-rendered on https://indx.co.il/index/2126-index/). ELEC = IBI mutual fund 5143078 (אי בי אי מניות תעשיית ייצור החשמל ישראל), end-of-day via paper_id=5143078. For both IBI entries keep the 'd' field = latest trading day in D.M format; the card shows it as the close date. TASE trades Sunday-Thursday and IBI publishes after the close, so a few days' lag on holidays is normal. Sector heatmap: keep SPY plus XLE, XLV, XLP, XLU, XLF, XLRE, XLC, XLB, XLY, XLI and XLK current in sector_quotes using the same CNBC webservice. Store px, ch and d; update sector_quotes_updated. The UI tries CNBC live first and labels the bundled values as a saved snapshot when live data is unavailable. Thesis rule: unless Gil explicitly asks otherwise, every newly added mock thesis must use a stock outside the watchlist (currently CIFR, IREN, ACMR, CLS, META, ADEA, ENLT); research current price, entry, target, window, rationale, risks and sources, and label it clearly as mock/not advice. Do not add a new thesis on an existing watchlist stock. Permanent tracked additions: KSM125K = קסם ETF כשרה תא 125, TASE security 1155365 (Bizportal paper_id 1155365, end-of-day); TAINFRA = מדד תא תשתיות, official TASE index 206 (Bizportal index paper_id 784, end-of-day). Refresh both from Bizportal yearly graph endpoint and carry latest date in d. These are distinct from INFRA/IBI 2126.",
   "sector_quotes": {
     "SPY": {
-      "px": 767.27,
-      "ch": -0.07
+      "px": 767.18,
+      "ch": -0.082
     },
     "XLE": {
-      "px": 62.615,
-      "ch": 0.393
+      "px": 62.6,
+      "ch": 0.369
     },
     "XLV": {
-      "px": 169.89,
-      "ch": 0.646
+      "px": 169.87,
+      "ch": 0.634
     },
     "XLP": {
-      "px": 81.71,
-      "ch": -0.873
+      "px": 81.7,
+      "ch": -0.886
     },
     "XLU": {
-      "px": 39.375,
-      "ch": -0.943
+      "px": 39.36,
+      "ch": -0.981
     },
     "XLF": {
-      "px": 54.52,
-      "ch": -0.037
+      "px": 54.53,
+      "ch": -0.018
     },
     "XLRE": {
-      "px": 41.66,
-      "ch": -0.43
+      "px": 41.65,
+      "ch": -0.454
     },
     "XLC": {
-      "px": 114.0,
-      "ch": 1.279
+      "px": 113.99,
+      "ch": 1.27
     },
     "XLB": {
-      "px": 49.685,
-      "ch": -1.183
+      "px": 49.68,
+      "ch": -1.193
     },
     "XLY": {
-      "px": 110.33,
-      "ch": -0.289
+      "px": 110.32,
+      "ch": -0.298
     },
     "XLI": {
-      "px": 168.86,
-      "ch": -0.729
+      "px": 168.83,
+      "ch": -0.747
     },
     "XLK": {
-      "px": 194.68,
-      "ch": -0.338
+      "px": 194.71,
+      "ch": -0.323
     }
   },
-  "sector_quotes_updated": "24.9 · 23:09 · Yahoo Finance"
+  "sector_quotes_updated": "24.9 · 23:39 · Yahoo Finance"
 }
