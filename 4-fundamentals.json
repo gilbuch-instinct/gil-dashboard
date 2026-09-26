@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-26T17:59:05.326195+03:00",
-  "updated_he": "26 בספטמבר 2026, 17:59 שעון ישראל",
+  "updated": "2026-09-26T18:29:44.494474+03:00",
+  "updated_he": "26 בספטמבר 2026, 18:29 שעון ישראל",
   "source": "Yahoo Finance key-statistics pages (current valuation measures; ENLT uses US dual listing because ENLT.TA statistics page is unavailable)",
   "refresh_note": "Snapshot of valuation multiples for the dashboard's stock symbols and their comparison peers. The daily refresh agent must regenerate this file alongside 3-history.json: for each symbol in stocks query Yahoo Finance quoteSummary modules=financialData,defaultKeyStatistics,summaryDetail,price (ENLT.TA for TASE:ENLT; every peer symbol uses its plain US ticker, e.g. MARA, NEE). pe=summaryDetail.trailingPE (null plus pe_note=negative-eps when trailing EPS is negative), pb=defaultKeyStatistics.priceToBook divided by 100 for ILA-priced symbols, ps=price.marketCap/totalRevenue with marketCap converted to the financialCurrency when they differ (USDILS=X for ENLT). peer_sets maps each dashboard stock to a Hebrew group label (label_he) and 3-5 peer symbols; every symbol referenced in peer_sets must also exist as an entry in stocks so the comparison table can render. Non-stock symbols (indices, commodities, FX, crypto) are intentionally absent so the UI can show its not-applicable note.",
   "stocks": {
