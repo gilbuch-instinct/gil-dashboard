@@ -13,6 +13,12 @@ def chart(sym,rng,interval,pre=False):
   except Exception:time.sleep(.3)
  raise RuntimeError(f'{sym} {rng} {interval}: two chart hosts failed')
 H=load('3-history.json'); I=load('5-intraday.json'); D=load('data.json'); F=load('4-fundamentals.json')
+# Reviewed, source-linked news entries live in a small file so the large snapshot need not be edited in the browser.
+extra=load('market_updates.json') if os.path.exists(R+'/market_updates.json') else []
+assert isinstance(extra,list) and all(isinstance(x,dict) and all(k in x for k in ('title','body','source_url','date')) for x in extra)
+existing={x.get('title') for x in D.get('updates',[])}
+D['updates']=[x for x in extra if x['title'] not in existing]+D['updates']
+
 maphist={'NASDAQ:CIFR':'CIFR','NASDAQ:IREN':'IREN','NYSE:CLS':'CLS','NASDAQ:ACMR':'ACMR','NASDAQ:META':'META','NASDAQ:ADEA':'ADEA','TASE:ENLT':'ENLT.TA','SP:SPX':'^GSPC','NASDAQ:NDX':'^NDX','DJ:DJI':'^DJI','TVC:GOLD':'GC=F','TVC:USOIL':'CL=F','TVC:US10Y':'^TNX','COINBASE:BTCUSD':'BTC-USD','TASE:TA35':'TA35.TA','TASE:TA125':'^TA125.TA','TVC:US30Y':'^TYX','NYSE:NVO':'NVO','AMEX:XLF':'XLF'}
 assert set(I['series'])==set(maphist)
 qq={'SPX':'^GSPC','NDX':'^NDX','DJI':'^DJI','CIFR':'CIFR','IREN':'IREN','CLS':'CLS','ACMR':'ACMR','META':'META','ADEA':'ADEA','ENLT':'ENLT.TA','GOLD':'GC=F','WTI':'CL=F','BRENT':'BZ=F','US10Y':'^TNX','US30Y':'^TYX','BTC':'BTC-USD','TA125':'^TA125.TA','TA35':'TA35.TA','PWR':'PWR','NVO':'NVO','XLF':'XLF'}
