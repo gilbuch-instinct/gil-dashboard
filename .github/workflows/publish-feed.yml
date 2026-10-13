@@ -1,0 +1,25 @@
+name: Publish feed
+on:
+  workflow_dispatch:
+    inputs:
+      feed_json:
+        description: Full market_updates.json content
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Write feed
+        env:
+          FEED: ${{ github.event.inputs.feed_json }}
+        run: printf '%s' "$FEED" > market_updates.json
+      - name: Commit and push
+        run: |
+          git config user.name "gil-dashboard-bot"
+          git config user.email "gil-dashboard-bot@users.noreply.github.com"
+          git add market_updates.json
+          git diff --cached --quiet || (git commit -m "Update market updates feed" && git push)
