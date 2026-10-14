@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = {"SPX": "^GSPC", "NDX": "^NDX", "DJI": "^DJI", "TA125": "^TA125.TA", "TA35": "TA35.TA"}
 with open(ROOT / "data.json", encoding="utf-8") as handle:
     data = json.load(handle)
