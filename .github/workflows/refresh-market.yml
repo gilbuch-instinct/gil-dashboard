@@ -25,7 +25,7 @@ jobs:
         id: refresh
         run: |
           python refresh_market.py
-          python validate_market_snapshot.py
+          python validate_market_snapshot.py/validate_market_snapshot.py
           value=$(python -c "import json; print(json.load(open(\"data.json\"))[\"quotes_updated\"])")
           printf "quotes_updated=%s\\n" "$value" >> "$GITHUB_OUTPUT"
       - name: Validate JSON and publish changed snapshots
