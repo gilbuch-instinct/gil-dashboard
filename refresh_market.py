@@ -16,8 +16,19 @@ H=load('3-history.json'); I=load('5-intraday.json'); D=load('data.json'); F=load
 # Reviewed, source-linked news entries live in a small file so the large snapshot need not be edited in the browser.
 extra=load('market_updates.json') if os.path.exists(R+'/market_updates.json') else []
 assert isinstance(extra,list) and all(isinstance(x,dict) and all(k in x for k in ('title','body','source_url','date')) for x in extra)
-existing={x.get('title') for x in D.get('updates',[])}
-D['updates']=[x for x in extra if x['title'] not in existing]+D['updates']
+updates=D.setdefault('updates',[])
+for incoming in extra:
+ title=incoming['title']
+ matches=[x for x in updates if x.get('title')==title]
+ if matches:
+  for current in matches:
+   current['body']=incoming['body']
+   for key in list(current):
+    if key=='source_name' or key.startswith('source_url'):current.pop(key)
+   for key,value in incoming.items():
+    if key=='source_name' or key.startswith('source_url'):current[key]=value
+ else:
+  updates.insert(0,incoming)
 
 maphist={'NASDAQ:CIFR':'CIFR','NASDAQ:IREN':'IREN','NYSE:CLS':'CLS','NASDAQ:ACMR':'ACMR','NASDAQ:META':'META','NASDAQ:ADEA':'ADEA','TASE:ENLT':'ENLT.TA','SP:SPX':'^GSPC','NASDAQ:NDX':'^NDX','DJ:DJI':'^DJI','TVC:GOLD':'GC=F','TVC:USOIL':'CL=F','TVC:US10Y':'^TNX','COINBASE:BTCUSD':'BTC-USD','TASE:TA35':'TA35.TA','TASE:TA125':'^TA125.TA','TVC:US30Y':'^TYX','NYSE:NVO':'NVO','AMEX:XLF':'XLF'}
 assert set(I['series'])==set(maphist)
