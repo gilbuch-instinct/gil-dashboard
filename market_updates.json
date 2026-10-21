@@ -522,5 +522,15 @@
     "source_url_tertiary": "https://www.afr.com/company/asx/nxt",
     "tag": "NXT: ירידת מניה ותחזית FY27",
     "title": "NEXTDC צנחה עד 45% לאחר קיצוץ תחזית בגלל עיכוב אספקת חשמל"
+  },
+  {
+    "body": "התראה ימית NAVAREA IX 393/26 של Hydrographer of Pakistan, מ־21 באוקטובר 01:45 UTC: מכלית הנפט Al Dasma דווחה כמעורבת בתקרית ביטחונית שגרמה לשריפה ולסחיפה, כ־11 מייל ימי ממערב לבוכה במצר הורמוז. ההודעה מזהירה ימאים ומציינת כי מידע בהודעות ניווט עלול להיות חלקי או לא מהימן. זהו סימן לסיכון מיידי לבטיחות השיט; אין בהודעה פירוט על סיבת האירוע, נפגעים, דליפה, מטען או שיבוש מוכח בזרימת הנפט, ואין להסיק ממנה שהמצר נסגר. אין שינוי בהנחות היצע או בתזות עד לאימות נוסף.",
+    "date": "21 באוקטובר 2026",
+    "kind": "market",
+    "source_name": "Hydrographer of Pakistan (NAVAREA IX 393/26)",
+    "source_url": "https://hydrography.paknavy.gov.pk/wp-content/plugins/navarea-warnings/custom_uploaded_warnings_for_navarea/20261021EC%20393.txt",
+    "source_url_secondary": "https://hydrography.paknavy.gov.pk/navarea-ix-warnings/",
+    "tag": "Hormuz: התרעת NAVAREA על מכלית בוערת ונסחפת",
+    "title": "התראה ימית: מכלית Al Dasma מדווחת בוערת ונסחפת בהורמוז"
   }
 ]
