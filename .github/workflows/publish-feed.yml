@@ -3,8 +3,12 @@ on:
   workflow_dispatch:
     inputs:
       feed_json:
-        description: Full market_updates.json content
-        required: true
+        description: Full market_updates.json content (replacement)
+        required: false
+        type: string
+      new_card_json:
+        description: One market_updates.json card to append
+        required: false
         type: string
 permissions:
   contents: write
@@ -13,10 +17,46 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Write feed
+      - name: Validate and write feed
         env:
-          FEED: ${{ github.event.inputs.feed_json }}
-        run: printf '%s' "$FEED" > market_updates.json
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, tempfile
+
+          event = json.load(open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8"))
+          inputs = event.get("inputs", {})
+          path = pathlib.Path("market_updates.json")
+          replacement = inputs.get("feed_json", "")
+          new_card_json = inputs.get("new_card_json", "")
+
+          if replacement and new_card_json:
+              raise SystemExit("Choose either feed_json replacement or new_card_json append, not both")
+          if new_card_json:
+              current = json.loads(path.read_text(encoding="utf-8"))
+              card = json.loads(new_card_json)
+              if not isinstance(current, list) or not isinstance(card, dict):
+                  raise SystemExit("Current feed must be an array and new card must be an object")
+              title = card.get("title")
+              if not isinstance(title, str) or not title.strip():
+                  raise SystemExit("New card must have a non-empty title")
+              if any(item.get("title") == title for item in current if isinstance(item, dict)):
+                  raise SystemExit("Duplicate title: " + title)
+              result = current + [card]
+          elif replacement:
+              result = json.loads(replacement)
+              if not isinstance(result, list):
+                  raise SystemExit("Replacement feed must be a JSON array")
+          else:
+              raise SystemExit("Provide feed_json or new_card_json")
+
+          encoded = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
+          json.loads(encoded)
+          fd, tmp = tempfile.mkstemp(dir=path.parent, prefix="market_updates.")
+          with os.fdopen(fd, "w", encoding="utf-8") as f:
+              f.write(encoded)
+          os.replace(tmp, path)
+          PY
       - name: Commit and push
         run: |
           git config user.name 'gil-dashboard-bot'
