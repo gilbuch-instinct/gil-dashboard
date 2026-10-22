@@ -51,6 +51,7 @@ jobs:
                       raise SystemExit("Replacement title must match exactly one existing card: " + replace_title)
                   result = current.copy()
                   result[matches[0]] = card
+                  result = [item for index, item in enumerate(result) if not (index != matches[0] and isinstance(item, dict) and item.get("title") == title)]
               else:
                   if any(item.get("title") == title for item in current if isinstance(item, dict)):
                       raise SystemExit("Duplicate title: " + title)
