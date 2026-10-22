@@ -524,14 +524,15 @@
     "title": "NEXTDC צנחה עד 45% לאחר קיצוץ תחזית בגלל עיכוב אספקת חשמל"
   },
   {
-    "body": "התראה ימית NAVAREA IX 393/26 של Hydrographer of Pakistan, מ־21 באוקטובר 01:45 UTC: מכלית הנפט Al Dasma דווחה כמעורבת בתקרית ביטחונית שגרמה לשריפה ולסחיפה, כ־11 מייל ימי ממערב לבוכה במצר הורמוז. ההודעה מזהירה ימאים ומציינת כי מידע בהודעות ניווט עלול להיות חלקי או לא מהימן. זהו סימן לסיכון מיידי לבטיחות השיט; אין בהודעה פירוט על סיבת האירוע, נפגעים, דליפה, מטען או שיבוש מוכח בזרימת הנפט, ואין להסיק ממנה שהמצר נסגר. אין שינוי בהנחות היצע או בתזות עד לאימות נוסף.",
-    "date": "21 באוקטובר 2026",
+    "title": "התראה ימית: Al Dasma עוגנת ליד Bukha לאחר פגיעת קליע",
+    "date": "22 באוקטובר 2026",
     "kind": "market",
-    "source_name": "Hydrographer of Pakistan (NAVAREA IX 393/26)",
-    "source_url": "https://hydrography.paknavy.gov.pk/wp-content/plugins/navarea-warnings/custom_uploaded_warnings_for_navarea/20261021EC%20393.txt",
-    "source_url_secondary": "https://hydrography.paknavy.gov.pk/navarea-ix-warnings/",
-    "tag": "Hormuz: התרעת NAVAREA על מכלית בוערת ונסחפת",
-    "title": "התראה ימית: מכלית Al Dasma מדווחת בוערת ונסחפת בהורמוז"
+    "source_name": "UKMTO Warning 179-26; Hydrographer of Pakistan (NAVAREA IX 396/26); Ministry of Ports, Shipping and Waterways of India (via Akashvani)",
+    "source_url": "https://www.ukmto.org/-/media/ukmto/products/20261021-ukmto_warning_179_26.pdf",
+    "source_url_secondary": "https://hydrography.paknavy.gov.pk/wp-content/plugins/navarea-warnings/custom_uploaded_warnings_for_navarea/20261021EC%20396.txt",
+    "source_url_tertiary": "https://newsonair.gov.in/all-21-indian-crew-members-safe-after-kuwait-flagged-tanker-hit-by-projectile-in-strait-of-hormuz/",
+    "tag": "Hormuz: Al Dasma עוגנת ליד Bukha",
+    "body": "אזהרת UKMTO 179-26 מאשרת כי ב־21 באוקטובר בשעה 01:45 UTC מכלית נפגעה מקליע לא מזוהה כ־11 מייל ימי ממערב לבוכה שבעומאן; האש כובתה, המכלית עוגנת, כל אנשי הצוות בטוחים ולא דווח על השפעה סביבתית. האזהרה אינה מזהה את כלי השיט. הודעת NAVAREA IX 396/26 המאוחרת יותר, מ־21 באוקטובר 15:00 UTC, מזהה את AL DASMA ומציינת שהיא עוגנת כ־1.3 מייל ימי מערבית לבוכה; היא מבטלת את NAVAREA 393/26 המוקדמת שתיארה אש וסחיפה. שר הספנות ההודי מסר שכל 21 אנשי הצוות ההודים ושאר הצוות בטוחים. אין דיווח מאומת על דליפה, היקף נזק לגוף הספינה או שיבוש בזרימת הנפט. מדובר בעדכון מצב לאירוע יחיד, לא בתקרית נוספת; אין להסיק שהורמוז נסגר. לעקוב אחר מצב הספינה, הודעות ימיות ועדכון על נזק/דליפה."
   },
   {
     "title": "סעודיה: יירוט טיל בריאד וחמישה כטב״מים מעל אזורים שונים",
