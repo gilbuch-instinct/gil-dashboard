@@ -615,5 +615,18 @@
     "source_name": "Meta (הודעת חברה); CNBC",
     "source_url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx",
     "source_url_secondary": "https://www.cnbc.com/2026/10/21/stocks-making-the-biggest-moves-after-hours-meta-tsla-lrcx-ibm.html"
+  },
+  {
+    "title": "סעודיה: הרוגים ונפגעים בתקיפות על נמל תעופה ושדה נפט; אין דיווח על שיבוש הפקה",
+    "date": "22 באוקטובר 2026",
+    "kind": "geopolitics",
+    "tag": "הסלמה בסעודיה: דמאם ושייבה",
+    "body": "ב־21 באוקטובר הותקף נמל התעופה הבינלאומי King Fahd בדמאם; לפי רשות התעופה האזרחית הסעודית, אדם אחד נהרג, שמונה נפצעו ונגרם נזק חומרי שנבדק. במקביל, משרד האנרגיה הסעודי מסר כי הגנה אווירית יירטה כטב״ם שניסה לפגוע במתקן בשדה הנפט שייבה: נפלו שני הרוגים ושני פצועים מפסולת היירוט, אך לפי המשרד לא הייתה השפעה על פעילות השדה. לא הובהר מי ביצע את תקיפת נמל התעופה, ולא ניתן לייחס אותה לחות׳ים על בסיס מקורות אלה בלבד; החות׳ים הכחישו שיגור כטב״מים באותו יום, לפי Xinhua. האירועים מצטרפים לרצף התקיפות והיירוטים בסעודיה, אך בשלב זה אין אישור לפגיעה בהפקת הנפט או לסגירה/חסימה של הורמוז או באב אל־מנדב. משק האנרגיה עלול בכל זאת לגלם פרמיית סיכון ביטחונית, במיוחד לצד התקיפות המדווחות על כלי שיט במפרץ. מחיר ברנט האחרון שדווח בסגירה היה $108.82 לחבית, ו־WTI $97.15, ב־21 באוקטובר; Reuters דיווחה על ברנט $110.11 ו־WTI $99.00 ב־07:47 GMT באותו יום. אלה חותמות זמן שונות ולא מחיר חי או סגירה אחת. אין בכך לבדו בסיס לשינוי בתזות ההחזקות.",
+    "source_name": "Saudi Press Agency, citing GACA and Energy Ministry; AP; Reuters via The Star; Xinhua",
+    "source_url": "https://www.spa.gov.sa/en/N2707431",
+    "source_url_secondary": "https://www.spa.gov.sa/en/N2707258",
+    "source_url_tertiary": "https://apnews.com/article/riyadh-saudi-arabia-oil-facility-drones-01c03af3191263452376510a670e8bf7",
+    "source_url_quaternary": "https://www.thestar.com.my/business/2026/10/22/oil-steady-amid-geopolitical-risks-falling-us-stockpiles",
+    "source_url_quinary": "https://live.euronext.com/en/financial-news/brent-oil-prices-near-5-month-high-middle-east-supply-fears-us-inventory-drawdowns"
   }
 ]
