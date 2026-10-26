@@ -68,6 +68,39 @@ for key,v in jobs.items():
   if typ=='q' and k=='ENLT' and px<1000:px*=100;prev=prev*100 if prev else prev
   d=(D['quotes'] if typ=='q' else D['sector_quotes'])[k];d['px']=round(px,4)
   if prev:d['ch']=round(100*(px/prev-1),3)
+# Israeli end-of-day series (Bizportal yearly graph). Exact series: INFRA=IBI index 2126, ELEC=fund 5143078, KSM125K=security 1155365, TAINFRA=TASE index 206 (paper 784). d comes from the returned row's own date, never a calendar assumption. A bad row (invalid or non-finite values, future date, date older than the stored one) leaves the whole previous quote untouched.
+import http.cookiejar,math
+def prev_date(d):
+ try:
+  dd,mm=[int(x) for x in d.split('.')];y=now.year
+  while True:
+   try:r=datetime.date(y,mm,dd)
+   except ValueError:return None
+   if r<=now.date():return r
+   y-=1
+ except Exception:return None
+def bizportal_eod(ids):
+ op=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()));out={}
+ try:op.open(urllib.request.Request('https://www.bizportal.co.il/capitalmarket/quote/generalpage/2126',headers=UA),timeout=20).read()
+ except Exception as e:print('bizportal prime failed',e)
+ for k,pid in ids.items():
+  try:
+   u=f'https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id={pid}&period=6&page_number=0'
+   r=op.open(urllib.request.Request(u,headers={**UA,'X-Requested-With':'XMLHttpRequest'}),timeout=20).read().decode()
+   rows=json.loads(r[r.index('^')+1:]);last=max(rows,key=lambda x:x['DateObj'])
+   ds=str(last['DateObj']);day=datetime.date(int(ds[:4]),int(ds[4:6]),int(ds[6:]))
+   px,chg=last['Rate'],last['ChangeInPercent']
+   for v in (px,chg):
+    if isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v):raise ValueError('non-numeric value')
+   if px<=0 or abs(chg)>50:raise ValueError('implausible value')
+   if day>now.date():raise ValueError('future date')
+   old=prev_date(D['quotes'][k].get('d',''))
+   if old and day<old:raise ValueError('source date regressed')
+   out[k]=(px,chg,f'{day.day}.{day.month}')
+  except Exception as e:print('bizportal',k,'failed, keeping previous quote:',e)
+ return out
+for k,(px,chg,dd) in bizportal_eod({'INFRA':2126,'ELEC':5143078,'KSM125K':1155365,'TAINFRA':784}).items():
+ D['quotes'][k].update({'px':px,'ch':chg,'d':dd})
 for t in D['theses']:
  q=D['quotes'].get(t.get('quote_id'))
  if q and isinstance(q.get('px'),(int,float)):
