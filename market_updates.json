@@ -885,5 +885,16 @@
     "source_name": "Rystad Energy, לפי WSJ; Bernama",
     "source_url": "https://www.wsj.com/finance/commodities-futures/oil-declines-on-likely-technical-correction-ad4be59e",
     "source_url_secondary": "https://www.bernamabiz.com/news.php?id=2625751"
+  },
+  {
+    "date": "26 באוקטובר 2026",
+    "kind": "geopolitics",
+    "tag": "הסלמה לצד מאמצי הרגעה בין סעודיה לאיראן",
+    "title": "סעודיה דיווחה על השמדת מתקני טילים חות׳יים; בכירים נפגשו בטהראן",
+    "body": "ב־26 באוקטובר דיווח דובר הקואליציה בראשות סעודיה על מבצע בתימן שבו הושמדו, לדבריו, חמש מנהרות לאחסון טילים בליסטיים, ארבעה משגרים ומחסן טילים. הדיווח תועד בהודעת סוכנות העיתונות הסעודית, ו־AP דיווחה על טענת הקואליציה; זהו דיווח של צד מעורב, לא אימות עצמאי של תוצאות התקיפה. בנפרד, גורמים בכירים מסעודיה, פקיסטן וטורקיה נפגשו עם בכירים איראנים בטהראן בניסיון למנוע הסלמה נוספת, לפי AP ו־Reuters. האירועים מצביעים במקביל על החרפת הלחימה ועל ערוץ דיפלומטי פעיל. ההודעה אינה מאשרת פגיעה בתשתיות הנפט או שיבוש בזרימת הנפט, ולכן אין ממנה לבדה בסיס לשינוי פונדמנטלי או בתזות.",
+    "source_name": "Saudi Press Agency; AP; Reuters via Al-Monitor",
+    "source_url": "https://www.spa.gov.sa/en/N2710316",
+    "source_url_secondary": "https://apnews.com/article/mideast-news-october-26-2026-7d1bcf08210539085ea0b5ed56ef4d4c",
+    "source_url_tertiary": "https://www.al-monitor.com/originals/2026/10/officials-mecca-pact-countries-meet-iranian-officials-tehran"
   }
 ]
