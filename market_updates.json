@@ -906,5 +906,14 @@
     "source_name": "Anthropic; SEC Form S-1",
     "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
     "source_url_secondary": "https://www.anthropic.com/news/s1-sec"
+  },
+  {
+    "date": "26 באוקטובר 2026",
+    "kind": "market",
+    "tag": "המפרץ: דליפה ימית והערכת סיכון",
+    "title": "דליפת נפט מול חופי איחוד האמירויות התרחבה",
+    "body": "תמונות לוויין של Copernicus מ־24 באוקטובר הראו שהדליפה מכלי שיט מול חופי איחוד האמירויות התרחבה והתקרבה לחוף אום אל־קוויין. הרשויות באמירויות דיווחו על דליפה ממכלית, וסגרו חופים באום אל־קוויין, בשרג׳ה ובראס אל־ח׳ימה; נכון לדיווח רויטרס מ־26 באוקטובר, הרשויות לא זיהו את המכלית או אישרו את סיבת הדליפה. מומחים שצוטטו ברויטרס קישרו אותה ל־Gem No.2 שנפגעה לפי מקורות ימיים בחודש שעבר, אך זה אינו זיהוי רשמי. מדובר בסיכון סביבתי וחופי מתפתח; אין כאן אישור לשיבוש יצוא נפט או זרימת אספקה, ואין בסיס לשינוי בתזות המדומות.",
+    "source_name": "Reuters (סינדיקציה ב־Al-Monitor)",
+    "source_url": "https://www.al-monitor.com/originals/2026/10/oil-spill-uae-widens-satellite-images-show-prompting-more-beach-closures"
   }
 ]
