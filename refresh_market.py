@@ -92,7 +92,7 @@ def bizportal_eod(ids):
    px,chg=last['Rate'],last['ChangeInPercent']
    for v in (px,chg):
     if isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v):raise ValueError('non-numeric value')
-   if px<=0 or abs(chg)>50:raise ValueError('implausible value')
+   if px<=0:raise ValueError('non-positive price')
    if day>now.date():raise ValueError('future date')
    old=prev_date(D['quotes'][k].get('d',''))
    if old and day<old:raise ValueError('source date regressed')
