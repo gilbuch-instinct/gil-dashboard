@@ -424,7 +424,7 @@ function applySnapshot(){
   const snap = (state.data && state.data.quotes) || {};
   for(const id in snap){
     if(!state.quotes[id] && snap[id] && snap[id].px!=null)
-      state.quotes[id] = {px:snap[id].px, ch:snap[id].ch, live:false, d:snap[id].d};
+      state.quotes[id] = {px:(QUOTES.some(c=>c.id===id&&c.div100)?snap[id].px/100:snap[id].px), ch:snap[id].ch, live:false, d:snap[id].d}; // div100 ids are stored in agorot in data.json
   }
 }
 
