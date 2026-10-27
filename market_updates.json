@@ -934,5 +934,16 @@
     "source_name": "Celestica (הודעת תוצאות רשמית); CNBC",
     "source_url": "https://corporate.celestica.com/news-releases/news-release-details/celestica-announces-third-quarter-2026-financial-results-and",
     "source_url_secondary": "https://www.cnbc.com/2026/10/26/stocks-making-the-biggest-moves-after-hours-whr-jblu-cls.html"
+  },
+  {
+    "body": "ב־26 באוקטובר הופעל מעצור מסחר בבורסת B3 לאחר שה־Ibovespa ירד ב־10% בפתיחה, והמסחר חודש לאחר 30 דקות. המדד סיים את היום בירידה של 13.88% ל־176,608 נקודות, על רקע בחירת לולה מחדש והיפוך ציפיות המשקיעים. זו תגובת שוק חריגה לאירוע פוליטי מקומי בברזיל, לא אות לבלימה מערכתית בשווקים הגלובליים; נתוני הלייבל מצביעים במקביל על עליות במדדי ארה״ב ובאסיה. אין מכאן שינוי בתזות החברות בדשבורד או בנתוני היסוד שלהן. לעקוב אחר תשואות האג״ח, הריאל ותגובות מדיניות תקציבית בברזיל.",
+    "date": "26 באוקטובר 2026",
+    "kind": "market",
+    "source_name": "B3 (הודעה רשמית); Reuters (סינדיקציה ב־UOL); Bora Investir B3",
+    "source_url": "https://www.b3.com.br/pt_br/noticias/b3-informa.htm",
+    "source_url_secondary": "https://economia.uol.com.br/noticias/reuters/2026/10/26/b3-cita-queda-de-10-e-aciona-circuit-breaker-na-abertura-do-pregao-a-vista-apos-reeleicao-de-lula.htm",
+    "source_url_tertiary": "https://borainvestir.b3.com.br/noticias/mercado/apos-circuit-breaker-ibovespa-b3-recua-13-com-eleicao-no-foco-dolar-vai-a-r-540/",
+    "tag": "ברזיל: זעזוע בחירות ובלימת מסחר",
+    "title": "ברזיל: מעצור מסחר לאחר ירידה חדה בעקבות בחירת לולה מחדש"
   }
 ]
