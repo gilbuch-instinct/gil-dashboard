@@ -945,5 +945,16 @@
     "source_url_tertiary": "https://borainvestir.b3.com.br/noticias/mercado/apos-circuit-breaker-ibovespa-b3-recua-13-com-eleicao-no-foco-dolar-vai-a-r-540/",
     "tag": "ברזיל: זעזוע בחירות ובלימת מסחר",
     "title": "ברזיל: מעצור מסחר לאחר ירידה חדה בעקבות בחירת לולה מחדש"
+  },
+  {
+    "body": "ב־27 באוקטובר הפעילה בורסת קוריאה (KRX) מנגנון buy-side sidecar: המסחר האלגוריתמי במניות KOSPI הושהה לחמש דקות לאחר שחוזי KOSPI 200 עלו ביותר מ־5% במשך דקה. לפי Yonhap, המדד עלה 4.42% ל־5,711.22 בשעה 10:20 בסיאול, בעקבות התאוששות מניות השבבים על רקע התחזקות וול סטריט, אופטימיות AI וירידת הנפט. זהו בלם קצר למסחר אוטומטי בעת עלייה חדה, לא עצירה כללית ולא קריסה; הוא בא לאחר ירידות תנודתיות ולכן מעיד על תנודתיות לשני הכיוונים. אין בכך כשלעצמו שינוי בתזות או בנתוני היסוד של החברות בתיק. לעקוב אחר יציבות ההתאוששות, קניות זרות ודוחות SK Hynix הצפויים ב־28 באוקטובר.",
+    "date": "27 באוקטובר 2026",
+    "kind": "market",
+    "source_name": "Yonhap News Agency; Korea Exchange (KRX, כפי שצוטט ב־Yonhap)",
+    "source_url": "https://en.yna.co.kr/view/AEN20261027004100320",
+    "source_url_secondary": "https://www.asiae.co.kr/en/article/market-overview/2026102709290329890",
+    "source_url_tertiary": "https://www.koreajoongangdaily.com/business/kospi-surge-triggers-buyside-trading-curb/12940110",
+    "tag": "קוריאה: בלם קנייה לאחר זינוק חד",
+    "title": "קוריאה: KRX הפעילה sidecar קנייה לאחר עלייה חדה ב־KOSPI"
   }
 ]
