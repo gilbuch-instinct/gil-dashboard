@@ -342,6 +342,9 @@ function savedSectorStocks(){try{return JSON.parse(localStorage.getItem('sectorS
 function initSectorAdd(){const sel=document.getElementById('sectorChoice');sel.innerHTML=SECTORS.map(x=>'<option value="'+x.id+'">'+x.name+' ('+x.id+')</option>').join('');document.getElementById('sectorAddBtn').onclick=()=>{document.getElementById('sectorAddStatus').textContent='רשימת המעקב מנוהלת מעמוד המניות; המפה מציגה את המדדים המלאים.'};document.getElementById('heatIndex').onchange=renderSectors;document.getElementById('heatFullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.getElementById('heatWrap').requestFullscreen();window.addEventListener('resize',()=>{clearTimeout(heatResize);heatResize=setTimeout(renderSectors,180)})}
 
 
+// TASE stocks are stored in agorot (ILA) in the chart JSON files; convert to shekels at display time only
+const AGOROT_SERIES=['TASE:ENLT'];
+function fixAgorot(j){if(j&&j.series)for(const k of AGOROT_SERIES){const x=j.series[k];if(x&&!x._ag){x._ag=1;if(x.name)x.name+=' (₪)';for(const rg in (x.ranges||{}))((x.ranges[rg]||{}).rows||[]).forEach(r=>{if(typeof r[1]==='number')r[1]=r[1]/100})}}return j}
 function num(s){
   if(s==null) return null;
   s = String(s).replace(/[,%$+ ]/g,'');
@@ -753,7 +756,7 @@ function renderPriceChart(){
 }
 async function renderTech(){
   const symbol=document.getElementById('techSymbol').value;document.getElementById('chartLoad').style.display='flex';
-  if(!historyData)historyData=await fetch('3-history.json?ts='+Date.now()).then(r=>r.json());
+  if(!historyData)historyData=fixAgorot(await fetch('3-history.json?ts='+Date.now()).then(r=>r.json()));
   if(isIntraday(selectedRange)&&!intradayData)await loadIntraday();
   renderPriceChart();
   renderMultiples(symbol);
@@ -806,7 +809,7 @@ document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=async()=>{
 });
 document.getElementById('techSymbol').onchange=renderTech;
 async function loadIntraday(){
-  if(!intradayLoading)intradayLoading=(async()=>{try{intradayData=await fetch('5-intraday.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json())}catch(e){intradayData={series:{}}}})();
+  if(!intradayLoading)intradayLoading=(async()=>{try{intradayData=fixAgorot(await fetch('5-intraday.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()))}catch(e){intradayData={series:{}}}})();
   return intradayLoading;
 }
 async function setRange(r,b){
@@ -816,7 +819,7 @@ async function setRange(r,b){
 }
 async function refreshIntraday(){
   try{
-    const j=await fetch('5-intraday.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json());
+    const j=fixAgorot(await fetch('5-intraday.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()));
     for(const s in (j.series||{}))for(const rg of ['1d','1w']){
       const k=s+'|'+rg,zw=zoomWin[k];
       const oldLen=intradayData&&intradayData.series[s]&&intradayData.series[s].ranges[rg]?intradayData.series[s].ranges[rg].rows.length:0;
