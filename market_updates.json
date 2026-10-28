@@ -1016,5 +1016,17 @@
     "source_name": "Federal Reserve; CNBC",
     "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "source_url_secondary": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html"
+  },
+  {
+    "date": "28 באוקטובר 2026",
+    "kind": "market",
+    "tag": "AI: תוצאות מעורבות במירוץ לתשתיות ענן",
+    "title": "מיקרוסופט מדווחת על צמיחת Azure; Alphabet מתמודדת עם שריפת מזומנים בהשקעות AI",
+    "body": "תוצאות הרבעון שפורסמו ב־28 באוקטובר מציגות תמונה מעורבת של ההשקעה בתשתיות AI. Microsoft דיווחה על הכנסות של 92.3 מיליארד דולר, עלייה שנתית של 19%, והכנסות Microsoft Cloud של 63.9 מיליארד, עלייה של 30%; Azure צמחה ב־48%. Alphabet דיווחה על הכנסות של 127.6 מיליארד דולר, עלייה של 25%, ועל צמיחה של 103% ב־Google Cloud ל־30.7 מיליארד, לצד 2.12 דולר רווח מדולל למניה. עם זאת, Reuters דיווחה כי תזרים המזומנים החופשי של Alphabet היה שלילי ב־9.07 מיליארד דולר, לעומת צפי אנליסטים שהתקרב לאיזון, וכי ההכנסות והרווח למניה פספסו ציפיות; לפי הדיווח מניות החברה ירדו כ־8% במסחר המאוחר. Reuters דיווחה כי Azure עלתה על ציפיות ההכנסה, ו־MSFT עלתה כ־6% במסחר המאוחר. תגובת המסחר המאוחר היא תמונת רגע ולא מחיר נוכחי או סגירה. הנתונים מראים ביקוש וצמיחה חזקים בענן לצד שאלות על החזר ההשקעה ועלות ההון של בניית קיבולת AI; הם אינם מוכיחים שתשואות ההשקעה העתידיות יעמדו בעלויות. ההחזקה הישירה של Gil ב־META עשויה להיות רגישה לתמחור מחדש של הוצאות AI בענף, אך דוחות MSFT ו־Alphabet לבדם אינם משנים את יסודות Meta או מצדיקים שינוי בתזה שלה. אין שינוי בתזות ההשקעה או בנתוני היסוד על סמך הדיווחים האלה בלבד.",
+    "source_name": "Microsoft (הודעת חברה); Alphabet (הודעת חברה דרך PublicNow); Reuters via Investing.com",
+    "source_url": "https://news.microsoft.com/source/2026/10/28/microsoft-announces-first-quarter-results-2/",
+    "source_url_secondary": "https://www.publicnow.com/view/ED018F4AAE12FB3B1BD1E9649EA9BF381E69B00F",
+    "source_url_tertiary": "https://www.investing.com/news/stock-market-news/microsoft-beats-quarterly-cloud-revenue-estimates-4980616",
+    "source_url_quaternary": "https://www.investing.com/news/stock-market-news/alphabets-heavy-cloud-spending-drives-biggerthanexpected-cash-burn-4980612"
   }
 ]
