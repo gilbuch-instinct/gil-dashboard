@@ -1068,5 +1068,14 @@
     "source_name": "הקואליציה הסעודית; Reuters (via bdnews24)",
     "source_url": "https://www.spa.gov.sa/en/N2713108",
     "source_url_secondary": "https://bdnews24.com/world/middle-east/zb1xxus4in"
+  },
+  {
+    "title": "NOW: ירידה חריגה של 24% במסחר",
+    "date": "2026-10-29",
+    "kind": "market",
+    "tag": "מעקב בלבד · NOW",
+    "body": "צילום מצב ל־09:34 EDT (15:34 שעון ישראל): מניית ServiceNow ‏(NOW) נסחרה ב־$113.91, ירידה של 24.13% לעומת הסגירה הקודמת $150.13, במחזור של כ־4.45 מיליון מניות. CNBC סימן את הציטוט כמסחר רגיל; נתוני Yahoo Finance לדקה 09:33 EDT מאשרים את הירידה. זהו ציטוט מתוזמן, לא מחיר חי רציף. NOW נמצאת ברשימת המעקב בלבד, לא בהחזקות גיל. הסבר תוצאות הרבעון כבר נמסר אתמול; אין כאן חזרה עליו או שינוי בתזת יסוד.",
+    "source_name": "CNBC live quote; Yahoo Finance intraday chart",
+    "source_url": "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=NOW&exthrs=1&output=json"
   }
 ]
