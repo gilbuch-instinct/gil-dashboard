@@ -390,6 +390,7 @@ async function loadData(){
 
 async function tryLiveQuotes(){
   state.pre = {};
+  state.liveAsOfMs = 0;
   // CNBC's TASE feed returns the session open as "last" (verified 2026-10-30), so TASE cards always render from the verified Yahoo snapshot instead of the live feed.
   const list = QUOTES.filter(q=>q.cnbc && !['TA125','TA35','ENLT'].includes(q.id));
   const url = 'https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols='
@@ -412,6 +413,8 @@ async function tryLiveQuotes(){
       if(px == null) continue;
       if(q.div100) px = px/100;
       state.quotes[q.id] = {px:px, ch:ch, live:true};
+      const lt = Date.parse(String(x.last_time||'').replace(/([+-]\d{2})(\d{2})$/,'$1:$2'));
+      if(!isNaN(lt) && lt > state.liveAsOfMs) state.liveAsOfMs = lt;
       const ext = x.ExtendedMktQuote;
       if(ext && String(ext.type||'').indexOf('PRE') === 0){
         const epx = num(ext.last), ech = num(ext.change_pct);
@@ -455,7 +458,12 @@ function renderQuotes(){
   const txt = document.getElementById('feedBadgeTxt');
   if(state.live){
     badge.classList.add('live');
-    txt.textContent = 'ציטוטים חיים · מושהים כ-15 דקות · עודכן '+new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+    const ny = new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'}));
+    const nyMins = ny.getHours()*60+ny.getMinutes(), dow = ny.getDay();
+    const mktOpen = dow>0 && dow<6 && nyMins>=570 && nyMins<960;
+    const asofT = state.liveAsOfMs ? new Date(state.liveAsOfMs) : new Date();
+    const asof = asofT.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Jerusalem'});
+    txt.textContent = (mktOpen ? 'ציטוטים חיים · מושהים כ-15 דקות' : 'המסחר הרגיל סגור · מחירים אחרונים') + ' · נכונים ל־'+asof;
     document.getElementById('quotesHint').textContent = 'מקור: CNBC, מושהה';
   }else{
     const ts = state.data && state.data.quotes_updated;
