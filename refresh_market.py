@@ -123,7 +123,10 @@ def apply_cnbc(store,mapping):
 apply_cnbc(D['quotes'],cnbc)
 apply_cnbc(D['sector_quotes'],{k:k for k in sector})
 # Freshness is judged per session group against the freshest peer at the source, never against fetch time.
-US_GROUP=['SPX','NDX','DJI','CIFR','IREN','CLS','ACMR','META','ADEA','PWR','NVO','XLF']
+# Indices keep ticking ~30-50 min after the equity close, so stocks and indices are judged separately.
+US_STOCKS=['CIFR','IREN','CLS','ACMR','META','ADEA','PWR','NVO','XLF']
+US_INDEX=['SPX','NDX','DJI']
+US_GROUP=US_STOCKS+US_INDEX
 TA_GROUP=['TA125','TA35','ENLT']
 def flag_stale(store,keys):
  ts=[store[k]['t'] for k in keys if isinstance(store.get(k,{}).get('t'),(int,float))]
@@ -134,7 +137,8 @@ def flag_stale(store,keys):
   if not isinstance(q.get('t'),(int,float)):continue
   if mt-q['t']>2700:q['stale']=True
   else:q.pop('stale',None)
-flag_stale(D['quotes'],US_GROUP)
+flag_stale(D['quotes'],US_STOCKS)
+flag_stale(D['quotes'],US_INDEX)
 flag_stale(D['quotes'],TA_GROUP)
 flag_stale(D['sector_quotes'],sector)
 us_t=[D['quotes'][k]['t'] for k in US_GROUP if isinstance(D['quotes'].get(k,{}).get('t'),(int,float))]
