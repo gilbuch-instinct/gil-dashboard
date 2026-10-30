@@ -1162,5 +1162,15 @@
     "kind": "market",
     "source_name": "Reuters (via Investing.com)",
     "source_url": "https://ca.investing.com/news/economy-news/japans-nikkei-slumps-3-as-tech-stocks-tumble-on-ai-worries-4916171"
+  },
+  {
+    "title": "קוריאה: KOSPI ירד 3.48%; הופעל sidecar מכירה",
+    "date": "30 באוקטובר 2026",
+    "kind": "market",
+    "tag": "אסיה: ירידה חדה במניות והגבלת מסחר אוטומטי",
+    "source_name": "Korea Exchange, כפי שצוטטה ב-Yonhap; Yonhap (סגירה)",
+    "source_url": "https://en.yna.co.kr/view/AEN20261030003800320?section=economy-finance%2Feconomy",
+    "source_url_secondary": "https://en.yna.co.kr/view/AEN20261030009600320",
+    "body": "ב־30 באוקטובר בשעה 10:04:55 לפי שעון קוריאה (01:04:55 UTC; 03:04:55 שעון ירושלים), בורסת קוריאה KRX השהתה לחמש דקות הוראות מכירה מתוכנתות במניות KOSPI, לאחר שחוזי KOSPI 200 ירדו ב־5.12% ונשארו מתחת לסף במשך דקה. זהו sidecar להוראות מסוימות, לא עצירה מלאה של המסחר. בהמשך היום נסגר מדד KOSPI ב־5,730.74, ירידה של 206.92 נקודות או 3.48%, לפי Yonhap; נתון הסגירה אינו שיעור הירידה בעת הפעלת ה־sidecar. Yonhap קשר את הלחץ לחששות מתשואת השקעות ה־AI, אחרי ירידות בוול סטריט; מניות שבבים הובילו את הירידות. זהו איתות לעלייה בתנודתיות ובסיכון הענפי, אך אין להסיק ממנו לבדו שינוי בתחזיות החברות או בתזות התיק. אין בו קשר לאירועי הורמוז. לעקוב אחר נתוני הסגירה של מניות הטכנולוגיה בארה״ב והמשך המסחר באסיה."
   }
 ]
