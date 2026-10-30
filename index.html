@@ -390,7 +390,8 @@ async function loadData(){
 
 async function tryLiveQuotes(){
   state.pre = {};
-  const list = QUOTES.filter(q=>q.cnbc);
+  // CNBC's TASE feed returns the session open as "last" (verified 2026-10-30), so TASE cards always render from the verified Yahoo snapshot instead of the live feed.
+  const list = QUOTES.filter(q=>q.cnbc && !['TA125','TA35','ENLT'].includes(q.id));
   const url = 'https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols='
     + list.map(q=>encodeURIComponent(q.cnbc)).join('|') + '&exthrs=1&output=json';
   const ctrl = new AbortController();
