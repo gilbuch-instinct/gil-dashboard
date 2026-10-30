@@ -43,6 +43,7 @@ h2::before{content:"";display:inline-block;width:4px;height:16px;background:var(
 .ch.down{color:var(--down);background:rgba(248,113,113,.12)}
 .ch.flat{color:var(--dim);background:rgba(143,161,179,.12)}
 .qcard.na .px{color:var(--dim);font-size:15px}
+.snapdate.stale{color:#f0b35e}
 .grouplabel{grid-column:1/-1;font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.5px;margin-top:6px}
 /* updates */
 .upd{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin-bottom:10px}
@@ -427,7 +428,7 @@ function applySnapshot(){
   const snap = (state.data && state.data.quotes) || {};
   for(const id in snap){
     if(!state.quotes[id] && snap[id] && snap[id].px!=null)
-      state.quotes[id] = {px:(QUOTES.some(c=>c.id===id&&c.div100)?snap[id].px/100:snap[id].px), ch:snap[id].ch, live:false, d:snap[id].d}; // div100 ids are stored in agorot in data.json
+      state.quotes[id] = {px:(QUOTES.some(c=>c.id===id&&c.div100)?snap[id].px/100:snap[id].px), ch:snap[id].ch, live:false, d:snap[id].d, stale:snap[id].stale, tstr:snap[id].tstr}; // div100 ids are stored in agorot in data.json
   }
 }
 
@@ -445,7 +446,8 @@ function renderQuotes(){
       + '<div class="ch '+cc+'">'+arrow+' '+chTxt(d.ch)+'</div>'
       + (state.pre[q.id] ? '<div class="premkt">מסחר מוקדם · <b>'+fmtPx(state.pre[q.id].px,q)+'</b> '
         + '<span class="'+chClass(state.pre[q.id].ch)+'">'+chTxt(state.pre[q.id].ch)+'</span></div>' : '')
-      + (!d.live && d.d ? '<div class="snapdate">סגירה '+d.d+'</div>' : '') + '</div>';
+      + (!d.live && d.d ? '<div class="snapdate">סגירה '+d.d+'</div>' : '')
+      + (!d.live && d.stale ? '<div class="snapdate stale">המקור מתעדכן · נכון ל־'+esc(d.tstr||'')+'</div>' : '') + '</div>';
   }
   g.innerHTML = html;
   const badge = document.getElementById('feedBadge');
@@ -456,8 +458,9 @@ function renderQuotes(){
     document.getElementById('quotesHint').textContent = 'מקור: CNBC, מושהה';
   }else{
     const ts = state.data && state.data.quotes_updated;
-    txt.textContent = 'סנאפשוט שמור' + (ts ? ' · '+ts : '') + ' · ציטוט חי לא זמין כרגע';
-    document.getElementById('quotesHint').textContent = 'נתונים שמורים';
+    const asof = state.data && state.data.quotes_data_asof;
+    txt.textContent = 'סנאפשוט שמור' + (asof ? ' · נכונים ל־'+asof : '') + (ts ? ' · נשמר '+ts : '') + ' · ציטוט חי לא זמין כרגע';
+    document.getElementById('quotesHint').textContent = 'מקור: CNBC · נתונים שמורים';
   }
 }
 
@@ -515,7 +518,7 @@ async function boot(){
   const live = await tryLiveQuotes();
   await trySectorQuotes();
   applySnapshot();
-  const ss=(state.data&&state.data.sector_quotes)||{};for(const id in ss)if(!state.quotes[id])state.quotes[id]={px:ss[id].px,ch:ss[id].ch,live:false,d:ss[id].d}; // always fills ids the live feed does not cover (e.g. IBI snapshot-only cards); live values win
+  const ss=(state.data&&state.data.sector_quotes)||{};for(const id in ss)if(!state.quotes[id])state.quotes[id]={px:ss[id].px,ch:ss[id].ch,live:false,d:ss[id].d,stale:ss[id].stale,tstr:ss[id].tstr}; // always fills ids the live feed does not cover (e.g. IBI snapshot-only cards); live values win
   renderQuotes(); renderUpdates(); renderTheses();
 }
 document.getElementById('refreshBtn').onclick = ()=>{ document.getElementById('feedBadgeTxt').textContent='מרענן…'; boot(); };
