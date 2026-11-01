@@ -1296,5 +1296,15 @@
     "source_name": "OPEC; Reuters via Investing.com",
     "source_url": "https://www.opec.org/pr-detail/2033620-1-november-2026.html",
     "source_url_secondary": "https://www.investing.com/news/commodities-news/opec-set-to-keep-oil-output-targets-steady-sources-say-4989496"
+  },
+  {
+    "body": "ב־1 בנובמבר בשעה 17:09 לפי שעון ישראל (15:09 UTC), דיווח UKMTO על תקרית בתוך מצר הורמוז: לפי Mayday שהעביר רב־חובל של כלי שיט מסחרי, כלי שיט אחר נפגע מפרויקטיל לא מזוהה. הרשויות חוקרות; UKMTO לא מסרה את זהות האונייה, מי אחראי, היקף נזק או נפגעים. אין כרגע בסיס לקשור את האירוע לתקרית Al Mayeda הקודמת או להסיק ממנו לבדו על שיבוש בזרימות או שינוי במחיר. זהו דיווח אירוע חדש, לא מידע על השפעה מאומתת בשוק.",
+    "date": "1 בנובמבר 2026",
+    "kind": "geopolitics",
+    "source_name": "UKMTO Warning 191-26; AFP via Arab News",
+    "source_url": "https://www.ukmto.org/-/media/ukmto/products/20261101-ukmto_warning_191_26.pdf?rev=d4620238ffd446959c914049b1474287",
+    "source_url_secondary": "https://www.arabnews.com/middle-east/vessel-struck-in-strait-of-hormuz-maritime-agency-3009316",
+    "tag": "UKMTO #191: דיווח על פגיעה בכלי שיט בהורמוז",
+    "title": "הורמוז: UKMTO מדווח על פגיעה בפרויקטיל לא מזוהה"
   }
 ]
