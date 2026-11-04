@@ -1485,5 +1485,16 @@
     "source_name": "Reuters; Yahoo Finance",
     "source_url": "https://www.investing.com/news/stock-market-news/ai-data-center-stocks-dip-renewables-surge-after-democrat-sweep-in-us-midterm-elections-4998519",
     "source_url_secondary": "https://finance.yahoo.com/quote/CIFR/"
+  },
+  {
+    "date": "4 בנובמבר 2026",
+    "kind": "market",
+    "tag": "CIFR: סיכון רגולטורי בטקסס מתחדד",
+    "title": "ניצחון דמוקרטי בטקסס מוסיף סיכון לפרויקטי CIFR",
+    "body": "ג׳ינה הינוחוסה ניצחה את גרג אבוט במרוץ למושלות טקסס, לאחר שקראה להקפאה זמנית של פרויקטי מרכזי נתונים עד לקביעת הגנות בחקיקה. הניצחון אינו חקיקה או הקפאה שנכנסה לתוקף; ההצעה שלה והעובדה שרוב אתרי הפיתוח של Cipher Digital נמצאים בטקסס מעלות אי־ודאות לגבי היתרים, חיבור לחשמל ולוחות זמנים. לפני פתיחת המסחר דווח כי CIFR ירדה בכ־13.4% ל־$7.03, לעומת סגירה של $8.12 ב־3 בנובמבר; זו אינדיקציה מפרה־מרקט, לא סגירה או מחיר נוכחי. הירידה באה גם לאחר דוח Q3 שפורסם ב־2 בנובמבר: Cipher דיווחה על הכנסות של $27 מיליון ו־Adjusted EBITDA שלילית בסך $10 מיליון, לצד הכרה ראשונה בהכנסות HPC והרחבת חוזה Barber Lake ל־20 שנה, עם כ־$9.1 מיליארד הכנסות חוזיות באתר. אלה כמה כוחות שונים, ואין לייחס את כל תנועת המניה רק לבחירות. אין בכך לבדו בסיס לשינוי בתזה; לעקוב אחר הצעדים בפועל של המושלת הנבחרת, הליכי ERCOT וחוזים/תוצאות עתידיים.",
+    "source_name": "Cipher Digital (דוח Q3); AP; Investing.com",
+    "source_url": "https://investors.cipherdigital.com/news-releases/news-release-details/cipher-digital-provides-third-quarter-2026-business-update",
+    "source_url_secondary": "https://apnews.com/article/texas-governor-election-hinojosa-abbott-c9a0ffa1ec3cd599f9bc304ae26268a2",
+    "source_url_tertiary": "https://www.investing.com/news/stock-market-news/why-is-cipher-digital-stock-sliding-today-93CH-4999566"
   }
 ]
