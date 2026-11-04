@@ -1,0 +1,53 @@
+name: One-off data.json card sync
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync Qeshm confirmation cards into data.json (idempotent)
+        run: |
+          python3 - <<'PY'
+          import json, base64, pathlib
+          NEW = json.loads(base64.b64decode("eyJkYXRlIjogIjIg15HXoNeV15HXnteR16ggMjAyNiIsICJraW5kIjogImdlb3BvbGl0aWNzIiwgInNvdXJjZV9uYW1lIjogIkFsIEphemVlcmEvUmV1dGVycyAo15jXqNeQ157XpCDXkdeo15DXmdeV158g15zWvkZveCBOZXdzKTsgQVA7IENOTjsgV1NKINec16TXmSBSZXV0ZXJzOyBJUk5BOyBGYXJzIiwgInNvdXJjZV91cmwiOiAiaHR0cHM6Ly93d3cuYWxqYXplZXJhLmNvbS9uZXdzLzIwMjYvMTEvNC9pcmFuLXNheXMtdXMtcmVwbHktdG8taG9ybXV6LXBsYW4tdW5jb252aW5jaW5nLXRydW1wLWNvbmZpcm1zLXN0cmlrZXMiLCAic291cmNlX3VybF9zZWNvbmRhcnkiOiAiaHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvaXJhbi11cy10cnVtcC1uZXRhbnlhaHUtaXNyYWVsLXdhci1iNDUxOWVmODZiYWZlMjY3MmUwODU1ZDdhNDhjZTMwOSIsICJzb3VyY2VfdXJsX3RlcnRpYXJ5IjogImh0dHBzOi8vd3d3LmNubi5jb20vMjAyNi8xMS8wMi9wb2xpdGljcy91cy1zdHJpa2VzLWlyYW4tcWVzaG0taXNsYW5kIiwgInNvdXJjZV91cmxfcXVhdGVybmFyeSI6ICJodHRwczovL3d3dy5pbnZlc3RpbmcuY29tL25ld3Mvd29ybGQtbmV3cy91cy1zdHJ1Y2staXJhbnMtcWVzaG0taXNsYW5kLXdhbGwtc3RyZWV0LWpvdXJuYWwtcmVwb3J0cy00OTkzMzE3IiwgInRhZyI6ICLXkNeZ16nXldeoINek15XXnteR15kg16nXnCDXmNeo15DXntekINec16rXp9eZ16TXqiDXnteq16fXnyDXoNe0154g15DXmdeo15DXoNeZINeR16fXqdedIiwgInRpdGxlIjogIteY16jXkNee16Qg15DXmdep16gg15HXpNeV157XkdeZOiDXkNeo15TXtNeRINeq16fXpNeUINee16rXp9efINeg17TXniDXkNeZ16jXkNeg15kg15HXkNeZINen16nXnSIsICJib2R5IjogItei15PXm9eV158gNCDXkdeg15XXkdee15HXqDog16DXqdeZ15Ag15DXqNeU17TXkSDXmNeo15DXntekINeQ15nXqdeoINeR16TXldee15HXmSwg15HXqNeQ15nXldefINec1r5Gb3ggTmV3cyDXkda+MyDXkdeg15XXkdee15HXqCwg16nXkNeo15TXtNeRINeq16fXpNeUINee16rXp9efINeg17TXniAo16DXkteTINee15jXldeh15nXnSkg15DXmdeo15DXoNeZOyDXnNeT15HXqNeZ15Ug157Xk9eV15HXqCDXkde016rXp9eZ16TXlCDXp9eY16DXlNe0INeV17TXnNeQINee15zXl9ee15TXtCwg15XXlNee16rXp9efINeg15HXoNeUINeR157XqdeaINeb15fXldeT16nXmdeZ150g16rXl9eqINee16LXp9eRINeQ157XqNeZ16fXkNeZINeV16rXlda816fXoyDXotedINeU16nXnNee16rXlS4g15zXpNeZIEFsIEphemVlcmEg15XWvlJldXRlcnMsINeU16rXp9ep15XXqNeqINeU15DXmdeo15DXoNeZ16og157Xodeo15Qg16nXlNeq16fXmdek15Qg16TXktei15Qg15HXkNeZINen16nXnSDXqdec15nXkyDXntem16gg15TXldeo157XldeWLiDXlteU15Ug15TXkNeZ16nXldeoINeU16TXldee15HXmSDXlNeo15DXqdeV158g15zXqten15nXpNeV16og16nXk9eV15XXl9eVINeR1r4yINeR16DXldeR157XkdeoINee16TXmSDXkteV16jXnteZ150g15DXnteo15nXp9eQ15nXmdedINei15zXldee15nXnSAoQVAsIENOTiwgV1NKKSDXldeq15XXkNeo15Ug15DXliDXotecINeZ15PXmSDXkteV16jXnteZ150g15DXnteo15nXp9eQ15nXmdedINeb17TXlNeS16DXqteZ15XXqte0LCDXkdei16fXkdeV16og15nXqNeZINeQ15nXqNeQ16DXmSDXnNei15HXqCDXnteY15XXoSDXkNee16jXmden15DXmS4g15jXqNeQ157XpCDXktedINeX15bXqCDXotecINeQ15bXlNeo15XXqiDXntek16DXmSDXpNei15XXnNeUINem15HXkNeZ16og16DXldeh16TXqiAo17TXkNedINeg16bXmNeo15osINeg16bXmNeo15rXtCkuINei15PXmdeZ158g15zXkCDXpNeV16jXodee15Qg15TXldeT16LXlCDXpNeV16jXntec15nXqiDXqdecIENFTlRDT00g16LXnSDXpNeo15jXmSDXlNeZ16LXk9eZ1507INeY16LXoNeV16og15TWvklSR0Mg16LXnCDXmdeZ16jXldeYINeb15jXkde0157XmdedINeV15PXmdeV15XXl9eZINeU16TXmdem15XXpteZ150g15zXmdeTINeR16DXk9eoINec16DXkteUINec15Ag15DXldee16rXlSDXotem157XkNeZ16osINeV15DXmdefINeQ15nXqdeV16gg15zXodeS15nXqNeqINeU15XXqNee15XXliDXkNeVINec16nXmdeR15XXqSDXl9eT16kg15HXqteg15XXoteqINeU16nXmdeYLiJ9").decode("utf-8"))
+          NEW_WSJ = json.loads(base64.b64decode("eyJkYXRlIjogIjIg15HXoNeV15HXnteR16ggMjAyNiIsICJraW5kIjogImdlb3BvbGl0aWNzIiwgInNvdXJjZV9uYW1lIjogIldTSiAo15TXodeq157Xm9eV16og16LXnCDXkteV16jXnteZ150g15DXnteo15nXp9eQ15nXmdedINei15zXldee15nXnSksINec16TXmSBSZXV0ZXJzOyBJUk5BOyBGYXJzOyBBbCBKYXplZXJhL1JldXRlcnMgKNeQ15nXqdeV16gg15jXqNeQ157XpCkiLCAic291cmNlX3VybCI6ICJodHRwczovL3d3dy5pbnZlc3RpbmcuY29tL25ld3Mvd29ybGQtbmV3cy91cy1zdHJ1Y2staXJhbnMtcWVzaG0taXNsYW5kLXdhbGwtc3RyZWV0LWpvdXJuYWwtcmVwb3J0cy00OTkzMzE3IiwgInNvdXJjZV91cmxfc2Vjb25kYXJ5IjogImh0dHBzOi8vd3d3LmlyYW5pbnRsLmNvbS9lbi9saXZlYmxvZy8yMDI2MTAzMTI1OTQiLCAic291cmNlX3VybF90ZXJ0aWFyeSI6ICJodHRwczovL3d3dy5hbGphemVlcmEubmV0L25ld3MvbGl2ZWJsb2cvMjAyNi8xMS8zLyVkOCVhNSVkOSU4YSVkOCViMSVkOCVhNyVkOSU4Ni0lZDklODUlZDglYTglZDglYTclZDglYjQlZDglYjEtJWQ4JWFhJWQ4JWIxJWQ5JTg1JWQ4JWE4LSVkOSU4NSVkOCVhYSVkOSU4NSVkOSU4NyVkOSU4NC0lZDglYTglZDglYjQlZDglYTMlZDklODYtJWQ5JTgyJWQ4JWIxJWQ4JWE3JWQ4JWIxIiwgInRhZyI6ICLXk9eZ15XXldeXINei15wg16rXp9eZ16TXlCDXkNee16jXmden15DXmdeqINee15XXkteR15zXqiDXkdeQ15kg16fXqdedIiwgInRpdGxlIjogIldTSjog15DXqNeU17TXkSDXqten16TXlCDXkden16nXnTsg15jXqNeQ157XpCDXkNeZ16nXqCDXkdek15XXnteR15kg15HWvjMg15HXoNeV15HXnteR16giLCAiYm9keSI6ICLXlNa+V2FsbCBTdHJlZXQgSm91cm5hbCDXk9eZ15XXldeXLCDXkdeU16HXqtee15og16LXnCDXkteV16jXnteZ150g15DXnteo15nXp9eQ15nXmdedINei15zXldee15nXnSwg15vXmSDXkNeo15TXtNeRINeq16fXpNeUINeR15nXldedINep16DXmSDXkdeQ15kg16fXqdedLCDXm9eX15zXpyDXnteh15PXqNeqINeq16fXmdek15XXqiDXnteV15LXkdec15XXqiDXqdeg16LXqNeb15Ug15HXqdeR15XXoteV16og15TXkNeX16jXldeg15nXnS4gUmV1dGVycyDXk9eZ15XXldeX15Qg16LXnCDXl9ep15HXldefINeU1r5XU0o7INeW15Ug15DXmdeg15Qg15TXldeT16LXqiDXkNeZ16nXldeoINei16bXnteQ15nXqiDXqdecINeo15XXmdeY16jXoS4g15zXpNeZINeU1r5XU0osINeS15XXqNee15nXnSDXkNee16jXmden15DXmdeZ150g16rXmdeQ16jXlSDXkNeqINeU16rXp9eZ16TXldeqINeb15TXkteg16rXmdeV16og15XXoNeV16LXk9eVINec157XoNeV16Ig157XkNeZ16jXkNefINeX15XXpNepINek16LXldec15Qg16DXkteTINeb15zXmSDXqdeZ15gg157XodeX16jXmdeZ1507IENFTlRDT00g15zXkCDXlNeS15nXkSDXnteZ15Mg15zXkden16nXqiDXqteS15XXkdeULiDXkdeg16TXqNeTLCBGYXJzINeT15nXldeV15cg16LXnCDXpNeZ16bXldem15nXnSDXnteb15nXldeV158g15TXmdedINec15nXkyDXkdeg15PXqCDXnNeg15LXlCwg15XXlNa+SVJHQyDXmNei158g16nXlNek15nXnCDXkNeVINeU16nXqtec15gg16LXnCDXm9ec15kg15jXmdehINeQ157XqNeZ16fXkNeZ15nXnTsg15TXp9ep16gg15HXmdefINeU15PXmdeV15XXl9eZ150g15zXkCDXkNeV157Xqi4g15DXmdefINeR15PXmdeV15XXl9eZ150g15DXmdep15XXqCDXnNeh15LXmdeo16og15TXldeo157XldeWINeQ15Ug15zXqdeZ15HXldepINeX15PXqSDXkdeq16DXldei16og15TXqdeZ15guINec16LXp9eV15Eg15DXl9eoINeq15LXldeR15Qg16jXqdee15nXqiwg16TXqNeY15kg15TXmdei15Mg15XXqteg15XXoteqINeb15zXmSDXlNep15nXmC4g16LXk9eb15XXnyA0INeR16DXldeR157XkdeoOiDXkda+MyDXkdeg15XXkdee15HXqCDXkNeZ16nXqCDXoNep15nXkCDXkNeo15TXtNeRINeY16jXkNee16Qg15HXpNeV157XkdeZLCDXkdeo15DXmdeV158g15zWvkZveCBOZXdzLCDXqdeQ16jXlNe015Eg16rXp9ek15Qg157Xqten158g16DXtNeeINeQ15nXqNeQ16DXmSAoQWwgSmF6ZWVyYS9SZXV0ZXJzKTsg15TXqten16nXldeo16og15TXkNeZ16jXkNeg15nXqiDXnteh16jXlCDXqdeU16rXp9eZ16TXlCDXpNeS16LXlCDXkdeQ15kg16fXqdedLiDXlteU15Ug15DXmdep15XXqCDXpNeV157XkdeZINeo15DXqdeV158g15zXk9eZ15XXldeX15nXnSDXqdeU16rXkdeh16HXlSDXoteTINeQ15Yg16LXnCDXkteV16jXnteZ150g16LXnNeV157XmdedINeR15zXkdeTLiIsICJzb3VyY2VfdXJsX3F1YXRlcm5hcnkiOiAiaHR0cHM6Ly93d3cuYWxqYXplZXJhLmNvbS9uZXdzLzIwMjYvMTEvNC9pcmFuLXNheXMtdXMtcmVwbHktdG8taG9ybXV6LXBsYW4tdW5jb252aW5jaW5nLXRydW1wLWNvbmZpcm1zLXN0cmlrZXMifQ==").decode("utf-8"))
+          OLD_TITLE = "AP/CNN: דיווחים על תקיפות הגנתיות; אין הודעה פומבית של CENTCOM"
+          WSJ_TITLE = "WSJ: ארה״ב תקפה בקשם; הדיווח אינו אישור רשמי"
+          p = pathlib.Path("data.json")
+          D = json.loads(p.read_text(encoding="utf-8"))
+          u = D["updates"]
+          out = []
+          insert_at = None
+          for c in u:
+              t = c.get("title") if isinstance(c, dict) else None
+              if t in (OLD_TITLE, NEW["title"]):
+                  if insert_at is None:
+                      insert_at = len(out)
+                  continue
+              out.append(c)
+          assert insert_at is not None, "no Qeshm AP/CNN card found in updates"
+          out.insert(insert_at, NEW)
+          wsj = [i for i, c in enumerate(out) if isinstance(c, dict) and c.get("title") == WSJ_TITLE]
+          if len(wsj) == 1:
+              out[wsj[0]] = NEW_WSJ
+          else:
+              assert len(wsj) == 0 and any(isinstance(c, dict) and c.get("title") == NEW_WSJ["title"] for c in out), "WSJ card state unexpected"
+          D["updates"] = out
+          titles = [c.get("title") for c in out if isinstance(c, dict)]
+          assert titles.count(NEW["title"]) == 1, "new Qeshm card must appear exactly once"
+          assert OLD_TITLE not in titles, "stale Qeshm card must be gone"
+          assert titles.count(NEW_WSJ["title"]) == 1, "updated WSJ card must appear exactly once"
+          assert WSJ_TITLE not in titles, "stale WSJ card must be gone"
+          assert len(out) == len(u) or len(out) == len(u) - 1, "unexpected length change"
+          p.write_text(json.dumps(D, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+          print("data.json synced: old titles removed, new cards in place")
+          PY
+      - name: Commit and push
+        run: |
+          git config user.name 'gil-dashboard-bot'
+          git config user.email 'gil-dashboard-bot@users.noreply.github.com'
+          git add data.json
+          git diff --cached --quiet && echo "no change" || (git commit -m 'Qeshm strike cards: sync Trump confirmation into data.json' && git push)
