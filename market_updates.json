@@ -1506,5 +1506,14 @@
     "source_name": "CNBC; dashboard snapshot",
     "source_url": "https://www.cnbc.com/2026/11/04/oil-price-iran-war-us-election-strait-hormuz.html",
     "source_url_secondary": "https://gilbuch-instinct.github.io/gil-dashboard/data.json"
+  },
+  {
+    "date": "4 בנובמבר 2026",
+    "kind": "market",
+    "tag": "תוצאות מכליות נפט",
+    "title": "TORM: רווחי Q3 זינקו והחברה העלתה את רצפת התחזית ל־2026",
+    "body": "TORM דיווחה ב־4 בנובמבר על הכנסות TCE של 353 מיליון דולר ברבעון השלישי, לעומת 236 מיליון אשתקד, רווח נקי של 199 מיליון לעומת 78 מיליון ו־EBITDA של 274 מיליון לעומת 152 מיליון. החברה העלתה ב־50 מיליון דולר את הקצה התחתון של תחזית 2026: TCE של 1.75–1.90 מיליארד דולר ו־EBITDA של 1.35–1.50 מיליארד, על בסיס כיסוי והערכה לשוק חזק בהמשך הרבעון הרביעי. הדירקטוריון אישר דיבידנד ביניים של 1.35 דולר למניה. החברה קושרת את תוצאות הרבעון לשיבושי זרימת הנפט ולביקוש לתובלה; זו תוצאה של הרבעון והכוונה קדימה של ההנהלה, לא הוכחה לכך שצניחת מחיר הנפט היום תשמר את אותם תעריפי מכליות. הענף מחזורי, ותנאי השוק עשויים להשתנות.",
+    "source_name": "TORM plc, הודעת תוצאות Q3 ותחזית 2026",
+    "source_url": "https://www.torm.com/news/company-announcements/company-announcements-details/2026/TORM-plc-Q3-2026-Results-Dividend-Distribution-and-Financial-Outlook-2026/default.aspx"
   }
 ]
