@@ -1496,5 +1496,15 @@
     "source_url": "https://investors.cipherdigital.com/news-releases/news-release-details/cipher-digital-provides-third-quarter-2026-business-update",
     "source_url_secondary": "https://apnews.com/article/texas-governor-election-hinojosa-abbott-c9a0ffa1ec3cd599f9bc304ae26268a2",
     "source_url_tertiary": "https://www.investing.com/news/stock-market-news/why-is-cipher-digital-stock-sliding-today-93CH-4999566"
+  },
+  {
+    "date": "4 בנובמבר 2026",
+    "kind": "market",
+    "tag": "בחירות ופרמיית סיכון הנפט",
+    "title": "נפט צונח לאחר הבחירות; שוק מתמחר אפשרות למו״מ עם איראן",
+    "body": "דיווח CNBC מ־4 בנובמבר, 11:43 EST (18:43 שעון ישראל), ציין WTI ב־$89.40, ירידה של 7%, וברנט ב־$95.41, ירידה של כמעט 8%. תמונת Pages המסומנת 19:04 שעון ישראל הציגה בהמשך WTI ב־$88.47 וברנט ב־$94.19; אלה תצפיות תוך־יומיות בזמנים שונים, לא מחירי סגירה. CNBC ייחסה את הלחץ למכירות נפט לאחר ש־JD Vance אמר שמלחמת איראן תרמה להפסד הרפובליקנים בבחירות, ולציפיות מחודשות למגעים; הדיווח ציין שטראמפ אמר ל־Financial Times שאין לו תוכניות מיידיות לתקוף את איראן. הירידה משקפת תמחור שוק, לא ראיה לשינוי מאומת בזרימות או לסיום שיבושי השיט. אין בסיס לעדכון יסודות או תזות; לעקוב אחר מגעים רשמיים, זרימות ותקריות שיט.",
+    "source_name": "CNBC; dashboard snapshot",
+    "source_url": "https://www.cnbc.com/2026/11/04/oil-price-iran-war-us-election-strait-hormuz.html",
+    "source_url_secondary": "https://gilbuch-instinct.github.io/gil-dashboard/data.json"
   }
 ]
