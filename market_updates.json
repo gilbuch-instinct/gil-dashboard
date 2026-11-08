@@ -1787,10 +1787,12 @@
     "kind": "geopolitical",
     "tag": "תימן: יירוטי טילים לעבר ריאד ואזורים נוספים",
     "title": "הקואליציה הסעודית מדווחת על יירוט טילים חות׳יים; הספירה משתנה בין המקורות",
-    "body": "ב־8 בנובמבר דיווחה הקואליציה הסעודית כי יירטה טילים ששוגרו לעבר ריאד ואזורים נוספים. בהודעות הקואליציה שפורסמו בסוכנות העיתונות הסעודית נמסר על שני טילים בליסטיים לעבר ריאד ועל שני טילי שיוט שיורטו בריאד ובאזור הדרום; Al Jazeera דיווחה גם על יירוט טיל בליסטי לעבר המחוז המזרחי. המקורות אינם תואמים לגמרי בסוג ובמספר, ולכן אין לאחד את הדיווחים לספירה כוללת אחת. אלה דיווחים המיוחסים לקואליציה; לא מצאתי אימות לנזק, לנפגעים או לפגיעה בתשתית אנרגיה או בשיט. האירוע מעלה את הסיכון האזורי, אך אינו מוכיח שיבוש באספקת נפט או בנתיבי שיט ואין בו לבדו בסיס לשינוי תזות אחזקות.",
-    "source_name": "הקואליציה הסעודית דרך SPA; Al Jazeera",
-    "source_url": "https://www.spa.gov.sa/en/N2720568",
-    "source_url_secondary": "https://www.spa.gov.sa/en/N2720576",
-    "source_url_tertiary": "https://www.aljazeera.com/news/2026/11/8/saudi-arabia-intercepts-houthi-missiles-targeting-riyadh-eastern-province"
+    "body": "בעדכון לדיווח מ־8 בנובמבר: הודעות הקואליציה דרך SPA דיווחו על יירוט שני טילים בליסטיים לעבר ריאד ושני טילי שיוט שיורטו בריאד ובאזור הדרום; Al Jazeera דיווחה גם על יירוט טיל בליסטי לעבר המחוז המזרחי. הספירות וסוגי הטילים אינם תואמים לגמרי בין המקורות. Reuters דיווחה כי מגדל ב־KAFD ניזוק מקליע, על בסיס עד אחד ושלושה אנשים שקיבלו תדרוך; AFP דיווחה מפי עדים על נזק למגדל Aramco, כולל זכוכית וחזית פגועה. הדיווחים אינם קובעים שהנזק נגרם מאחד הטילים שיורטו; לפי Reuters, הרשויות הסעודיות לא הגיבו מיד לפנייה. בדיווחים שבדקתי אין אישור להשבתה או לנזק תפעולי ל־Aramco, לפגיעה בתפוקה או ביצוא, או לשיבוש בשיט. האירוע מחדד את הסיכון האזורי, אך אין בסיס לייחס לו תנועת שוק או לשנות את תזות האחזקות.",
+    "source_name": "AFP; Reuters (סינדיקציה); הקואליציה הסעודית דרך SPA; Al Jazeera",
+    "source_url": "https://www.al-monitor.com/originals/2026/11/riyadh-financial-district-targeted-aramco-tower-damaged-witnesses",
+    "source_url_secondary": "https://www.devdiscourse.com/article/international/4003472-tower-in-riyadh-damaged-by-projectile-four-people-say",
+    "source_url_tertiary": "https://www.spa.gov.sa/en/N2720568",
+    "source_url_quaternary": "https://www.spa.gov.sa/en/N2720576",
+    "source_url_quinary": "https://www.aljazeera.com/news/2026/11/8/saudi-arabia-intercepts-houthi-missiles-targeting-riyadh-eastern-province"
   }
 ]
