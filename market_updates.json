@@ -1877,5 +1877,15 @@
     "source_name": "אל־ווטן; Arab News, המצטטים את משרד האנרגיה הסעודי",
     "source_url": "https://www.alwatan.com.sa/article/1188864",
     "source_url_secondary": "https://www.arabnews.com/saudi-arabia/east-west-pipeline-targeted-in-madinah-region-saudi-energy-ministry-says-3010792"
+  },
+  {
+    "date": "9 בנובמבר 2026",
+    "kind": "geopolitics",
+    "source_name": "משרד החוץ הצרפתי; CERT-FR (C4/ANSSI)",
+    "source_url": "https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/declaration-d-attribution-a-l-iran-de-cyber-attaques-visant-la-france",
+    "source_url_secondary": "https://cert.cyber.gouv.fr/cti/CERTFR-2026-CTI-009/",
+    "tag": "סייבר והסלמה בין־מדינתית",
+    "title": "צרפת מייחסת לאיראן מתקפת סייבר על מקררי סופרמרקטים",
+    "body": "ב־9 בנובמבר ייחסה ממשלת צרפת לאיראן וליחידת הסייבר שלה Shahid Kaveh מתקפה בליל 11–12 באוקטובר על בקרי קירור ביותר מ־700 אתרי קמעונאות בצרפת. לפי הצהרת משרד החוץ הצרפתי, המתקפה גרמה לנזק לרכוש, לשריפות ולאובדן מזון שהוערך בעשרות מיליוני אירו. בדוח טכני שפורסם במקביל, CERT-FR מסר כי צוות C4 הבין־משרדי ייחס את הפעילות ליחידות Shahid Kaveh ו־Shahid Shoostari, המקושרות למרכז הסייבר והאלקטרוניקה של משמרות המהפכה; הדוח מזהה את מתקפת בקרי הקירור בפרט כפעולה של Shahid Kaveh. צרפת הודיעה שתזמן את שגריר איראן ותציע לשותפיה באיחוד האירופי סנקציות חדשות; אלה צעדים מתוכננים, לא סנקציות שכבר הוטלו. זהו אירוע מאוקטובר שייחוסו והתגובה המדינית פורסמו כעת, לא מתקפה חדשה היום. המהלך מחדד סיכון לחיכוך בין צרפת לאיראן בתחום הסייבר, אך לא דווח על השפעה תפעולית חדשה על שווקים או על תשתיות אנרגיה; אין בסיס לשינוי בתזות ההשקעה."
   }
 ]
