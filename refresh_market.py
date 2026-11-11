@@ -3,6 +3,7 @@ from zoneinfo import ZoneInfo
 R=os.path.dirname(os.path.abspath(__file__)); now=datetime.datetime.now(ZoneInfo('Asia/Jerusalem')); UA={'User-Agent':'Mozilla/5.0'}
 def load(f):return json.load(open(R+'/'+f))
 def write(f,d):
+ if isinstance(d,dict):d.pop('refresh_note',None)
  with open(R+'/'+f,'w') as h:json.dump(d,h,ensure_ascii=False,separators=(',',':'));h.write('\n')
 def chart(sym,rng,interval,pre=False):
  path=urllib.parse.quote(sym,safe=''); q=urllib.parse.urlencode({'range':rng,'interval':interval,'includePrePost':str(pre).lower()})
