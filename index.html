@@ -412,7 +412,7 @@ async function tryLiveQuotes(){
       if(String(x.change_pct).indexOf('UNCH') >= 0) ch = 0;
       if(px == null) continue;
       if(q.div100) px = px/100;
-      state.quotes[q.id] = {px:px, ch:ch, live:true};
+      state.quotes[q.id] = {px:px, ch:ch, live:true, sampledAt:Date.parse(String(x.last_time||'').replace(/([+-]\d{2})(\d{2})$/,'$1:$2'))};
       // Badge time comes only from regular-session equities/indices: futures, bonds and BTC tick after the close and must not restamp stock cards.
       if(['SPX','NDX','DJI','CIFR','IREN','CLS','ACMR','META','ADEA','NVO'].indexOf(q.id)>=0){
         const lt = Date.parse(String(x.last_time||'').replace(/([+-]\d{2})(\d{2})$/,'$1:$2'));
@@ -435,10 +435,19 @@ function applySnapshot(){
   const snap = (state.data && state.data.quotes) || {};
   for(const id in snap){
     if(!state.quotes[id] && snap[id] && snap[id].px!=null)
-      state.quotes[id] = {px:(QUOTES.some(c=>c.id===id&&c.div100)?snap[id].px/100:snap[id].px), ch:snap[id].ch, live:false, d:snap[id].d, stale:snap[id].stale, tstr:snap[id].tstr}; // div100 ids are stored in agorot in data.json
+      state.quotes[id] = {px:(QUOTES.some(c=>c.id===id&&c.div100)?snap[id].px/100:snap[id].px), ch:snap[id].ch, live:false, d:snap[id].d, stale:snap[id].stale, tstr:snap[id].tstr, sampledAt:snap[id].t ? snap[id].t*1000 : null}; // div100 ids are stored in agorot in data.json
   }
 }
 
+function treasurySampleLabel(d){
+  const ms=d.sampledAt;
+  if(!Number.isFinite(ms) || !ms) return 'מועד דגימה לא זמין · לא נתון חי';
+  const when=new Date(ms), opts={timeZone:'America/New_York'};
+  const sameDay=when.toLocaleDateString('en-CA',opts)===new Date().toLocaleDateString('en-CA',opts);
+  const fresh=sameDay && Date.now()-ms>=0 && Date.now()-ms<=30*60*1000;
+  const stamp=when.toLocaleDateString('he-IL',{...opts,day:'2-digit',month:'2-digit',year:'numeric'})+' '+when.toLocaleTimeString('he-IL',{...opts,hour:'2-digit',minute:'2-digit',hour12:false});
+  return (fresh?'דגימת תשואה · ':'נתון קודם, לא חי · ')+stamp+' ניו יורק';
+}
 function renderQuotes(){
   const g = document.getElementById('quoteGrid');
   let html = '';
@@ -446,11 +455,12 @@ function renderQuotes(){
     if(q.group){ html += '<div class="grouplabel">'+q.group+'</div>'; continue; }
     const d = state.quotes[q.id];
     if(!d){ html += '<div class="card qcard na"><div class="sym">'+q.id+'</div><div class="nm">'+q.nm+'</div><div class="px">אין נתון</div></div>'; continue; }
+    const isTreasury = ['US2Y','US10Y','US30Y'].includes(q.id);
     const cc = chClass(d.ch);
     const arrow = cc==='up'?'▲':cc==='down'?'▼':'•';
     html += '<div class="card qcard"><div class="sym">'+q.id+'</div><div class="nm">'+q.nm+'</div>'
       + '<div class="px">'+fmtPx(d.px, q)+'</div>'
-      + '<div class="ch '+cc+'">'+arrow+' '+chTxt(d.ch)+'</div>'
+      + (isTreasury ? '<div class="snapdate stale">'+esc(treasurySampleLabel(d))+'</div>' : '<div class="ch '+cc+'">'+arrow+' '+chTxt(d.ch)+'</div>')
       + (state.pre[q.id] ? '<div class="premkt">מסחר מוקדם · <b>'+fmtPx(state.pre[q.id].px,q)+'</b> '
         + '<span class="'+chClass(state.pre[q.id].ch)+'">'+chTxt(state.pre[q.id].ch)+'</span></div>' : '')
       + (!d.live && d.d ? '<div class="snapdate">סגירה '+d.d+'</div>' : '')
@@ -467,9 +477,9 @@ function renderQuotes(){
     const asofT = state.liveAsOfMs ? new Date(state.liveAsOfMs) : new Date();
     const asof = asofT.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Jerusalem'});
     txt.textContent = mktOpen
-      ? 'ציטוטים חיים · מושהים כ-15 דקות · נכונים ל־'+asof
+      ? 'מניות ומדדים: ציטוטים מושהים · נכונים ל־'+asof
       : 'המסחר הרגיל סגור · מוצגים מחירי סגירה · נבדק '+new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
-    document.getElementById('quotesHint').textContent = 'מקור: CNBC, מושהה';
+    document.getElementById('quotesHint').textContent = 'מקור: CNBC, מושהה · תשואות אג״ח לפי מועד הדגימה בכרטיס';
   }else{
     const ts = state.data && state.data.quotes_updated;
     const asof = state.data && state.data.quotes_data_asof;
