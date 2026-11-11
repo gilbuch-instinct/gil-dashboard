@@ -1966,5 +1966,16 @@
     "source_name": "Reuters דרך Al Arabiya; Iran International (הודעת צבא איראן)",
     "source_url": "https://english.alarabiya.net/News/gulf/2026/11/11/oil-tanker-on-fire-in-strait-of-hormuz-after-hitting-mine-iran-s-army-says",
     "source_url_secondary": "https://www.iranintl.com/en/202611118522"
+  },
+  {
+    "kind": "market",
+    "tag": "הורמוז: תשתיות ניווט ודיווחים סותרים",
+    "date": "11 בנובמבר 2026",
+    "title": "Reuters: מקורות מאשרים תקיפה בדידמאר; היקף הנזק למערכות הניווט לא הוכרע",
+    "body": "Reuters דיווחה ב־11 בנובמבר, מפי שלושה מקורות הבקיאים בנושא, כי איראן תקפה מערכות ניווט ימי באי דידמאר השייך לעומאן במצר הורמוז, לאחר טענה איראנית שפורסמה ביום שלישי. Reuters אימתה סרטון עשן מהאי ופעילות תרמית בתמונת Copernicus, אך לא קבעה מה בער או אם מערכות נהרסו; המקורות לא מסרו הערכת נזק. יש סתירה שחשוב לשמר: Maritime Executive דיווחה ב־10 בנובמבר שבכיר עומאני אמר לה שעזרי הניווט לא נפגעו, ותמונות לוויין מהבוקר לא הראו נזק ברור, בכפוף למגבלות רזולוציה. בדיווח Reuters החדש, שני מקורות ספנות ומקור ביטחון ימי העריכו שההשפעה על השיט המסחרי צפויה להיות מוגבלת משום שקיימות מערכות חלופיות. עומאן ו־CENTCOM לא הגיבו מיד. אין בכך אישור להשמדת מערכות, לסגירה חדשה של המצר או לקשר למכלית שעליה טען צבא איראן ביום רביעי. לתיק: איום על תשתיות המסייעות למעבר אוניות יכול להוסיף סיכון תפעולי ועלויות ביטוח והובלה גם כשהזרימה נמשכת; אם ההשפעה אכן מוגבלת, אין להסיק אובדן אספקת נפט או זינוק מחירים מתמשך. נפט יקר יותר עלול ללחוץ על אינפלציה, ריבית ותמחור תשתיות AI ואנרגיה, אך לא אומת שינוי בנתוני החברות או בתזות המדומות, ואין שינוי ביעדים.",
+    "source_name": "Reuters דרך Baird Maritime ו־Arab News; Maritime Executive",
+    "source_url": "https://www.bairdmaritime.com/security/incidents/acts-of-war/iran-targets-ship-navigation-systems-on-omani-island-damage-unclear",
+    "source_url_secondary": "https://www.arabnews.com/middle-east/iran-attacks-shipping-navigation-systems-on-omans-didamar-island-sources-say-3011095",
+    "source_url_tertiary": "https://maritime-executive.com/article/uncertainty-surrounds-possible-attack-on-oman-s-strait-of-hormuz-lighthouse"
   }
 ]
