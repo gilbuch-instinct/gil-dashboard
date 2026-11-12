@@ -1998,5 +1998,15 @@
     "source_name": "JMIC Update 113 (12 Nov); UKMTO 203-26; Reuters",
     "source_url": "https://www.ukmto.org/-/media/ukmto/products/jmic_advisory_update_113_12-nov.pdf?rev=7fe7908661f24d2ebb037b750628f240",
     "source_url_secondary": "https://wkzo.com/2026/11/12/vessel-on-fire-after-being-struck-off-uaes-ras-al-khaimah-maritime-agencies-say/"
+  },
+  {
+    "title": "Meta: ראש התשתיות יעזוב ב־2027; דייב בראון יוביל את המעבר",
+    "date": "12 בנובמבר 2026",
+    "kind": "market",
+    "tag": "META: רציפות ביצוע בהשקעות AI",
+    "body": "בדיווח מ־11 בנובמבר אישרה Meta ל־TechCrunch שסנטוש ג׳נרדהן, ראש התשתיות ושותף להובלת ההנדסה, יעזוב את התפקיד ויוחלף בדייב בראון, שהצטרף השנה לאחר קריירה ב־AWS. נציג החברה אמר שג׳נרדהן יישאר לתקופת מעבר ויעבור לתפקיד ייעוץ ב־Meta Compute; CNBC מדווח שהעזיבה תהיה ב־2027. זו העברת אחריות מדורגת, לא עזיבה מיידית. לא נמסרה סיבה מפורטת, ואין להקיש מכאן על כשל תפעולי. לתיק: האחריות על מרכזי הנתונים, הרשתות והקיבולת עוברת בתקופה של השקעות AI גדולות, ולכן רציפות ההנהלה, תזמון אספקת חשמל ושרתים והמרת ההשקעות להכנסות הם נקודות מעקב. אין בדיווח הודעה על ביטול פרויקטים, שינוי בתקציב ההשקעות או הפחתת תחזית, ואין להסיק אוטומטית פגיעה בהזמנות של CLS או ספקיות אחרות. אין ייחוס של תנועת המניה לחילופי התפקידים, ואין שינוי ביעדים, בחלונות הזמן או בתזות המדומות; נבחן עדכוני ביצוע ותזרים בפועל.",
+    "source_name": "TechCrunch (אישור Meta); CNBC",
+    "source_url": "https://techcrunch.com/2026/11/11/meta-is-losing-its-longtime-head-of-infrastructure/",
+    "source_url_secondary": "https://www.cnbc.com/2026/11/11/meta-infrastructure-departure-aws-cloud.html"
   }
 ]
