@@ -2008,5 +2008,16 @@
     "source_name": "TechCrunch (אישור Meta); CNBC",
     "source_url": "https://techcrunch.com/2026/11/11/meta-is-losing-its-longtime-head-of-infrastructure/",
     "source_url_secondary": "https://www.cnbc.com/2026/11/11/meta-infrastructure-departure-aws-cloud.html"
+  },
+  {
+    "date": "12 בנובמבר 2026",
+    "kind": "market",
+    "tag": "דוחות אחרי הסגירה: תשתיות AI",
+    "title": "Cisco, Applied Materials ו־Cerebras: צמיחה ותחזיות חדשות בשרשרת תשתיות ה־AI",
+    "body": "בדוחות שפורסמו אחרי סגירת המסחר ב־12 בנובמבר, Cisco דיווחה על הכנסות של 18.5 מיליארד דולר ברבעון הראשון של FY27, עלייה של 24% בשנה, והעלתה את צפי הכנסות תשתיות ה־AI מהייפרסקיילרים ל־9 מיליארד דולר בשנת הכספים. Applied Materials דיווחה ברבעון הרביעי של FY26 על הכנסות של 10.41 מיליארד דולר, עלייה של 53%, וצופה ברבעון הבא 11.1 מיליארד דולר, בטווח של 0.5 מיליארד לכל כיוון. Cerebras דיווחה על הכנסות GAAP של 210.8 מיליון דולר, לעומת מדד Core שאינו GAAP של 230.9 מיליון; אין להשוות ביניהם כאילו היו אותו נתון. תחזית ה־Core לרבעון הרביעי היא 310–330 מיליון דולר. החברה אומרת שהתקשרה בחוזים ל־700 מגה־ואט ברוטו של קיבולת מרכזי נתונים למסירה עד סוף 2027: זו קיבולת חוזית עתידית, לא קיבולת שכבר פועלת. לתיק: הדוחות מספקים אותות ביקוש נפרדים ברשתות, ציוד ייצור שבבים ומחשוב AI, לצד סיכון ביצוע, מימון ותחרות. עבור CLS ו־ACMR זהו הקשר ענפי בלבד, לא הזמנה חדשה; עבור IREN ו־CIFR צמיחת מחשוב יכולה לתמוך בביקוש לקיבולת, אך הרחבת ספקים מתחרים אינה מבטיחה להן תפוסה או הכנסות. אין להסיק מכאן שחילופי ההנהלה ב־Nvidia חסרי השפעה, או שהסיכון לריבית ולמימון נעלם. אין שינוי ביעדים, בחלונות הזמן או בתזות המדומות ואין קביעה חדשה של גלי אליוט מהדוחות לבדם. נתוני המחירים הסטטיים בדשבורד נושאים חותמת זמן נפרדת ואינם מאומתים כאן כנתוני סגירה.",
+    "source_name": "Cisco; Applied Materials (GlobeNewswire); Cerebras - הודעות תוצאות רשמיות",
+    "source_url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-reports-first-quarter-earnings.html",
+    "source_url_secondary": "https://www.globenewswire.com/news-release/2026/11/12/3402149/0/en/applied-materials-announces-fourth-quarter-and-fiscal-year-2026-results.html",
+    "source_url_tertiary": "https://www.cerebras.ai/press-release/cerebras-systems-delivers-record-revenue-in-third-quarter-2026-raises-full-yea-3402195"
   }
 ]
