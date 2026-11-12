@@ -490,7 +490,9 @@ function renderQuotes(){
 
 function renderUpdates(){
   const list = document.getElementById('updList');
-  const ups = (state.data && state.data.updates) || [];
+  const allUpdates = (state.data && state.data.updates) || [];
+  const hasOfficialNvidiaTransition = allUpdates.some(u=>u.title==='Nvidia מאשרת: הואנג התפטר מיידית; קולט קרס מונתה למנכ״לית זמנית');
+  const ups = allUpdates.filter(u=>!hasOfficialNvidiaTransition || u.title!=='דיווחים: דירקטוריון Nvidia בוחן את עתיד הואנג; אין החלטת הדחה מאומתת');
   if(!ups.length){ list.innerHTML = '<div class="skel">אין עדכונים עדיין</div>'; return; }
   list.innerHTML = ups.map(u=>{
     const cls = u.kind==='deep' ? 'deep' : u.kind==='hot' ? 'hot' : '';
