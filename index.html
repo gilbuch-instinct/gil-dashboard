@@ -86,7 +86,7 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-si
 .skel{color:var(--dim);font-size:13px;padding:18px;text-align:center}
 /* navigation */
 .tabs{position:sticky;top:105px;z-index:45;display:flex;gap:7px;overflow-x:auto;padding:3px 0 10px;background:linear-gradient(180deg,var(--bg) 75%,transparent);scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}.tabbtn{flex:none;border:1px solid var(--line);background:var(--card);color:var(--dim);font-family:inherit;font-size:12.5px;font-weight:700;border-radius:999px;padding:7px 13px;cursor:pointer}.tabbtn.on{color:#061720;background:var(--accent);border-color:var(--accent)}
+.tabs::-webkit-scrollbar{display:none}body.buf-on main.wrap{max-width:1500px}body.buf-on header.top{max-width:1500px}.tabbtn{flex:none;border:1px solid var(--line);background:var(--card);color:var(--dim);font-family:inherit;font-size:12.5px;font-weight:700;border-radius:999px;padding:7px 13px;cursor:pointer}.tabbtn.on{color:#061720;background:var(--accent);border-color:var(--accent)}
 .view{display:none}.view.on{display:block}
 /* technical analysis */
 .tech-controls{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:12px}.tech-controls label{display:block;font-size:12px;color:var(--dim);margin-bottom:5px}.stock-select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;color:var(--txt);font:700 14px 'Heebo',system-ui,sans-serif;padding:10px 12px;direction:ltr}.toggles{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.range-row{display:flex;gap:7px;margin-top:11px;direction:ltr}.range-btn{flex:1;min-height:38px;border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:700 12px 'Heebo',system-ui,sans-serif;border-radius:10px;cursor:pointer}.range-btn.on{color:#061720;background:var(--accent);border-color:var(--accent)}.ind-toggle{border:1px solid var(--line);background:var(--bg2);color:var(--dim);font:600 12px 'Heebo',system-ui,sans-serif;border-radius:999px;padding:6px 10px;cursor:pointer}.ind-toggle.on{color:var(--up);border-color:var(--up);background:rgba(45,212,167,.12)}
@@ -163,6 +163,7 @@ body.a11y-large .heat-select,body.a11y-large .heat-full{font-size:16px}
   <button class="tabbtn" data-view="technical">ניתוח טכני</button>
   <button class="tabbtn" data-view="sectors">מפת סקטורים</button>
   <button class="tabbtn" data-view="recommendations">המלצות</button>
+  <button class="tabbtn" data-view="buffett">ציון באפט</button>
 </nav>
 <div class="view on" id="view-home">
 <section id="sec-quotes">
@@ -199,6 +200,7 @@ body.a11y-large .heat-select,body.a11y-large .heat-full{font-size:16px}
   <div class="sector-add"><h3>הוספת מניה לאריח</h3><div class="add-row"><input class="ticker-input" id="sectorTicker" dir="ltr" maxlength="10" placeholder="Ticker, למשל META" aria-label="סימול מניה"><select class="sector-select" id="sectorChoice" aria-label="בחירת סקטור"></select><button class="add-btn" id="sectorAddBtn">בדיקה והוספה</button></div><div class="add-status" id="sectorAddStatus">הסימול ייבדק מול מקור הציטוטים לפני השמירה במכשיר.</div></div>
 </section>
 </div>
+<div class="view" id="view-buffett"><iframe id="buffettFrame" title="ציון באפט" style="width:100%;border:0;min-height:900px;display:block;background:transparent" loading="lazy"></iframe></div>
 <div class="view" id="view-recommendations">
 <section>
   <div class="rec-intro"><h2>המלצות ותזות במעקב</h2><p>מעקב דמה בלבד, לא עסקאות אמיתיות ולא ייעוץ. המחיר הנוכחי והתשואה מחושבים אוטומטית מול מחיר הכניסה.</p></div>
@@ -832,8 +834,10 @@ function renderPeers(symbol){
 document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=async()=>{
   document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x===b));
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='view-'+b.dataset.view));
+  document.body.classList.toggle('buf-on',b.dataset.view==='buffett');
   if(b.dataset.view==='technical'&&!historyData) renderTech();
   if(b.dataset.view==='sectors') await renderSectors();
+  if(b.dataset.view==='buffett'){const f=document.getElementById('buffettFrame');if(!f.getAttribute('src')){f.onload=()=>{const fit=()=>{try{f.style.height=f.contentDocument.documentElement.scrollHeight+'px'}catch(e){}};fit();try{new ResizeObserver(fit).observe(f.contentDocument.body)}catch(e){}};f.src='buffett.html?embed=1&v='+Date.now()}}
   window.scrollTo({top:0,behavior:'smooth'});
 });
 document.getElementById('techSymbol').onchange=renderTech;
