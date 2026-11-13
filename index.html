@@ -465,7 +465,7 @@ function renderQuotes(){
       + (isTreasury ? '<div class="snapdate stale">'+esc(treasurySampleLabel(d))+'</div>' : '<div class="ch '+cc+'">'+arrow+' '+chTxt(d.ch)+'</div>')
       + (state.pre[q.id] ? '<div class="premkt">מסחר מוקדם · <b>'+fmtPx(state.pre[q.id].px,q)+'</b> '
         + '<span class="'+chClass(state.pre[q.id].ch)+'">'+chTxt(state.pre[q.id].ch)+'</span></div>' : '')
-      + (!d.live && d.d ? '<div class="snapdate">סגירה '+d.d+'</div>' : '')
+      + (!d.live && d.d ? '<div class="snapdate">'+(q.id==='IL10Y'?'שער לפי המקור '+d.d+' · שוק בין־בנקאי (OTC), לא סגירה רשמית':'סגירה '+d.d)+'</div>' : '')
       + (!d.live && d.stale ? '<div class="snapdate stale">המקור מתעדכן · נכון ל־'+esc(d.tstr||'')+'</div>' : '') + '</div>';
   }
   g.innerHTML = html;
