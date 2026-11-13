@@ -179,6 +179,51 @@ def bizportal_eod(ids):
  return out
 for k,(px,chg,dd) in bizportal_eod({'INFRA':2126,'ELEC':5143078,'KSM125K':1155365,'TAINFRA':784}).items():
  D['quotes'][k].update({'px':px,'ch':chg,'d':dd})
+# Israeli daily history: the same Bizportal series (IBI:2126 = paper 2126, IBI:5143078 = paper 5143078; verified identical to the stored history on overlapping dates) extends the stored history. Pages 1-3 of the 6-month graph cover about 45 trading days; only dates after the stored last date are appended, so the stored track is never rewritten.
+def bizportal_history(pid,pages=(1,2,3)):
+ op=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()));rows={}
+ op.open(urllib.request.Request('https://www.bizportal.co.il/capitalmarket/quote/generalpage/2126',headers=UA),timeout=20).read()
+ for pg in pages:
+  u=f'https://www.bizportal.co.il/ajax/biz_papers_helper.ashx?action=get_paper_yearly_graph&request_type=2&paper_id={pid}&period=6&page_number={pg}'
+  r=op.open(urllib.request.Request(u,headers={**UA,'X-Requested-With':'XMLHttpRequest'}),timeout=20).read().decode()
+  for x in json.loads(r[r.index('^')+1:]):
+   ds=str(x['DateObj']);day=datetime.date(int(ds[:4]),int(ds[4:6]),int(ds[6:]));px=x['Rate']
+   if isinstance(px,bool) or not isinstance(px,(int,float)) or not math.isfinite(px) or px<=0 or day>now.date():continue
+   rows[day.isoformat()]=px
+ return rows
+for hk,pid in (('IBI:2126',2126),('IBI:5143078',5143078)):
+ try:
+  fresh=bizportal_history(pid)
+  if len(fresh)<10:raise ValueError('too few rows: %d'%len(fresh))
+  for rng,blk in H['series'][hk]['ranges'].items():
+   rows=blk['rows'];last=rows[-1][0]
+   new=sorted((d,p) for d,p in fresh.items() if d>last)
+   if blk.get('interval')=='1wk':
+    lw=datetime.date.fromisoformat(last).isocalendar()[:2];wk={}
+    for d,p in new:
+     w=datetime.date.fromisoformat(d).isocalendar()[:2]
+     if w>lw:wk[w]=(d,p)
+    new=sorted(wk.values())
+   rows.extend([d,p,0] for d,p in new)
+   if new:print('history',hk,rng,'+%d rows to %s'%(len(new),new[-1][0]))
+ except Exception as e:print('bizportal history',hk,'failed, keeping stored history:',e)
+# Israel 10Y government yield: Trading Economics page (OTC interbank quotes). Accepts only a plausible yield with a valid date that is not in the future or older than the stored one; otherwise the stored quote stays.
+import re
+try:
+ req=urllib.request.Request('https://tradingeconomics.com/israel/government-bond-yield',headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36'})
+ pg=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
+ m=re.search(r'Israel 10Y Bond Yield (?:rose|fell|was unchanged|remained|edged|held)[^%]{0,40}?to ([0-9.]+)% on (\w+) (\d{1,2}), (\d{4})',pg)
+ m2=re.search(r'"symbol":"GISR10YR:GOV","first_date":"[^"]*","last":([0-9.]+)',pg)
+ if not m or not m2:raise ValueError('page format changed')
+ px=float(m.group(1));last=float(m2.group(1))
+ if abs(px-last)>0.01 or not 0.5<px<12:raise ValueError('implausible or inconsistent yield %s/%s'%(px,last))
+ day=datetime.datetime.strptime(' '.join(m.group(2,3,4)),'%B %d %Y').date()
+ if day>now.date():raise ValueError('future date')
+ old=prev_date(D['quotes'].get('IL10Y',{}).get('d',''))
+ if old and day<old:raise ValueError('source date regressed')
+ D['quotes']['IL10Y'].update({'px':round(px,3),'ch':None,'d':f'{day.day}.{day.month}'})
+ print('IL10Y',px,day)
+except Exception as e:print('IL10Y failed, keeping previous quote:',e)
 for t in D['theses']:
  q=D['quotes'].get(t.get('quote_id'))
  if q and isinstance(q.get('px'),(int,float)):
