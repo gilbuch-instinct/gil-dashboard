@@ -835,6 +835,7 @@ document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=async()=>{
   document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x===b));
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='view-'+b.dataset.view));
   document.body.classList.toggle('buf-on',b.dataset.view==='buffett');
+  try{const n=b.parentElement,r=b.getBoundingClientRect(),q=n.getBoundingClientRect();n.scrollTo({left:n.scrollLeft+(r.left-q.left)-(n.clientWidth-r.width)/2,behavior:'auto'})}catch(e){}
   if(b.dataset.view==='technical'&&!historyData) renderTech();
   if(b.dataset.view==='sectors') await renderSectors();
   if(b.dataset.view==='buffett'){const f=document.getElementById('buffettFrame');if(!f.getAttribute('src')){f.onload=()=>{const fit=()=>{try{f.style.height=f.contentDocument.documentElement.scrollHeight+'px'}catch(e){}};fit();try{new ResizeObserver(fit).observe(f.contentDocument.body)}catch(e){}};f.src='buffett.html?embed=1&v='+Date.now()}}
