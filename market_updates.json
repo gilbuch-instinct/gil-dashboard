@@ -2124,5 +2124,24 @@
     "source_name": "BIS: הודעה רשמית ונוסח RIN 0694-AK50",
     "source_url": "https://www.bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology",
     "source_url_secondary": "https://www.bis.gov/media/documents/rin-0694-ak50.pdf"
+  },
+  {
+    "title": "מסחר 16.11: IREN ירדה בכ־11%, ולחץ השבבים מתרחב לתיק",
+    "date": "16 בנובמבר 2026",
+    "kind": "market",
+    "tag": "מסחר רגיל: סיכון ריכוז",
+    "body": "תמונת מסחר רגיל, 16 בנובמבר סביב 17:18 שעון ישראל (15:18 UTC), לפי Yahoo Finance: IREN במחיר 16.192 דולר (-10.89%); CIFR במחיר 6.43 דולר (-6.27%); ACMR במחיר 44.77 דולר (-6.63%); ADEA במחיר 15.07 דולר (-7.09%); CLS במחיר 237.24 דולר (-1.29%); META במחיר 624.05 דולר (-2.75%). גם המדדים נחלשו: S&P 500 ירד ב־1.28% ונאסד״ק 100 ב־2.18%. מדד השבבים SOX ירד ב־4.92%, בעוד קרן הסל SOXX ירדה בכ־5.00%; אין להחליף בין המדד לקרן או לתאר זאת כמנתק זרם בשוק כולו. נתוני ADEA עודכנו ב־17:17, ורוב שאר הדגימות ב־17:18. אלה תצפיות תוך־יומיות ביחס לסגירה הקודמת, לא מחירי סגירה ולא ציטוט חי. Investopedia דיווח בנפרד מוקדם יותר על ירידה של 5% ב־SOXX ולחץ רחב במניות השבבים.\n\nהמשמעות לתיק: הירידה הדו־ספרתית ב־IREN לעומת הירידה המתונה יותר ב־CLS ובמדדים ממחישה שהחשיפה לתשתיות AI אינה אחידה. מימון השקעות, לוחות זמנים להפעלת קיבולת, חשיפה לכרייה ובדיקת הלקוח הסופי הם ערוצי סיכון שונים. ירידות בו־זמניות ב־IREN, CIFR ו־ACMR עשויות להגדיל את סיכון הריכוז בתיק, גם בלי הודעת חברה חדשה בכל אחת מהן. אין בבדיקת המחירים ראיה לביטול חוזה, לשיבוש באספקת GPU או להורדת תחזית חדשה. כלל BIS שפורסם היום הוא גורם מעקב נפרד, לא הסבר מוכח לכל הירידות.\n\nמבחינה טכנית, הירידה תשפיע על הממוצעים והגלים בטווחים התוך־יומיים עם טעינת הסדרה המעודכנת. אין להסיק מכאן לבדה שבירה מאושרת של ממוצע יומי, ספירת אליוט מחייבת או תחתית. נבדוק אם הלחץ מתרחב ואם המחיר מתייצב בהמשך המסחר; אישור יומי דורש נר יומי שהושלם. אין שינוי בתזות, ביעדים, בחלונות הזמן או בנתוני היסוד.",
+    "source_name": "Yahoo Finance chart metadata, 15:17–15:18 UTC; Investopedia",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/IREN?range=1d&interval=1m",
+    "source_url_secondary": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11162026-12257790",
+    "source_url_3": "https://query1.finance.yahoo.com/v8/finance/chart/CIFR?range=1d&interval=1m",
+    "source_url_4": "https://query1.finance.yahoo.com/v8/finance/chart/ACMR?range=1d&interval=1m",
+    "source_url_5": "https://query1.finance.yahoo.com/v8/finance/chart/ADEA?range=1d&interval=1m",
+    "source_url_6": "https://query1.finance.yahoo.com/v8/finance/chart/CLS?range=1d&interval=1m",
+    "source_url_7": "https://query1.finance.yahoo.com/v8/finance/chart/META?range=1d&interval=1m",
+    "source_url_8": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?range=1d&interval=1m",
+    "source_url_9": "https://query1.finance.yahoo.com/v8/finance/chart/%5ENDX?range=1d&interval=1m",
+    "source_url_10": "https://query1.finance.yahoo.com/v8/finance/chart/%5ESOX?range=1d&interval=1m",
+    "source_url_11": "https://query1.finance.yahoo.com/v8/finance/chart/SOXX?range=1d&interval=1m"
   }
 ]
