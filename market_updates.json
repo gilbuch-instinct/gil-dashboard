@@ -2143,5 +2143,17 @@
     "source_url_9": "https://query1.finance.yahoo.com/v8/finance/chart/%5ENDX?range=1d&interval=1m",
     "source_url_10": "https://query1.finance.yahoo.com/v8/finance/chart/%5ESOX?range=1d&interval=1m",
     "source_url_11": "https://query1.finance.yahoo.com/v8/finance/chart/SOXX?range=1d&interval=1m"
+  },
+  {
+    "title": "UKMTO 208: מכלית הושבתה ושריפה בחדר המכונות מצפון לחסב",
+    "date": "17 בנובמבר 2026",
+    "kind": "geopolitics",
+    "tag": "הורמוז: דיווח נפרד במעקב",
+    "body": "UKMTO פרסם באזהרה 208 דיווח מ־16 בנובמבר: לפי צד שלישי, מכלית שהפליגה במצר הורמוז הותקפה כ־7 מיילים ימיים מצפון לחסב שבעומאן, הושבתה ופרצה שריפה בחדר המכונות שלה. הצוות דווח בטוח; היקף הנזק וההשפעה הסביבתית אינם ידועים. זהות המכלית והתוקף לא אומתו. UKMTO מציג את 208 ואת 207 כרשומות נפרדות. מסמך 208 הראשי מציין את שעת האירוע 19:00 UTC ב־16 בנובמבר, לעומת פגיעת הקליע במכלית היוצאת בהורמוז ב־05:58 UTC שתועדה במסמך 207. אלה שני דיווחים נפרדים במספור ובזמן האירוע, ולא עדכון של אותו דיווח בוקר. גם gCaptain מתאר שתי תקיפות נפרדות; שמות כלי השיט עדיין אינם ידועים.\n\nהמשמעות האפשרית לשוק: דיווח נוסף על כלי שיט שהושבת מגדיל את הסיכון התפעולי לביטוח, לגרירה ולעיכובי מעבר, אך אינו מוכיח חסימה של הנתיב או אובדן אספקת נפט בכמות ידועה. אין לחבר אותו אוטומטית לטענות איראן על מוקשים, מכליות שנפגעו או טביעה; לא אומתו קשר כזה, זיהום או זהות תוקף. יש להבחין בין סכנת השיט לבין תנועת המחיר: עצם הדיווח אינו ראיה לעלייה בנפט או בזהב. לתיק, הערוץ האפשרי הוא עלויות אנרגיה והובלה, אינפלציה ועלות הון, אם יופיע שיבוש מתמשך ומאומת. נעקוב אחר שליטה בשריפה, השבת יכולת ההפלגה, סיוע ונתוני מעבר בפועל. אין שינוי בתזות, ביעדים, בחלונות הזמן או בנתוני היסוד.",
+    "source_name": "UKMTO 208/207; Reuters דרך Arab News; gCaptain",
+    "source_url": "https://www.ukmto.org/-/media/ukmto/products/20261116-ukmto_warning_208-26.pdf?rev=29246f8ab7714c10a7668e09cddcac15",
+    "source_url_secondary": "https://www.arabnews.com/world/tanker-attacked-north-of-omans-khasab-ukmto-says-3012356",
+    "source_url_3": "https://gcaptain.com/ukmto-reports-two-tanker-attacks-in-strait-of-hormuz/",
+    "source_url_4": "https://www.ukmto.org/recent-incidents#7afa4d71-6e2e-418a-89e6-a5897434797d"
   }
 ]
