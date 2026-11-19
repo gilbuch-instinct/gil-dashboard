@@ -2244,5 +2244,14 @@
     "source_name": "Anthropic: הודעת תמחור רשמית והודעת רוד־שואו קודמת",
     "source_url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
     "source_url_secondary": "https://www.anthropic.com/news/roadshow-launch"
+  },
+  {
+    "title": "Palo Alto Networks חתמה על הסכם לרכישת Applied Compute ב־4.5 מיליארד דולר במניות",
+    "date": "19 בנובמבר 2026 · 06:03",
+    "kind": "market",
+    "tag": "AI ארגוני · הסכם רכישה, טרם הושלם",
+    "body": "בהודעת חברה מ־18 בנובמבר, Palo Alto Networks הודיעה על הסכם מחייב לרכישת Applied Compute, פלטפורמה להתאמה לאחר האימון ולהרצה של מודלי AI בעלי משקלים פתוחים. שווי העסקה הוא 4.5 מיליארד דולר, כולו במניות ובכפוף להתאמות. ההשלמה צפויה ברבעון השלישי של שנת הכספים 2027 של Palo Alto, וכפופה לאישור רגולטורי ולתנאי סגירה נוספים. מטרת החברה היא לאפשר לארגונים להתאים ולהפעיל מודלים עם אבטחה מובנית בענן ציבורי או בסביבות ריבוניות; היכולות המשולבות והתועלות הן תוכנית עתידית, לא תוצאה שכבר הושגה. פרשנות לתיק: העסקה מצביעה על עניין אסטרטגי בשכבת התוכנה והאבטחה של שימוש ארגוני ב־AI, אך אינה חוזה קיבולת חדש ל־IREN או הזמנת ציוד ל־CLS, ואינה מודדת כשלעצמה ביקוש לחשמל או ל־GPU. התשלום במניות מוסיף שיקול דילול, לצד סיכוני אישור וביצוע ושילוב הרכישה. אין שינוי בתזות, ביעדים או בחלונות ההשקעה על בסיס ההודעה בלבד. לא נכללה תגובת מחיר מניה שלא אומתה בנפרד.",
+    "source_name": "Palo Alto Networks · הודעת חברה",
+    "source_url": "https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-to-acquire-applied-compute--bringing-secure-open-weight-ai-to-the-enterprise"
   }
 ]
