@@ -2317,5 +2317,16 @@
     "source_name": "CNBC · עמוד ההנפקה 11:53 EST; Associated Press",
     "source_url": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ant-live-updates.html",
     "source_url_secondary": "https://apnews.com/article/anthropic-ipo-nasdaq-ai-b6a74b8949021207dc162fcc876c4649"
+  },
+  {
+    "title": "AMD ירדה לאחר דוח שורט על קשרים לסין; אין קביעה שהופרו כללי יצוא",
+    "date": "19 בנובמבר 2026 · 19:16",
+    "kind": "market",
+    "tag": "שבבים · סיכון יצוא וסנטימנט AI",
+    "body": "בעמוד מניות בולטות של CNBC שעודכן ב־12:06 EST דווח ש־AMD נפלה ביותר מ־9% לאחר ש־Hunterbrook פרסמה דוח על קשרי החברה לסין וגילתה פוזיציית שורט במניה. זהו דיווח תוך־יומי, לא שער סגירה. הדוח טוען שקושחת AMD הופיעה במוצרים של IEIT Systems, שנמצאת ברשימת הגבלות היצוא, ושל חברות הקשורות אליה. אלה טענות של מקור בעל עניין כלכלי: Hunterbrook מציינת שממצאיה כשלעצמם אינם מוכיחים הפרת חוקי יצוא; CNBC לא אימתה את הטענות עצמאית ודיווחה שפנתה ל־AMD לתגובה. בעת הדיווח לא התקבלה תגובה מיידית. אין כאן הודעה על סנקציה חדשה, אישום או אובדן מכירות מאומת. המשמעות לתיק, כפרשנות: התרחבות החשש מציות ליצוא מעבר ל־Nvidia עלולה להכביד על מכפילי חברות שבבים ושרשרת AI, ובהן CLS ו־ACMR, ועל תיאבון הסיכון ב־IREN וב־CIFR. אין בכך ראיה לביטול הזמנות או לפגיעה עסקית אצל החברות האלה. אין לייחס לדוח לבדו את תנועת המדדים או מניות התיק. לעקוב אחר תגובה רשמית של AMD, צעדי רגולטור ושינוי מאומת בהזמנות או בתחזית. לא שונו נתוני יסוד, תזות, יעדים או חלונות זמן; לא חושבו ממוצעים או ספירת גלי אליוט חדשה מהכותרת.",
+    "source_name": "CNBC · מניות בולטות 12:06 EST ודיווח ייעודי; Hunterbrook · דוח עם גילוי שורט",
+    "source_url": "https://www.cnbc.com/2026/11/19/stocks-moving-the-most-today-live-updates.html",
+    "source_url_secondary": "https://www.cnbc.com/2026/11/19/amd-falls-on-short-seller-report-of-alleged-china-exposure.html",
+    "source_url_tertiary": "https://newsletter.hntrbrk.com/p/amd-has-its-own-china-problem"
   }
 ]
