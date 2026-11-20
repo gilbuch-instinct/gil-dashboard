@@ -78,8 +78,19 @@ for key,v in jobs.items():
    d['t']=int(t);d['tstr']=datetime.datetime.fromtimestamp(int(t),datetime.timezone.utc).astimezone(ZoneInfo('Asia/Jerusalem')).strftime('%H:%M')
  elif typ in 'ih':
   out=rows(z,typ=='h')
-  if typ=='h' and not out:continue
-  (I if typ=='i' else H)['series'][k]['ranges'][r]['rows']=out
+  if typ=='i':
+   I['series'][k]['ranges'][r]['rows']=out
+  else:
+   if not out:continue
+   blk=H['series'][k]['ranges'][r];old=blk['rows']
+   # A stale-but-nonempty provider response must not delete known latest daily data (2026-11-20: Yahoo 6m/1y responses missing the stored 2026-11-19 rows erased them on publish). Stored rows dated after the newest returned row are kept; same-date and older rows follow the fresh response.
+   if old:
+    nd={x[0] for x in out};mx=max(nd)
+    tail=[x for x in old if x[0] not in nd and x[0]>mx]
+    if tail:
+     out=out+tail
+     print('history guard:',k,r,'response ended at',mx,'- preserved',len(tail),'stored row(s) through',tail[-1][0],flush=True)
+   blk['rows']=out
 # --- CNBC snapshot quotes (regular-session last; extended hours never mixed in) ---
 def cnum(s):
  if isinstance(s,bool):return None
