@@ -2626,5 +2626,16 @@
     "source_name": "Reuters דרך StreetInsider · 14:13 EST / 21:13 בישראל; CNBC מייחסת ל־Reuters",
     "source_url": "https://www.streetinsider.com/Reuters/Exclusive-Nvidias+accounting+is+a+focus+of+US+SEC+investigation%2C+sources+say/27381042.html",
     "source_url_secondary": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+  },
+  {
+    "title": "22:33: נאסד״ק קומפוזיט ירד 5.23% ביום; המסחר עדיין פתוח",
+    "date": "20 בנובמבר 2026 · 22:35",
+    "kind": "market",
+    "tag": "חציית סף יומי תוך־יומית · לא סגירה ולא הודעת עצירת מסחר",
+    "body": "בדגימת Yahoo Finance מ־22:33:53 שעון ישראל עמד נאסד״ק קומפוזיט על 22,631.19 נקודות, ירידה של 5.23% לעומת סגירת 19 בנובמבר, שנבדקה מחדש לצורך החישוב. זו ירידה יומית של הקומפוזיט, לא ירידה מהשיא ולא מדד נאסד״ק 100 המופיע בכרטיסי הציטוטים. באותה בדיקה, ב־22:33:55, S&P 500 עמד על 6,919.71 נקודות, ירידה יומית של 3.57%, ודאו ירד 1.82%. נתון VIX ממקור נפרד, CNBC, היה 37.14 ב־22:33 בישראל. חציית 5% בקומפוזיט היא החרפה מהותית בסיכון השוק, אך אינה כשלעצמה הודעה שהופעל מנתק זרם או שהמסחר נעצר. אלה תצפיות תוך־יומיות, לא תוצאות הסגירה של 23:00 בישראל, ואין לקבוע מהן מתי בדיוק נחצה הסף לראשונה. הרקע החדשותי שנבדק נשאר מכירות בענף AI ודיווח Reuters על סוגיות חשבונאיות אפשריות בבדיקת ה־SEC ב־Nvidia; בדיקה אינה ממצא לעבירה, ואין להציג את הדיווח כסיבה יחידה לכל הירידות. בשבע האחזקות לא אומתה הודעת חברה חדשה המסבירה את ההחרפה הנוספת. לתיק: חפיפה בחשיפה לתמחור AI ולעלות הון עלולה להגביר תנודתיות משותפת גם ללא שינוי חוזי בכל חברה. מחיר תוך־יומי משפיע על אינדיקטורים תוך־יומיים, אך אישור חצייה יומית של ממוצע או ספירת גלים דורש את הסדרה והטווח המתאימים; אין כאן קביעת תחתית או היפוך. תזות, יעדים, חלונות השקעה ונתוני יסוד לא שונו. יש להפריד בין הכרטיס הזה לבין נתוני הסגירה שיאומתו בהמשך.",
+    "source_name": "Yahoo Finance · דגימת 22:33 וחישוב מול סגירת 19.11; CNBC · VIX ב־15:33 EST",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EIXIC?range=5d&interval=1d&includePrePost=true&request=202611202234",
+    "source_url_secondary": "https://quote.cnbc.com/quote-html-webservice/quote.htm?symbols=BTC.CM%3D%7CXAU%3D%7CUS10Y%7CUS5Y%7CUS30Y%7C.VIX%7C%40CL.1&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&request=202611202234",
+    "source_url_tertiary": "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
   }
 ]
