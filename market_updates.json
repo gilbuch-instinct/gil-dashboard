@@ -2424,5 +2424,15 @@
     "source_url": "https://sustainability.atmeta.com/asset/2026-sustainability-report/",
     "source_url_secondary": "https://sustainability.atmeta.com/blog/2026/11/19/meta-launches-2026-sustainability-report/",
     "source_url_tertiary": "https://www.aljazeera.com/news/2026/11/20/meta-rethinks-2030-climate-goals-as-ai-data-centres-drive-emissions-up"
+  },
+  {
+    "title": "META: דיווח על תקלות פרטיות ב־Muse; דליפת מידע בין חשבונות לא הוכחה",
+    "date": "20 בנובמבר 2026 · 09:05",
+    "kind": "market",
+    "tag": "META · סיכון מוצר, אמון והרשאות",
+    "body": "תחקיר Reuters מ־18 בנובמבר, שסוקר ב־TechCrunch ב־19 בנובמבר, מתאר יותר משני תריסרי דיווחים פנימיים על פעולות לא רצויות של סוכן ה־AI Muse. עובדים דיווחו בין היתר על הודעות שלא ביקשו ועל מידע כספי שלא זיהו. Reuters לא הצליחה לקבוע אם הפרטים היו מידע אמיתי של אנשים אחרים או מידע שהמודל המציא; אין להציג דליפה בין חשבונות כעובדה מוכחת. בבדיקות עם Signal ו־AI Now, Reuters שחזרה גישה להודעות באמצעות הרשאות התראות באנדרואיד וכלי נגישות וצילומי מסך ב־Mac, ולא דרך החיבור הייעודי לאפליקציה. זה אינו פיצוח של הצפנה. אותן בקשות נחסמו בניסויי iPhone. מטא אמרה שהגישה לאפליקציות דורשת הרשאות מפורשות, תיארה את הדוגמאות כמקרים מבודדים וטענה שרבים מהערבובים המדווחים היו הזיות שכבר טופלו. בתגובה ל־TechCrunch הוסיפה שעובדים בודקים גם גרסאות ותכונות שאינן זמינות לציבור. לפי Reuters, עדכון macOS מהשבוע הגביל את מסלול הגישה שנבדק. פרשנות לאחזקה: הסיכון הוא לאמון משתמשים, לשימורם וליכולת להרחיב מוצרי AI תחת מגבלות הרשאות ורגולציה. דיווחים פנימיים אינם מדגם שמאפשר לכמת את היקף התופעה; לא דווח כאן על קנס חדש, פגיעה מאומתת בהכנסות או שינוי בתחזית מטא. זהו עדכון סיכון מוצר המבוסס על תחקיר קודם, לא אירוע חדש שהתרחש הבוקר ולא הסבר מוכח לתנועת המניה. אין שינוי בתזות, ביעדים או בחלונות ההשקעה ללא אימות של השפעה עסקית.",
+    "source_name": "Reuters, 18.11, דרך Investing.com; TechCrunch ותגובת Meta, 19.11",
+    "source_url": "https://www.investing.com/news/stock-market-news/as-meta-bets-big-on-muse-ai-agent-early-safety-mishaps-surface-5035458",
+    "source_url_secondary": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/"
   }
 ]
