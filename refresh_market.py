@@ -90,6 +90,12 @@ for key,v in jobs.items():
     if tail:
      out=out+tail
      print('history guard:',k,r,'response ended at',mx,'- preserved',len(tail),'stored row(s) through',tail[-1][0],flush=True)
+    # 2026-11-22: Yahoo's max/1wk response omits the stored monthly anchor rows of gold/oil, and the tail guard above cannot protect interior dates, so scheduled runs erased the same 94 rows twice (runs 1572/1574) after each exact restoration. For TVC:GOLD/TVC:USOIL max only, stored rows whose date is absent from the response are kept; the fresh response wins same-date values; result stays sorted ascending.
+    if r=='max' and k in ('TVC:GOLD','TVC:USOIL'):
+     kept=[x for x in old if x[0] not in {y[0] for y in out}]
+     if kept:
+      out=sorted(out+kept,key=lambda x:x[0])
+      print('history guard:',k,r,'preserved',len(kept),'stored monthly anchor row(s) absent from response',flush=True)
    blk['rows']=out
 # --- CNBC snapshot quotes (regular-session last; extended hours never mixed in) ---
 def cnum(s):
