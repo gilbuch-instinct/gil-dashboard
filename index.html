@@ -414,6 +414,9 @@ async function tryLiveQuotes(){
       if(String(x.change_pct).indexOf('UNCH') >= 0) ch = 0;
       if(px == null) continue;
       if(q.div100) px = px/100;
+      const saved=(state.data.quotes||{})[q.id];
+      const networkTime=Date.parse(String(x.last_time||'').replace(/([+-]\d{2})(\d{2})$/,'$1:$2'));
+      if(saved && saved.source==='Yahoo Finance' && saved.source_sample_identity && saved.t===saved.source_sample_identity.t && saved.px===saved.source_sample_identity.px && saved.ch===saved.source_sample_identity.ch && Number.isFinite(saved.t) && (!Number.isFinite(networkTime) || networkTime<saved.t*1000)) { delete state.quotes[q.id]; continue; }
       state.quotes[q.id] = {px:px, ch:ch, live:true, sampledAt:Date.parse(String(x.last_time||'').replace(/([+-]\d{2})(\d{2})$/,'$1:$2'))};
       // Badge time comes only from regular-session equities/indices: futures, bonds and BTC tick after the close and must not restamp stock cards.
       if(['SPX','NDX','DJI','CIFR','IREN','CLS','ACMR','META','ADEA','NVO'].indexOf(q.id)>=0){
@@ -437,7 +440,7 @@ function applySnapshot(){
   const snap = (state.data && state.data.quotes) || {};
   for(const id in snap){
     if(!state.quotes[id] && snap[id] && snap[id].px!=null)
-      state.quotes[id] = {px:(QUOTES.some(c=>c.id===id&&c.div100)?snap[id].px/100:snap[id].px), ch:snap[id].ch, live:false, d:snap[id].d, stale:snap[id].stale, tstr:snap[id].tstr, sampledAt:snap[id].t ? snap[id].t*1000 : null}; // div100 ids are stored in agorot in data.json
+      state.quotes[id] = {px:(QUOTES.some(c=>c.id===id&&c.div100)?snap[id].px/100:snap[id].px), ch:snap[id].ch, live:false, source:(snap[id].source_sample_identity && snap[id].t===snap[id].source_sample_identity.t && snap[id].px===snap[id].source_sample_identity.px && snap[id].ch===snap[id].source_sample_identity.ch ? snap[id].source : null), d:snap[id].d, stale:snap[id].stale, tstr:snap[id].tstr, sampledAt:snap[id].t ? snap[id].t*1000 : null}; // div100 ids are stored in agorot in data.json
   }
 }
 
@@ -449,6 +452,12 @@ function treasurySampleLabel(d){
   const fresh=sameDay && Date.now()-ms>=0 && Date.now()-ms<=30*60*1000;
   const stamp=when.toLocaleDateString('he-IL',{...opts,day:'2-digit',month:'2-digit',year:'numeric'})+' '+when.toLocaleTimeString('he-IL',{...opts,hour:'2-digit',minute:'2-digit',hour12:false});
   return (fresh?'דגימת תשואה · ':'נתון קודם, לא חי · ')+stamp+' ניו יורק';
+}
+function quoteSampleLabel(d){
+  const source=d.source || (d.live ? 'CNBC' : 'מקור שמור');
+  if(!Number.isFinite(d.sampledAt)) return source+' · מועד דגימה לא זמין, לא חי';
+  const stamp=new Date(d.sampledAt).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
+  return source+' · '+stamp+' ישראל · דגימה, לא זמן אמת';
 }
 function renderQuotes(){
   const g = document.getElementById('quoteGrid');
@@ -466,6 +475,7 @@ function renderQuotes(){
       + (state.pre[q.id] ? '<div class="premkt">מסחר מוקדם · <b>'+fmtPx(state.pre[q.id].px,q)+'</b> '
         + '<span class="'+chClass(state.pre[q.id].ch)+'">'+chTxt(state.pre[q.id].ch)+'</span></div>' : '')
       + (!d.live && d.d ? '<div class="snapdate">'+(q.id==='IL10Y'?'שער לפי המקור '+d.d+' · שוק בין־בנקאי (OTC), לא סגירה רשמית':'סגירה '+d.d)+'</div>' : '')
+      + '<div class="snapdate">'+esc(quoteSampleLabel(d))+'</div>'
       + (!d.live && d.stale ? '<div class="snapdate stale">המקור מתעדכן · נכון ל־'+esc(d.tstr||'')+'</div>' : '') + '</div>';
   }
   g.innerHTML = html;
@@ -478,15 +488,13 @@ function renderQuotes(){
     const mktOpen = dow>0 && dow<6 && nyMins>=570 && nyMins<960;
     const asofT = state.liveAsOfMs ? new Date(state.liveAsOfMs) : new Date();
     const asof = asofT.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Jerusalem'});
-    txt.textContent = mktOpen
-      ? 'מניות ומדדים: ציטוטים מושהים · נכונים ל־'+asof
-      : 'המסחר הרגיל סגור · מוצגים מחירי סגירה · נבדק '+new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
-    document.getElementById('quotesHint').textContent = 'מקור: CNBC, מושהה · תשואות אג״ח לפי מועד הדגימה בכרטיס';
+    txt.textContent = 'דגימות ממקורות ומועדים נפרדים · תאריך ושעה בכל כרטיס · לא זמן אמת';
+    document.getElementById('quotesHint').textContent = 'מקורות ומועדי דגימה נפרדים בכל כרטיס; נתון שמור אינו בהכרח מהיום';
   }else{
     const ts = state.data && state.data.quotes_updated;
     const asof = state.data && state.data.quotes_data_asof;
-    txt.textContent = 'סנאפשוט שמור' + (asof ? ' · נכונים ל־'+asof : '') + (ts ? ' · נשמר '+ts : '') + ' · ציטוט חי לא זמין כרגע';
-    document.getElementById('quotesHint').textContent = 'מקור: CNBC · נתונים שמורים';
+    txt.textContent = 'דגימות שמורות ממקורות ומועדים נפרדים · תאריך ושעה בכל כרטיס · לא זמן אמת';
+    document.getElementById('quotesHint').textContent = 'מקורות ומועדי דגימה נפרדים בכל כרטיס; יתר הנתונים לא עודכנו יחד';
   }
 }
 
